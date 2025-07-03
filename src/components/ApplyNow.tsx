@@ -1,0 +1,192 @@
+
+import { useState, useEffect, useRef } from 'react';
+import { Upload, Calendar, Users, Award, CheckCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
+const ApplyNow = () => {
+  const [inView, setInView] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const timeline = [
+    { icon: <Users className="w-6 h-6" />, title: "Application Review", duration: "1-2 days", description: "We review your application and portfolio" },
+    { icon: <Calendar className="w-6 h-6" />, title: "Technical Interview", duration: "1 week", description: "Basic technical discussion and goal setting" },
+    { icon: <Award className="w-6 h-6" />, title: "Onboarding", duration: "1 week", description: "Welcome session and learning path setup" },
+    { icon: <CheckCircle className="w-6 h-6" />, title: "Start Learning", duration: "Ongoing", description: "Begin your AI + Full Stack journey" }
+  ];
+
+  return (
+    <section ref={ref} className="py-20 bg-slate-900">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+            Apply <span className="flame-gradient bg-clip-text text-transparent">Now</span>
+          </h2>
+          <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+            Take the first step towards your AI and Full Stack development career
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Application Form */}
+          <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+            <Card className="bg-slate-800/50 border-slate-700">
+              <CardHeader>
+                <CardTitle className="text-white text-2xl">Start Your Journey</CardTitle>
+                <CardDescription className="text-gray-300">
+                  Fill out the form below to begin your application process
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="firstName" className="text-white">First Name</Label>
+                    <Input id="firstName" className="bg-slate-700 border-slate-600 text-white" placeholder="John" />
+                  </div>
+                  <div>
+                    <Label htmlFor="lastName" className="text-white">Last Name</Label>
+                    <Input id="lastName" className="bg-slate-700 border-slate-600 text-white" placeholder="Doe" />
+                  </div>
+                </div>
+                
+                <div>
+                  <Label htmlFor="email" className="text-white">Email Address</Label>
+                  <Input id="email" type="email" className="bg-slate-700 border-slate-600 text-white" placeholder="john@example.com" />
+                </div>
+                
+                <div>
+                  <Label htmlFor="phone" className="text-white">Phone Number</Label>
+                  <Input id="phone" className="bg-slate-700 border-slate-600 text-white" placeholder="+91 98765 43210" />
+                </div>
+                
+                <div>
+                  <Label htmlFor="program" className="text-white">Program Interest</Label>
+                  <Select>
+                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                      <SelectValue placeholder="Select a program" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-700 border-slate-600">
+                      <SelectItem value="fullstack">Full Stack Development</SelectItem>
+                      <SelectItem value="ai">AI & Machine Learning</SelectItem>
+                      <SelectItem value="both">Both Programs</SelectItem>
+                      <SelectItem value="internship">Internship Only</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div>
+                  <Label htmlFor="experience" className="text-white">Programming Experience</Label>
+                  <Select>
+                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                      <SelectValue placeholder="Select your experience level" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-700 border-slate-600">
+                      <SelectItem value="beginner">Complete Beginner</SelectItem>
+                      <SelectItem value="some">Some Experience</SelectItem>
+                      <SelectItem value="intermediate">Intermediate</SelectItem>
+                      <SelectItem value="advanced">Advanced</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div>
+                  <Label htmlFor="motivation" className="text-white">Why do you want to join IgnitAI?</Label>
+                  <Textarea 
+                    id="motivation" 
+                    className="bg-slate-700 border-slate-600 text-white" 
+                    placeholder="Tell us about your goals and motivation..."
+                    rows={4}
+                  />
+                </div>
+                
+                <div>
+                  <Label htmlFor="resume" className="text-white">Upload Resume (Optional)</Label>
+                  <div className="mt-2">
+                    <Button variant="outline" className="w-full border-slate-600 text-gray-300 hover:text-white">
+                      <Upload className="mr-2" size={16} />
+                      Choose File
+                    </Button>
+                  </div>
+                </div>
+                
+                <Button className="w-full flame-gradient hover-glow text-white font-semibold py-3">
+                  Submit Application
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Timeline */}
+          <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+            <h3 className="text-2xl font-bold mb-8 text-white">Application Process</h3>
+            <div className="space-y-6">
+              {timeline.map((step, index) => (
+                <div key={index} className="flex gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center text-orange-400 border border-orange-500/30">
+                      {step.icon}
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h4 className="text-lg font-semibold text-white">{step.title}</h4>
+                      <span className="bg-slate-700 text-gray-300 px-2 py-1 rounded text-sm">{step.duration}</span>
+                    </div>
+                    <p className="text-gray-400">{step.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Requirements */}
+            <div className="mt-12 bg-slate-800/50 p-6 rounded-xl border border-slate-700">
+              <h4 className="text-xl font-bold mb-4 text-white">What We're Looking For</h4>
+              <ul className="space-y-3">
+                <li className="flex items-center text-gray-300">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                  Passion for learning and technology
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                  Commitment to complete the program
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                  Basic English communication skills
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                  Willingness to work on real projects
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ApplyNow;
