@@ -36,7 +36,7 @@ const Services = () => {
       icon: <Award className="w-8 h-8" />,
       title: "Certified Internships",
       description: "IBM-supported internship programs with certificate and badge tracking for career advancement.",
-      features: ["IBM SkillsBuild", "Certificate Tracking", "Industry Mentorship", "Portfolio Building"],
+      features: ["Certificate Tracking", "Industry Mentorship", "Portfolio Building"],
       color: "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
     },
     {

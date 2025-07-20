@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { Search, CheckCircle, XCircle, Award, Calendar, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,10 +5,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
+type CertificateResult = {
+  valid: boolean;
+  id?: string;
+  studentName?: string;
+  course?: string;
+  issueDate?: string;
+  grade?: string;
+  skills?: string[];
+};
+
 const CertificateVerification = () => {
   const [inView, setInView] = useState(false);
   const [certificateId, setCertificateId] = useState('');
-  const [verificationResult, setVerificationResult] = useState<any>(null);
+  const [verificationResult, setVerificationResult] = useState<CertificateResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
@@ -32,27 +41,17 @@ const CertificateVerification = () => {
 
   const handleVerification = async () => {
     if (!certificateId.trim()) return;
-    
     setIsLoading(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      // Mock verification data
-      const mockData = {
-        valid: true,
-        studentName: "Priya Sharma",
-        course: "Full Stack Development with AI",
-        issueDate: "2024-06-15",
-        expiryDate: "2026-06-15",
-        grade: "A+",
-        skills: ["React", "Node.js", "Python", "MongoDB", "AI/ML"],
-        msmeRegistered: true,
-        id: certificateId
-      };
-      
-      setVerificationResult(mockData);
+    setVerificationResult(null);
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/verify-certificate?certificateId=${encodeURIComponent(certificateId)}`);
+      const data = await res.json();
+      setVerificationResult(data);
+    } catch (err) {
+      setVerificationResult({ valid: false, id: certificateId });
+    } finally {
       setIsLoading(false);
-    }, 2000);
+    }
   };
 
   return (
@@ -63,7 +62,7 @@ const CertificateVerification = () => {
             Certificate <span className="flame-gradient bg-clip-text text-transparent">Verification</span>
           </h2>
           <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
-            Verify the authenticity of IgnitAI certificates and badges
+            Verify the authenticity of Ignivance certificates and badges
           </p>
         </div>
 
@@ -120,46 +119,32 @@ const CertificateVerification = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                {verificationResult.valid ? (
+                {verificationResult.valid ?
                   <div className="space-y-6">
-                    {/* Student Info */}
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="bg-slate-700/50 p-4 rounded-lg">
-                        <div className="flex items-center mb-2">
-                          <User className="mr-2 text-blue-400" size={16} />
-                          <span className="text-gray-400">Student Name</span>
-                        </div>
-                        <p className="text-white font-semibold">{verificationResult.studentName}</p>
+                    {/* Student Name */}
+                    <div className="bg-slate-700/50 p-4 rounded-lg">
+                      <div className="flex items-center mb-2">
+                        <User className="mr-2 text-blue-400" size={16} />
+                        <span className="text-gray-400">Student Name</span>
                       </div>
-                      
-                      <div className="bg-slate-700/50 p-4 rounded-lg">
-                        <div className="flex items-center mb-2">
-                          <Award className="mr-2 text-orange-400" size={16} />
-                          <span className="text-gray-400">Course</span>
-                        </div>
-                        <p className="text-white font-semibold">{verificationResult.course}</p>
-                      </div>
+                      <p className="text-white font-semibold">{verificationResult.studentName}</p>
                     </div>
-
-                    {/* Dates */}
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="bg-slate-700/50 p-4 rounded-lg">
-                        <div className="flex items-center mb-2">
-                          <Calendar className="mr-2 text-green-400" size={16} />
-                          <span className="text-gray-400">Issue Date</span>
-                        </div>
-                        <p className="text-white font-semibold">{verificationResult.issueDate}</p>
+                    {/* Course */}
+                    <div className="bg-slate-700/50 p-4 rounded-lg">
+                      <div className="flex items-center mb-2">
+                        <Award className="mr-2 text-orange-400" size={16} />
+                        <span className="text-gray-400">Course</span>
                       </div>
-                      
-                      <div className="bg-slate-700/50 p-4 rounded-lg">
-                        <div className="flex items-center mb-2">
-                          <Calendar className="mr-2 text-purple-400" size={16} />
-                          <span className="text-gray-400">Valid Until</span>
-                        </div>
-                        <p className="text-white font-semibold">{verificationResult.expiryDate}</p>
-                      </div>
+                      <p className="text-white font-semibold">{verificationResult.course}</p>
                     </div>
-
+                    {/* Issue Date */}
+                    <div className="bg-slate-700/50 p-4 rounded-lg">
+                      <div className="flex items-center mb-2">
+                        <Calendar className="mr-2 text-green-400" size={16} />
+                        <span className="text-gray-400">Issue Date</span>
+                      </div>
+                      <p className="text-white font-semibold">{verificationResult.issueDate}</p>
+                    </div>
                     {/* Grade */}
                     <div className="bg-slate-700/50 p-4 rounded-lg">
                       <div className="flex items-center mb-2">
@@ -168,9 +153,8 @@ const CertificateVerification = () => {
                       </div>
                       <p className="text-white font-semibold text-2xl">{verificationResult.grade}</p>
                     </div>
-
-                    {/* Skills */}
-                    <div>
+                    {/* Skills Verified */}
+                    <div className="bg-slate-700/50 p-4 rounded-lg">
                       <h4 className="text-white font-semibold mb-3">Skills Verified</h4>
                       <div className="flex flex-wrap gap-2">
                         {verificationResult.skills.map((skill: string, idx: number) => (
@@ -180,21 +164,8 @@ const CertificateVerification = () => {
                         ))}
                       </div>
                     </div>
-
-                    {/* MSME Badge */}
-                    {verificationResult.msmeRegistered && (
-                      <div className="bg-emerald-500/20 border border-emerald-500/30 p-4 rounded-lg">
-                        <div className="flex items-center">
-                          <CheckCircle className="mr-2 text-emerald-400" size={20} />
-                          <span className="text-emerald-400 font-semibold">MSME Registered Institution</span>
-                        </div>
-                        <p className="text-gray-300 text-sm mt-1">
-                          This certificate is issued by an MSME-registered educational institution
-                        </p>
-                      </div>
-                    )}
                   </div>
-                ) : (
+                : (
                   <div className="text-center py-8">
                     <XCircle className="mx-auto mb-4 text-red-400" size={48} />
                     <p className="text-gray-300">

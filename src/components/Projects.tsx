@@ -28,152 +28,60 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Hotel Booking Platform",
-      description: "Full-stack hotel management system with real-time booking and payment integration",
+      title: "Cafe Management Web App",
+      description: "A comprehensive web application for managing cafe operations including orders, inventory, staff, and analytics. Features real-time order tracking, menu management, and sales reporting.",
       category: "Web",
-      image: "🏨",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      interns: ["Priya S.", "Rahul K.", "Anita M."],
-      link: "#"
-    },
-    {
-      title: "AI Chatbot Assistant",
-      description: "Intelligent customer service bot with natural language processing capabilities",
-      category: "AI Tool",
-      image: "🤖",
-      tech: ["Python", "TensorFlow", "FastAPI", "React"],
-      interns: ["Dev P.", "Sneha L.", "Arjun T."],
-      link: "#"
-    },
-    {
-      title: "School Management App",
-      description: "Comprehensive school administration system with parent and student portals",
-      category: "App",
-      image: "🎓",
-      tech: ["React Native", "Firebase", "Express", "JWT"],
-      interns: ["Kavya R.", "Rohan S.", "Meera V."],
-      link: "#"
-    },
-    {
-      title: "E-commerce Analytics",
-      description: "Data visualization dashboard for e-commerce sales and customer insights",
-      category: "Web",
-      image: "📊",
-      tech: ["React", "D3.js", "Python", "PostgreSQL"],
-      interns: ["Arun K.", "Divya N.", "Karthik M."],
-      link: "#"
-    },
-    {
-      title: "Voice Recognition App",
-      description: "Mobile app with voice commands for accessibility and hands-free operation",
-      category: "App",
-      image: "🎤",
-      tech: ["Flutter", "Speech API", "Firebase", "ML Kit"],
-      interns: ["Pooja S.", "Vikram A.", "Ravi D."],
-      link: "#"
-    },
-    {
-      title: "Inventory Management",
-      description: "Smart inventory system with predictive analytics and automated reordering",
-      category: "AI Tool",
-      image: "📦",
-      tech: ["Python", "Pandas", "React", "MySQL"],
-      interns: ["Nisha P.", "Suresh K.", "Gayatri R."],
+      image: "☕",
+      tech: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
+      // Removed interns
       link: "#"
     }
   ];
 
-  const filters = ['All', 'Web', 'AI Tool', 'App'];
-
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
-
+  // Remove filters and filtering logic
   return (
     <section ref={ref} className="py-20 bg-slate-900">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-            Live <span className="flame-gradient bg-clip-text text-transparent">Projects</span>
-          </h2>
-          <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
-            Real-world projects built by our interns for actual clients
-          </p>
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>Live <span className="flame-gradient bg-clip-text text-transparent">Project</span></h2>
+          <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>A real-world project built by our interns for actual clients</p>
         </div>
-
-        {/* Filter Buttons */}
-        <div className={`flex justify-center mb-12 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
-          <div className="flex gap-2 bg-slate-800/50 p-2 rounded-lg border border-slate-700">
-            {filters.map((filter) => (
-              <Button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                variant={activeFilter === filter ? "default" : "ghost"}
-                className={`${
-                  activeFilter === filter 
-                    ? 'flame-gradient text-white' 
-                    : 'text-gray-400 hover:text-white'
-                } transition-all duration-300`}
-              >
-                <Filter className="mr-2" size={16} />
-                {filter}
-              </Button>
-            ))}
-          </div>
-        </div>
-
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+        <div className="flex justify-center">
+          {projects.map((project, index) => (
             <Card
               key={index}
-              className={`bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-all duration-300 hover-glow group ${
-                inView ? 'animate-slide-up' : 'opacity-0'
-              }`}
+              className={`max-w-md w-full mx-auto bg-slate-800/70 border-slate-700 hover:bg-slate-800/90 transition-all duration-300 hover-glow group rounded-2xl shadow-lg p-4 ${inView ? 'animate-slide-up' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardHeader>
-                <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {project.image}
-                </div>
-                <CardTitle className="text-white text-xl">{project.title}</CardTitle>
-                <CardDescription className="text-gray-300">
-                  {project.description}
-                </CardDescription>
+              <CardHeader className="items-center text-center pb-0">
+                <div className="text-6xl mb-2 group-hover:scale-110 transition-transform duration-300">{project.image}</div>
+                <CardTitle className="text-white text-2xl mb-1">{project.title}</CardTitle>
+                <CardDescription className="text-gray-300 text-base mb-2">{project.description}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="pt-0">
                 <div className="space-y-4">
                   {/* Tech Stack */}
                   <div>
-                    <h4 className="text-sm font-medium text-gray-400 mb-2">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2">
+                    <h4 className="text-sm font-medium text-gray-400 mb-1">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-2 justify-center">
                       {project.tech.map((tech, idx) => (
-                        <span key={idx} className="bg-orange-500/20 text-orange-400 px-2 py-1 rounded text-xs">
-                          {tech}
-                        </span>
+                        <span key={idx} className="bg-orange-500/20 text-orange-400 px-2 py-1 rounded text-xs">{tech}</span>
                       ))}
                     </div>
                   </div>
-
-                  {/* Intern Credits */}
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-400 mb-2">Built by Interns</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.interns.map((intern, idx) => (
-                        <span key={idx} className="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs">
-                          {intern}
-                        </span>
-                      ))}
-                    </div>
+                  {/* Built By */}
+                  <div className="flex flex-col items-center mt-2">
+                    <h4 className="text-sm font-medium text-gray-400 mb-1">Built by</h4>
+                    <span className="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-4 py-1 rounded-full text-base font-semibold shadow">Uday Kiran</span>
                   </div>
-
                   {/* Action Buttons */}
-                  <div className="flex gap-2 pt-4">
-                    <Button size="sm" className="flame-gradient hover-glow">
+                  <div className="flex gap-2 pt-4 justify-center">
+                    <Button size="sm" className="flame-gradient hover-glow rounded-full px-4">
                       <ExternalLink className="mr-2" size={16} />
                       View Live
                     </Button>
-                    <Button size="sm" variant="outline" className="border-gray-600 text-gray-400 hover:text-white">
+                    <Button size="sm" variant="outline" className="border-gray-600 text-gray-400 hover:text-white rounded-full px-4">
                       <Github className="mr-2" size={16} />
                       Code
                     </Button>

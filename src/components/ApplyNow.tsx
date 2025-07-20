@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { Upload, Calendar, Users, Award, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,6 +11,19 @@ const ApplyNow = () => {
   const [inView, setInView] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const ref = useRef<HTMLElement>(null);
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    program: '',
+    experience: '',
+    motivation: '',
+    resume: null as File | null,
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,6 +49,52 @@ const ApplyNow = () => {
     { icon: <CheckCircle className="w-6 h-6" />, title: "Start Learning", duration: "Ongoing", description: "Begin your AI + Full Stack journey" }
   ];
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    if (e.target.type === 'file') {
+      setForm({ ...form, resume: (e.target as HTMLInputElement).files?.[0] || null });
+    } else {
+      setForm({ ...form, [e.target.id]: e.target.value });
+    }
+  };
+
+  const handleSelect = (field: string, value: string) => {
+    setForm({ ...form, [field]: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setSuccess('');
+    setError('');
+    try {
+      const formData = new FormData();
+      Object.entries(form).forEach(([key, value]) => {
+        if (key === 'resume' && value) {
+          formData.append('resume', value as File);
+        } else if (key !== 'resume') {
+          formData.append(key, value as string);
+        }
+      });
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/apply`, {
+        method: 'POST',
+        body: formData,
+      });
+      if (res.ok) {
+        setSuccess('Application submitted successfully!');
+        setForm({
+          firstName: '', lastName: '', email: '', phone: '', program: '', experience: '', motivation: '', resume: null
+        });
+      } else {
+        const data = await res.json();
+        setError(data.error || 'Failed to submit application.');
+      }
+    } catch (err) {
+      setError('Failed to submit application.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <section ref={ref} className="py-20 bg-slate-900">
       <div className="max-w-7xl mx-auto px-4">
@@ -60,80 +118,78 @@ const ApplyNow = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="firstName" className="text-white">First Name</Label>
-                    <Input id="firstName" className="bg-slate-700 border-slate-600 text-white" placeholder="John" />
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="firstName" className="text-white">First Name</Label>
+                      <Input id="firstName" className="bg-slate-700 border-slate-600 text-white" placeholder="John" value={form.firstName} onChange={handleChange} />
+                    </div>
+                    <div>
+                      <Label htmlFor="lastName" className="text-white">Last Name</Label>
+                      <Input id="lastName" className="bg-slate-700 border-slate-600 text-white" placeholder="Doe" value={form.lastName} onChange={handleChange} />
+                    </div>
                   </div>
                   <div>
-                    <Label htmlFor="lastName" className="text-white">Last Name</Label>
-                    <Input id="lastName" className="bg-slate-700 border-slate-600 text-white" placeholder="Doe" />
+                    <Label htmlFor="email" className="text-white">Email Address</Label>
+                    <Input id="email" type="email" className="bg-slate-700 border-slate-600 text-white" placeholder="john@example.com" value={form.email} onChange={handleChange} />
                   </div>
-                </div>
-                
-                <div>
-                  <Label htmlFor="email" className="text-white">Email Address</Label>
-                  <Input id="email" type="email" className="bg-slate-700 border-slate-600 text-white" placeholder="john@example.com" />
-                </div>
-                
-                <div>
-                  <Label htmlFor="phone" className="text-white">Phone Number</Label>
-                  <Input id="phone" className="bg-slate-700 border-slate-600 text-white" placeholder="+91 98765 43210" />
-                </div>
-                
-                <div>
-                  <Label htmlFor="program" className="text-white">Program Interest</Label>
-                  <Select>
-                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
-                      <SelectValue placeholder="Select a program" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-slate-700 border-slate-600">
-                      <SelectItem value="fullstack">Full Stack Development</SelectItem>
-                      <SelectItem value="ai">AI & Machine Learning</SelectItem>
-                      <SelectItem value="both">Both Programs</SelectItem>
-                      <SelectItem value="internship">Internship Only</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div>
-                  <Label htmlFor="experience" className="text-white">Programming Experience</Label>
-                  <Select>
-                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
-                      <SelectValue placeholder="Select your experience level" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-slate-700 border-slate-600">
-                      <SelectItem value="beginner">Complete Beginner</SelectItem>
-                      <SelectItem value="some">Some Experience</SelectItem>
-                      <SelectItem value="intermediate">Intermediate</SelectItem>
-                      <SelectItem value="advanced">Advanced</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div>
-                  <Label htmlFor="motivation" className="text-white">Why do you want to join IgnitAI?</Label>
-                  <Textarea 
-                    id="motivation" 
-                    className="bg-slate-700 border-slate-600 text-white" 
-                    placeholder="Tell us about your goals and motivation..."
-                    rows={4}
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="resume" className="text-white">Upload Resume (Optional)</Label>
-                  <div className="mt-2">
-                    <Button variant="outline" className="w-full border-slate-600 text-gray-300 hover:text-white">
-                      <Upload className="mr-2" size={16} />
-                      Choose File
-                    </Button>
+                  <div>
+                    <Label htmlFor="phone" className="text-white">Phone Number</Label>
+                    <Input id="phone" className="bg-slate-700 border-slate-600 text-white" placeholder="+91 98765 43210" value={form.phone} onChange={handleChange} />
                   </div>
-                </div>
-                
-                <Button className="w-full flame-gradient hover-glow text-white font-semibold py-3">
-                  Submit Application
-                </Button>
+                  <div>
+                    <Label htmlFor="program" className="text-white">Program Interest</Label>
+                    <Select value={form.program} onValueChange={v => handleSelect('program', v)}>
+                      <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                        <SelectValue placeholder="Select a program" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-slate-700 border-slate-600">
+                        <SelectItem value="fullstack">Full Stack Development</SelectItem>
+                        <SelectItem value="ai">AI & Machine Learning</SelectItem>
+                        <SelectItem value="both">Both Programs</SelectItem>
+                        <SelectItem value="internship">Internship Only</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="experience" className="text-white">Programming Experience</Label>
+                    <Select value={form.experience} onValueChange={v => handleSelect('experience', v)}>
+                      <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                        <SelectValue placeholder="Select your experience level" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-slate-700 border-slate-600">
+                        <SelectItem value="beginner">Complete Beginner</SelectItem>
+                        <SelectItem value="some">Some Experience</SelectItem>
+                        <SelectItem value="intermediate">Intermediate</SelectItem>
+                        <SelectItem value="advanced">Advanced</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="motivation" className="text-white">Why do you want to join Ignivance?</Label>
+                    <Textarea 
+                      id="motivation" 
+                      className="bg-slate-700 border-slate-600 text-white" 
+                      placeholder="Tell us about your goals and motivation..."
+                      rows={4}
+                      value={form.motivation}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  {/* Resume upload */}
+                  <div>
+                    <Label htmlFor="resume" className="text-white">Upload Resume (Optional)</Label>
+                    <div className="mt-2">
+                      <Input id="resume" type="file" accept=".pdf,.doc,.docx" className="bg-slate-700 border-slate-600 text-white" onChange={handleChange} />
+                      {form.resume && <span className="text-gray-300 ml-2">{(form.resume as File).name}</span>}
+                    </div>
+                  </div>
+                  <Button className="w-full flame-gradient hover-glow text-white font-semibold py-3" type="submit" disabled={submitting}>
+                    {submitting ? 'Submitting...' : 'Submit Application'}
+                  </Button>
+                  {success && <div className="text-green-400 text-center">{success}</div>}
+                  {error && <div className="text-red-400 text-center">{error}</div>}
+                </form>
               </CardContent>
             </Card>
           </div>

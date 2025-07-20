@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 
 const Partners = () => {
@@ -26,19 +25,19 @@ const Partners = () => {
     {
       name: "IBM SkillsBuild",
       description: "Trackable learning paths and certification programs",
-      logo: "🔵", // Placeholder for IBM logo
+      logo: "/download.png", // Placeholder for IBM logo
       features: ["Skills Tracking", "Digital Badges", "Career Pathways"]
     },
     {
       name: "Google Cloud",
       description: "Hosted solutions and cloud training programs",
-      logo: "🟡", // Placeholder for Google logo
+      logo: "/6656429d1776bd09704334e8_google.webp", // Placeholder for Google logo
       features: ["Cloud Hosting", "ML Training", "GCP Credits"]
     },
     {
       name: "Microsoft Azure",
       description: "GitHub Copilot access and startup tools",
-      logo: "🟦", // Placeholder for Microsoft logo
+      logo: "/download (2).png", // Placeholder for Microsoft logo
       features: ["GitHub Copilot", "Azure Credits", "Startup Program"]
     }
   ];
@@ -66,7 +65,7 @@ const Partners = () => {
             >
               <div className="text-center">
                 <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {partner.logo}
+                  <img src={partner.logo} alt={partner.name + ' logo'} className="mx-auto h-16" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-white">{partner.name}</h3>
                 <p className="text-gray-300 mb-6">{partner.description}</p>
@@ -90,11 +89,11 @@ const Partners = () => {
             <h3 className="text-2xl font-bold mb-4 text-white">Partnership Benefits</h3>
             <div className="grid md:grid-cols-4 gap-6">
               <div>
-                <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">100%</div>
+                <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">0%</div>
                 <div className="text-gray-400">Verified Credentials</div>
               </div>
               <div>
-                <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">$1000+</div>
+                <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">$0+</div>
                 <div className="text-gray-400">Cloud Credits</div>
               </div>
               <div>

@@ -28,7 +28,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-            About <span className="flame-gradient bg-clip-text text-transparent">IgnitAI</span>
+            About <span className="flame-gradient bg-clip-text text-transparent">Ignivance</span>
           </h2>
           <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
             Igniting minds with AI, skills, and real-world projects. We're on a mission to bridge the gap between 
@@ -41,7 +41,7 @@ const About = () => {
           <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
             <h3 className="text-2xl font-bold mb-6 text-white">Our Journey</h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Founded with a vision to democratize AI and full-stack development education, IgnitAI has grown 
+              Founded with a vision to democratize AI and full-stack development education, Ignivance has grown 
               from a small startup to a recognized MSME-registered company partnering with industry giants.
             </p>
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -55,14 +55,14 @@ const About = () => {
                 <Award className="inline mr-2" size={16} />
                 MSME Registered
               </div>
-              <div className="bg-blue-500/20 text-blue-400 px-4 py-2 rounded-lg border border-blue-500/30">
+              {/* <div className="bg-blue-500/20 text-blue-400 px-4 py-2 rounded-lg border border-blue-500/30">
                 <Users className="inline mr-2" size={16} />
                 IBM Partner
               </div>
               <div className="bg-purple-500/20 text-purple-400 px-4 py-2 rounded-lg border border-purple-500/30">
                 <Zap className="inline mr-2" size={16} />
                 Google Cloud Partner
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -72,15 +72,15 @@ const About = () => {
               <h3 className="text-2xl font-bold mb-6 text-white">Impact by Numbers</h3>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">500+</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">announced</div>
                   <div className="text-gray-400">Students Trained</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">50+</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">0</div>
                   <div className="text-gray-400">Projects Delivered</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">95%</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">0</div>
                   <div className="text-gray-400">Placement Rate</div>
                 </div>
                 <div className="text-center">

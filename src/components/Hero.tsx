@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { ChevronDown, Flame, Zap, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -46,9 +45,9 @@ const Hero = () => {
 
         {/* Subheadline */}
         <div className="mb-8 space-y-4">
-          <p className="text-xl md:text-2xl text-gray-300">
-            MSME-registered | IBM, Google, Microsoft Partner
-          </p>
+          {/* <p className="text-xl md:text-2xl text-gray-300">
+            MSME-registered
+          </p> */}
           <div className="flex justify-center gap-4 text-sm text-gray-400">
             <span className="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full">
               AI & Full Stack Training
@@ -71,20 +70,29 @@ const Hero = () => {
             <Code className="mr-2" size={20} />
             Explore Courses
           </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-4 text-lg transition-all duration-300"
+          <a
+            href="https://forms.gle/3vFn1MaHd9A9G9iN6" // TODO: Replace with actual Google Form URL
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none' }}
           >
-            <Zap className="mr-2" size={20} />
-            Start Internship
-          </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-4 text-lg transition-all duration-300"
+            >
+              <Zap className="mr-2" size={20} />
+              Start Internship
+            </Button>
+          </a>
         </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={32} className="text-orange-500" />
-        </div>
+        {/* Caution Banner */}
+        {/* <div className="flex justify-center mt-4">
+          <span className="flex items-center gap-2 bg-yellow-500/20 text-yellow-700 border border-yellow-400 px-4 py-2 rounded-lg font-semibold shadow-md animate-pulse">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M8.257 3.099c.764-1.36 2.722-1.36 3.486 0l6.518 11.614c.75 1.338-.213 3.037-1.742 3.037H3.48c-1.53 0-2.492-1.7-1.742-3.037L8.257 3.1zM11 13a1 1 0 10-2 0 1 1 0 002 0zm-1-2a1 1 0 01-1-1V8a1 1 0 112 0v2a1 1 0 01-1 1z" clipRule="evenodd" /></svg>
+            <span>DON'T APPLY INTERNSHIPS NOW &mdash; SERVER IS UNDER MAINTENANCE. WE WILL INFORM.</span>
+          </span>
+        </div> */}
       </div>
     </section>
   );
