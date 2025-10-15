@@ -33,8 +33,8 @@ const Projects = () => {
       category: "Web",
       image: "☕",
       tech: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
-      // Removed interns
-      link: "#"
+      live: "https://mj.udayonline.in/",
+      code: "https://github.com/uday951/cafe-table-order-flow.git"
     }
   ];
 
@@ -77,14 +77,18 @@ const Projects = () => {
                   </div>
                   {/* Action Buttons */}
                   <div className="flex gap-2 pt-4 justify-center">
-                    <Button size="sm" className="flame-gradient hover-glow rounded-full px-4">
-                      <ExternalLink className="mr-2" size={16} />
-                      View Live
-                    </Button>
-                    <Button size="sm" variant="outline" className="border-gray-600 text-gray-400 hover:text-white rounded-full px-4">
-                      <Github className="mr-2" size={16} />
-                      Code
-                    </Button>
+                    <a href={project.live} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" className="flame-gradient hover-glow rounded-full px-4">
+                        <ExternalLink className="mr-2" size={16} />
+                        View Live
+                      </Button>
+                    </a>
+                    <a href={project.code} target="_blank" rel="noopener noreferrer">
+                      <Button size="sm" variant="outline" className="border-gray-600 text-gray-400 hover:text-white rounded-full px-4">
+                        <Github className="mr-2" size={16} />
+                        Code
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </CardContent>
