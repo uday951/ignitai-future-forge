@@ -72,15 +72,15 @@ const About = () => {
               <h3 className="text-2xl font-bold mb-6 text-white">Impact by Numbers</h3>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">announced</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">20+</div>
                   <div className="text-gray-400">Students Trained</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">0</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">4</div>
                   <div className="text-gray-400">Projects Delivered</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">0</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">100%</div>
                   <div className="text-gray-400">Placement Rate</div>
                 </div>
                 <div className="text-center">
