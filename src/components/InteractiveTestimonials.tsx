@@ -106,67 +106,76 @@ const InteractiveTestimonials = () => {
           </p>
         </div>
 
-        {/* Mobile: App-like Testimonial Cards */}
+        {/* Mobile: Single Testimonial Slider */}
         <div className="md:hidden px-2 mb-16">
           {feedbacks.length > 0 ? (
-            <div className="space-y-4">
-              {feedbacks.map((feedback, idx) => (
-                <div
-                  key={idx}
-                  className={`bg-white rounded-3xl shadow-xl p-6 ${inView ? 'animate-slide-up' : 'opacity-0'} ${idx === currentSlide ? 'ring-2 ring-orange-500' : ''}`}
-                  style={{ animationDelay: `${idx * 0.1}s` }}
+            <div className="relative">
+              {/* Single Testimonial Card */}
+              <div className="overflow-hidden">
+                <div 
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
-                  {/* Profile Header */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center overflow-hidden text-2xl shadow-lg">
-                      {feedback.image ? (
-                        <img
-                          src={feedback.image?.startsWith('/uploads/') ? `${import.meta.env.VITE_API_URL}${feedback.image}` : feedback.image}
-                          alt={feedback.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <span>👤</span>
-                      )}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-lg font-bold text-gray-900">{feedback.name}</h3>
-                        {feedback.linkedin && (
-                          <a href={feedback.linkedin} className="text-blue-500" target="_blank" rel="noopener noreferrer">
-                            <Linkedin size={16} />
-                          </a>
-                        )}
+                  {feedbacks.map((feedback, idx) => (
+                    <div
+                      key={idx}
+                      className="w-full flex-shrink-0 px-2"
+                    >
+                      <div className={`bg-white rounded-3xl shadow-xl p-6 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+                        {/* Profile Header */}
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center overflow-hidden text-2xl shadow-lg">
+                            {feedback.image ? (
+                              <img
+                                src={feedback.image?.startsWith('/uploads/') ? `${import.meta.env.VITE_API_URL}${feedback.image}` : feedback.image}
+                                alt={feedback.name}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <span>👤</span>
+                            )}
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                              <h3 className="text-lg font-bold text-gray-900">{feedback.name}</h3>
+                              {feedback.linkedin && (
+                                <a href={feedback.linkedin} className="text-blue-500" target="_blank" rel="noopener noreferrer">
+                                  <Linkedin size={16} />
+                                </a>
+                              )}
+                            </div>
+                            <p className="text-orange-600 font-semibold text-sm">{feedback.role}</p>
+                            {feedback.company && <p className="text-gray-500 text-xs">{feedback.company}</p>}
+                          </div>
+                        </div>
+
+                        {/* Rating */}
+                        <div className="flex gap-1 mb-4">
+                          {[...Array(feedback.rating || 5)].map((_, i) => (
+                            <Star key={i} size={16} className="text-yellow-400 fill-current" />
+                          ))}
+                        </div>
+
+                        {/* Quote */}
+                        <div className="mb-4">
+                          <p className="text-gray-700 leading-relaxed text-sm italic">
+                            "{feedback.quote}"
+                          </p>
+                        </div>
+
+                        {/* Skills */}
+                        <div className="flex flex-wrap gap-2">
+                          {(feedback.badges || []).map((badge, badgeIdx) => (
+                            <span key={badgeIdx} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                              {badge}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                      <p className="text-orange-600 font-semibold text-sm">{feedback.role}</p>
-                      {feedback.company && <p className="text-gray-500 text-xs">{feedback.company}</p>}
                     </div>
-                  </div>
-
-                  {/* Rating */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(feedback.rating || 5)].map((_, i) => (
-                      <Star key={i} size={16} className="text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-
-                  {/* Quote */}
-                  <div className="mb-4">
-                    <p className="text-gray-700 leading-relaxed text-sm italic">
-                      "{feedback.quote}"
-                    </p>
-                  </div>
-
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2">
-                    {(feedback.badges || []).map((badge, badgeIdx) => (
-                      <span key={badgeIdx} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
               
               {/* Mobile Navigation */}
               <div className="flex justify-center gap-2 mt-6">
