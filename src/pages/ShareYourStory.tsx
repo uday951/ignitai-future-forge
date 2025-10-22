@@ -1,5 +1,7 @@
 import ShareYourStory from '../components/ShareYourStory';
 
-const ShareYourStoryPage = () => <ShareYourStory />;
+const ShareYourStoryPage = () => {
+  return <ShareYourStory />;
+};
 
-export default ShareYourStoryPage; 
+export default ShareYourStoryPage;

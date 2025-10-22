@@ -1,101 +1,162 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
+import React, { useState } from 'react';
+import { ArrowLeft, Send, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ShareYourStory = () => {
-  const [form, setForm] = useState({ name: '', role: '', quote: '', badges: '', rating: 5, linkedin: '', image: null as File | null });
-  const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState('');
-  const [error, setError] = useState('');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value, type, files } = e.target as HTMLInputElement;
-    if (type === 'file') {
-      setForm({ ...form, image: files && files[0] ? files[0] : null });
-    } else {
-      setForm({ ...form, [id]: id === 'rating' ? Number(value) : value });
-    }
-  };
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: '',
+    role: '',
+    company: '',
+    message: '',
+    rating: 5
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitting(true);
-    setSuccess('');
-    setError('');
+    setIsSubmitting(true);
+
     try {
-      const formData = new FormData();
-      formData.append('name', form.name);
-      formData.append('role', form.role);
-      formData.append('quote', form.quote);
-      formData.append('badges', form.badges);
-      formData.append('rating', String(form.rating));
-      formData.append('linkedin', form.linkedin);
-      if (form.image) formData.append('image', form.image);
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/feedback`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://ignitaibackend.onrender.com'}/api/feedback`, {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      if (res.ok) {
-        setSuccess('Thank you for your feedback!');
-        setForm({ name: '', role: '', quote: '', badges: '', rating: 5, linkedin: '', image: null });
-      } else {
-        const data = await res.json();
-        setError(data.error || 'Failed to submit feedback.');
+
+      if (response.ok) {
+        setSubmitted(true);
+        setTimeout(() => navigate('/'), 2000);
       }
-    } catch {
-      setError('Failed to submit feedback.');
+    } catch (error) {
+      console.error('Error submitting testimonial:', error);
     } finally {
-      setSubmitting(false);
+      setIsSubmitting(false);
     }
   };
 
-  return (
-    <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
-      <div className="max-w-xl mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white text-center">Share Your Story</h2>
-        <form onSubmit={handleSubmit} className="space-y-6 bg-slate-800/50 p-8 rounded-lg border border-slate-700" encType="multipart/form-data">
-          <div>
-            <Label htmlFor="name" className="text-white">Your Name</Label>
-            <Input id="name" className="bg-slate-700 border-slate-600 text-white" placeholder="Enter your name" value={form.name} onChange={handleChange} />
+  if (submitted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl p-8 text-center shadow-xl max-w-md w-full">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Star className="w-8 h-8 text-green-600 fill-current" />
           </div>
-          <div>
-            <Label htmlFor="role" className="text-white">Your Role/Job Title</Label>
-            <Input id="role" className="bg-slate-700 border-slate-600 text-white" placeholder="e.g. Full Stack Developer" value={form.role} onChange={handleChange} />
-          </div>
-          <div>
-            <Label htmlFor="quote" className="text-white">Your Success Story</Label>
-            <Textarea id="quote" className="bg-slate-700 border-slate-600 text-white" placeholder="Share your experience..." rows={4} value={form.quote} onChange={handleChange} />
-          </div>
-          <div>
-            <Label htmlFor="badges" className="text-white">Badges/Skills (comma separated)</Label>
-            <Input id="badges" className="bg-slate-700 border-slate-600 text-white" placeholder="e.g. React, Node.js, AI" value={form.badges} onChange={handleChange} />
-          </div>
-          <div>
-            <Label htmlFor="rating" className="text-white">Rating (1-5)</Label>
-            <Input id="rating" type="number" min={1} max={5} className="bg-slate-700 border-slate-600 text-white" value={form.rating} onChange={handleChange} />
-          </div>
-          <div>
-            <Label htmlFor="linkedin" className="text-white">LinkedIn URL (optional)</Label>
-            <Input id="linkedin" className="bg-slate-700 border-slate-600 text-white" placeholder="https://linkedin.com/in/yourprofile" value={form.linkedin} onChange={handleChange} />
-          </div>
-          <div>
-            <Label htmlFor="image" className="text-white">Profile Image (JPG/PNG, optional)</Label>
-            <Input id="image" type="file" accept="image/*" className="bg-slate-700 border-slate-600 text-white" onChange={handleChange} />
-            {form.image && <span className="text-gray-300 ml-2">{(form.image as File).name}</span>}
-          </div>
-          <div>
-            <Label className="text-white">Company</Label>
-            <Input value="Ignivance" className="bg-slate-700 border-slate-600 text-white" readOnly disabled />
-          </div>
-          <Button className="w-full flame-gradient hover-glow text-white font-semibold py-3" type="submit" disabled={submitting}>{submitting ? 'Submitting...' : 'Submit Feedback'}</Button>
-          {success && <div className="text-green-400 text-center">{success}</div>}
-          {error && <div className="text-red-400 text-center">{error}</div>}
-        </form>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Thank You! 🎉</h2>
+          <p className="text-gray-600">Your story has been shared successfully. Redirecting...</p>
+        </div>
       </div>
-    </section>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
+      {/* Mobile Header */}
+      <div className="bg-white shadow-sm p-4 flex items-center gap-3">
+        <button 
+          onClick={() => navigate('/')}
+          className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+        >
+          <ArrowLeft className="w-5 h-5" />
+        </button>
+        <h1 className="text-lg font-semibold text-gray-800">Share Your Story</h1>
+      </div>
+
+      <div className="p-4 max-w-2xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Tell Us About Your Experience</h2>
+            <p className="text-gray-600">Help others by sharing your learning journey with Ignivance</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+              <input
+                type="text"
+                required
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Your Role</label>
+              <input
+                type="text"
+                required
+                value={formData.role}
+                onChange={(e) => setFormData({...formData, role: e.target.value})}
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                placeholder="e.g., Student, Developer, etc."
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Company/Institution</label>
+              <input
+                type="text"
+                value={formData.company}
+                onChange={(e) => setFormData({...formData, company: e.target.value})}
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                placeholder="Where do you work/study? (Optional)"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Rating</label>
+              <div className="flex gap-1">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    type="button"
+                    onClick={() => setFormData({...formData, rating: star})}
+                    className="p-1"
+                  >
+                    <Star 
+                      className={`w-8 h-8 ${star <= formData.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Your Story</label>
+              <textarea
+                required
+                rows={4}
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
+                placeholder="Share your experience with our courses, what you learned, how it helped you..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 px-6 rounded-xl font-semibold flex items-center justify-center gap-2 hover:from-orange-600 hover:to-red-600 transition-all disabled:opacity-50"
+            >
+              {isSubmitting ? (
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <>
+                  <Send className="w-5 h-5" />
+                  Share My Story
+                </>
+              )}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default ShareYourStory; 
+export default ShareYourStory;

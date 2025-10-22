@@ -82,6 +82,9 @@ const InteractiveTestimonials = () => {
 
   useEffect(() => {
     fetchFeedbacks();
+    // Refresh testimonials every 30 seconds to show new submissions
+    const interval = setInterval(fetchFeedbacks, 30000);
+    return () => clearInterval(interval);
   }, []);
 
   // Auto-slide functionality
@@ -157,7 +160,7 @@ const InteractiveTestimonials = () => {
                         )}
                       </div>
                       <p className="text-orange-600 font-semibold text-sm">{feedback.role}</p>
-                      <p className="text-gray-500 text-xs">{feedback.company || "Ignivance Graduate"}</p>
+                      {feedback.company && <p className="text-gray-500 text-xs">{feedback.company}</p>}
                     </div>
                   </div>
 
@@ -251,7 +254,7 @@ const InteractiveTestimonials = () => {
                         )}
                       </div>
                       <p className="text-orange-400 font-semibold text-lg">{feedbacks[currentSlide]?.role}</p>
-                      <p className="text-gray-400">{feedbacks[currentSlide]?.company || "Ignivance Graduate"}</p>
+                      {feedbacks[currentSlide]?.company && <p className="text-gray-400">{feedbacks[currentSlide].company}</p>}
                     </div>
                   </div>
 
