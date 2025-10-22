@@ -39,10 +39,21 @@ const InteractiveTestimonials = () => {
 
   const fetchFeedbacks = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/feedback`);
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://ignitaibackend.onrender.com';
+      console.log('Fetching from:', `${apiUrl}/api/feedback`);
+      
+      const res = await fetch(`${apiUrl}/api/feedback`);
+      console.log('Response status:', res.status);
+      
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      
       const data = await res.json();
+      console.log('Fetched data:', data);
       setFeedbacks(data);
-    } catch {
+    } catch (error) {
+      console.error('Fetch error:', error);
       // Fallback testimonials for demo
       setFeedbacks([
         {
