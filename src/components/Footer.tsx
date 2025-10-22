@@ -42,11 +42,69 @@ const Footer = () => {
 
   return (
     <footer className="bg-slate-900 border-t border-slate-800">
-      {/* Contact Form Section */}
-      <div className="py-16 bg-gradient-to-b from-slate-900 to-black">
+      {/* Mobile: App-like Contact Section */}
+      <div className="md:hidden py-8 bg-gradient-to-b from-slate-900 to-black px-4">
+        <div className="bg-white rounded-3xl p-6 shadow-xl mb-6">
+          <h3 className="text-2xl font-bold mb-4 text-gray-900 text-center">Get in Touch</h3>
+          <p className="text-gray-600 mb-6 text-center">
+            Ready to start your journey? Let's connect!
+          </p>
+          
+          {/* Quick Contact Options */}
+          <div className="space-y-4">
+            <a href="mailto:ignivance@zohoemail.in" className="flex items-center gap-4 p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl border border-orange-200 active:scale-95 transition-transform duration-200">
+              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
+                <Mail className="text-white" size={20} />
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900">Email Us</p>
+                <p className="text-gray-600 text-sm">ignivance@zohoemail.in</p>
+              </div>
+            </a>
+            
+            <a href="tel:+917989442841" className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl border border-blue-200 active:scale-95 transition-transform duration-200">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                <Phone className="text-white" size={20} />
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900">Call Us</p>
+                <p className="text-gray-600 text-sm">+91 7989442841</p>
+              </div>
+            </a>
+            
+            <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-200">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                <MapPin className="text-white" size={20} />
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900">Location</p>
+                <p className="text-gray-600 text-sm">Hyderabad, India</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Social Links */}
+          <div className="mt-6 pt-6 border-t border-gray-200">
+            <h4 className="font-semibold text-gray-900 mb-4 text-center">Follow Us</h4>
+            <div className="flex justify-center gap-4">
+              <a href="https://www.linkedin.com/in/udaykiran-koshika-a51142283/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center active:scale-95 transition-transform duration-200">
+                <Linkedin className="text-blue-600" size={20} />
+              </a>
+              <a href="https://github.com/uday951" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center active:scale-95 transition-transform duration-200">
+                <Github className="text-gray-700" size={20} />
+              </a>
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center active:scale-95 transition-transform duration-200">
+                <Youtube className="text-red-600" size={20} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop: Original Contact Form */}
+      <div className="hidden md:block py-16 bg-gradient-to-b from-slate-900 to-black">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
             <div>
               <h3 className="text-3xl font-bold mb-6 text-white">Get in Touch</h3>
               <p className="text-gray-300 mb-8">
@@ -89,7 +147,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Contact Info */}
             <div className="space-y-8">
               <div>
                 <h4 className="text-2xl font-bold mb-6 text-white">Contact Information</h4>
@@ -119,7 +176,6 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              {/* Social Links */}
               <div>
                 <h4 className="text-xl font-bold mb-4 text-white">Follow Us</h4>
                 <div className="flex gap-4">
@@ -138,24 +194,34 @@ const Footer = () => {
                   </Button>
                 </div>
               </div>
-
-              {/* MSME Info
-              <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700">
-                <h4 className="text-lg font-bold mb-2 text-white">MSME Registered</h4>
-                <p className="text-gray-300 text-sm mb-2">
-                  Udyam Registration No: UDYAM-XX-00-0000000
-                </p>
-                <p className="text-gray-400 text-xs">
-                  Micro, Small and Medium Enterprises Registration
-                </p>
-              </div> */}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Footer Bottom */}
-      <div className="py-8 border-t border-slate-800">
+      {/* Mobile: App-like Footer */}
+      <div className="md:hidden py-6 bg-black px-4">
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">🔥</span>
+            </div>
+            <span className="text-white font-bold text-xl">Ignivance</span>
+          </div>
+          
+          <div className="space-y-2 text-gray-400 text-xs">
+            <div className="flex justify-center gap-4">
+              <a href="/terms-and-conditions" className="hover:text-white transition-colors">Terms</a>
+              <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy</a>
+              <a href="/cookies-policy" className="hover:text-white transition-colors">Cookies</a>
+            </div>
+            <p>© 2025 Ignivance. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop: Original Footer */}
+      <div className="hidden md:block py-8 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
@@ -177,7 +243,6 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Partner Logos */}
           <div className="mt-8 pt-8 border-t border-slate-800">
             <div className="text-center mb-4">
               <p className="text-gray-400 text-sm">Powered by</p>

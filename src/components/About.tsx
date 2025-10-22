@@ -49,7 +49,73 @@ const About = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Mobile: App-like Cards */}
+        <div className="md:hidden space-y-6 px-2">
+          {/* Story Cards */}
+          <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+            <div className="bg-white rounded-3xl p-6 shadow-xl">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 flex items-center gap-2">
+                🌱 <span>Our Growing Journey</span>
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { icon: "👨‍🏫", title: "Experienced Mentors", desc: "Learn from passionate developers with industry experience" },
+                  { icon: "🛠️", title: "Hands-on Learning", desc: "Build real projects and create your portfolio while learning" },
+                  { icon: "🎯", title: "Career Guidance", desc: "Get support and guidance for your tech career journey" },
+                  { icon: "🤝", title: "Community Support", desc: "Join our growing community of learners and developers" }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-2xl">
+                    <div className="text-2xl">{item.icon}</div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">{item.title}</h4>
+                      <p className="text-gray-600 text-sm">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-6 p-4 bg-emerald-50 rounded-2xl border border-emerald-200">
+                <div className="flex items-center gap-2 text-emerald-700">
+                  <Award size={20} />
+                  <span className="font-semibold">MSME Registered Startup</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Card */}
+          <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+            <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl p-6 shadow-xl text-white">
+              <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                📊 <span>Our Honest Journey</span>
+              </h3>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                {[
+                  { number: "20", label: "Students Completed", sublabel: "First batch success" },
+                  { number: "4+", label: "Projects Built", sublabel: "Real applications" },
+                  { number: "100%", label: "Course Completion", sublabel: "First batch" },
+                  { number: "24/7", label: "Support", sublabel: "Community help" }
+                ].map((stat, i) => (
+                  <div key={i} className="text-center bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                    <div className="text-2xl font-bold mb-1">{stat.number}</div>
+                    <div className="text-sm font-medium mb-1">{stat.label}</div>
+                    <div className="text-xs opacity-80">{stat.sublabel}</div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                <p className="text-center font-semibold mb-2">🌱 We're Growing!</p>
+                <p className="text-center text-sm opacity-90">
+                  As a startup, we're building something special. Join us on this exciting journey!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop: Original Layout */}
+        <div className="hidden md:grid md:grid-cols-2 gap-12 items-center">
           {/* Story Section */}
           <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
             <h3 className="text-2xl font-bold mb-6 text-white">🌱 Our Growing Journey</h3>
@@ -80,20 +146,11 @@ const About = () => {
               </div>
             </div>
             
-            {/* Badges */}
             <div className="flex flex-wrap gap-4">
               <div className="bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-lg border border-emerald-500/30">
                 <Award className="inline mr-2" size={16} />
                 MSME Registered
               </div>
-              {/* <div className="bg-blue-500/20 text-blue-400 px-4 py-2 rounded-lg border border-blue-500/30">
-                <Users className="inline mr-2" size={16} />
-                IBM Partner
-              </div>
-              <div className="bg-purple-500/20 text-purple-400 px-4 py-2 rounded-lg border border-purple-500/30">
-                <Zap className="inline mr-2" size={16} />
-                Google Cloud Partner
-              </div> */}
             </div>
           </div>
 
@@ -124,7 +181,6 @@ const About = () => {
                 </div>
               </div>
               
-              {/* Honest messaging */}
               <div className="border-t border-slate-600 pt-6">
                 <div className="text-center">
                   <p className="text-sm text-gray-300 mb-2">🌱 <strong>We're Growing!</strong></p>

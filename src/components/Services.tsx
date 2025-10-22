@@ -74,7 +74,58 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Mobile: App-like Service Cards */}
+        <div className="md:hidden space-y-6 px-2">
+          {services.map((service, index) => {
+            const iconMap = {
+              "Learn AI + Full Stack": "🤖",
+              "Certified Internships": "🏆",
+              "Client Project Development": "🛠️",
+              "Certificate Issuance": "🎓",
+              "Mentorship & Community": "🤝"
+            };
+            
+            return (
+              <div
+                key={index}
+                className={`bg-white rounded-3xl shadow-xl overflow-hidden ${inView ? 'animate-slide-up' : 'opacity-0'} active:scale-95 transition-transform duration-200`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Service Header */}
+                <div className="bg-gradient-to-r from-orange-500 to-red-500 p-6 text-white">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl">
+                      {iconMap[service.title as keyof typeof iconMap] || "💼"}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold mb-1">{service.title}</h3>
+                      <p className="text-white/80 text-sm">Professional Service</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Service Body */}
+                <div className="p-6">
+                  <p className="text-gray-700 mb-6 leading-relaxed">{service.description}</p>
+                  
+                  {/* Features */}
+                  <div className="space-y-3">
+                    <h4 className="text-sm font-semibold text-gray-900 mb-3">What's Included</h4>
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-2xl">
+                        <div className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-700 text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop: Original Grid Layout */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card 
               key={index}
@@ -106,8 +157,27 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Tech Stack Icons */}
-        <div className={`mt-16 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+        {/* Mobile: Tech Stack */}
+        <div className={`md:hidden mt-8 px-2 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <div className="bg-white rounded-3xl p-6 shadow-xl">
+            <h3 className="text-xl font-bold mb-6 text-center text-gray-900">Technologies We Teach</h3>
+            <div className="grid grid-cols-3 gap-4">
+              {[
+                { icon: "⚙️", name: "Frontend", color: "from-blue-500 to-cyan-500" },
+                { icon: "💾", name: "Backend", color: "from-green-500 to-emerald-500" },
+                { icon: "🤖", name: "AI/ML", color: "from-purple-500 to-pink-500" }
+              ].map((tech, i) => (
+                <div key={i} className="text-center p-4 bg-gray-50 rounded-2xl">
+                  <div className="text-3xl mb-2">{tech.icon}</div>
+                  <p className="text-sm font-semibold text-gray-700">{tech.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop: Original Tech Stack */}
+        <div className={`hidden md:block mt-16 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
           <h3 className="text-2xl font-bold mb-8 text-center text-white">Technologies We Teach</h3>
           <div className="flex flex-wrap justify-center gap-6">
             <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-orange-500/50 transition-colors">
