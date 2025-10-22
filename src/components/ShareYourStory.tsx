@@ -24,7 +24,16 @@ const ShareYourStory = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          role: formData.role,
+          company: formData.company,
+          quote: formData.message,
+          rating: formData.rating,
+          badges: [],
+          linkedin: '',
+          image: ''
+        }),
       });
 
       if (response.ok) {
@@ -80,7 +89,7 @@ const ShareYourStory = () => {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-900"
                 placeholder="Enter your full name"
               />
             </div>
@@ -92,7 +101,7 @@ const ShareYourStory = () => {
                 required
                 value={formData.role}
                 onChange={(e) => setFormData({...formData, role: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-900"
                 placeholder="e.g., Student, Developer, etc."
               />
             </div>
@@ -103,7 +112,7 @@ const ShareYourStory = () => {
                 type="text"
                 value={formData.company}
                 onChange={(e) => setFormData({...formData, company: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-900"
                 placeholder="Where do you work/study? (Optional)"
               />
             </div>
@@ -133,7 +142,7 @@ const ShareYourStory = () => {
                 rows={4}
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none text-gray-900"
                 placeholder="Share your experience with our courses, what you learned, how it helped you..."
               />
             </div>

@@ -54,29 +54,8 @@ const InteractiveTestimonials = () => {
       setFeedbacks(data);
     } catch (error) {
       console.error('Fetch error:', error);
-      // Fallback testimonials for demo
-      setFeedbacks([
-        {
-          name: "Priya Sharma",
-          role: "Full Stack Developer",
-          quote: "The hands-on approach at Ignivance helped me build real projects from day one. The mentors are incredibly supportive!",
-          badges: ["React", "Node.js", "MongoDB"],
-          rating: 5,
-          linkedin: "#",
-          image: "",
-          company: "Tech Startup"
-        },
-        {
-          name: "Rahul Kumar",
-          role: "Frontend Developer",
-          quote: "Being part of the first batch was amazing. The community support and practical learning approach made all the difference.",
-          badges: ["JavaScript", "React", "CSS3"],
-          rating: 5,
-          linkedin: "#",
-          image: "",
-          company: "Digital Agency"
-        }
-      ]);
+      // No fallback - only show real testimonials
+      setFeedbacks([]);
     }
   };
 
