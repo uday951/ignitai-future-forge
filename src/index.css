@@ -82,13 +82,24 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
-  html {
-    scroll-behavior: smooth;
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
   }
 }
 

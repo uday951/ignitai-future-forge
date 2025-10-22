@@ -63,7 +63,7 @@ const AnimatedHero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-black"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-black w-full"
     >
       {/* Mobile App-like Background */}
       <div className="absolute inset-0">
@@ -105,164 +105,244 @@ const AnimatedHero = () => {
         </div>
       </div>
 
-      {/* Mobile App-like Content */}
-      <div className="relative z-10 px-4 max-w-6xl mx-auto">
-        {/* Mobile: App-like Header Card */}
-        <div className="md:hidden mb-8">
-          <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
-                <Flame size={40} className="text-white" />
-              </div>
-              <h1 className="text-2xl font-bold text-white mb-2">IgnitAI</h1>
-              <p className="text-white/80 text-sm mb-4">AI & Full Stack Training</p>
-              <div className="flex justify-center gap-2 mb-4">
-                {["🚀", "💻", "🤖"].map((emoji, i) => (
-                  <span key={i} className="text-lg">{emoji}</span>
-                ))}
+      {/* Mobile: Premium App Experience */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto">
+        <div className="md:hidden px-4 w-full max-w-sm mx-auto">
+          {/* Status Bar Style Header */}
+          <div className="flex justify-between items-center mb-6 text-white/60 text-xs w-full">
+            <div className="flex items-center gap-1">
+              <div className="w-1 h-1 bg-white rounded-full"></div>
+              <div className="w-1 h-1 bg-white rounded-full"></div>
+              <div className="w-1 h-1 bg-white/50 rounded-full"></div>
+              <span className="ml-2">IgnitAI</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <span>100%</span>
+              <div className="w-6 h-3 border border-white/40 rounded-sm">
+                <div className="w-full h-full bg-white/60 rounded-sm"></div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Desktop: Original Animated Logo */}
-        <div className="hidden md:flex mb-8 justify-center">
-          <div className="relative">
-            <div className="p-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-full shadow-2xl animate-pulse">
-              <Flame size={64} className="text-white" />
-            </div>
-            <div className="absolute inset-0 border-4 border-orange-500/30 rounded-full animate-spin" style={{ animationDuration: '8s' }}></div>
-            <div className="absolute inset-2 border-2 border-red-500/20 rounded-full animate-spin" style={{ animationDuration: '6s', animationDirection: 'reverse' }}></div>
-          </div>
-        </div>
-
-        {/* Mobile: Simplified Headline */}
-        <div className="md:hidden text-center mb-8">
-          <h2 className="text-3xl font-bold text-white mb-4 leading-tight">
-            <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
-              Transform Your Future
-            </span>
-          </h2>
-          <p className="text-white/80 text-lg mb-6">Learn AI & Full Stack Development</p>
-        </div>
-
-        {/* Desktop: Typing Animation */}
-        <div className="hidden md:block mb-8">
-          <h1 className="text-5xl md:text-7xl font-bold text-white min-h-[200px] flex items-center justify-center">
-            <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent">
-              {typedText}
-              {isTyping && <span className="animate-pulse">|</span>}
-            </span>
-          </h1>
-        </div>
-
-        {/* Mobile: Feature Cards */}
-        <div className="md:hidden space-y-4 mb-8">
-          {[
-            { icon: "🤖", title: "AI Integration", desc: "Learn cutting-edge AI" },
-            { icon: "💻", title: "Full Stack", desc: "Complete web development" },
-            { icon: "🚀", title: "Live Projects", desc: "Build real applications" }
-          ].map((feature, i) => (
-            <div key={i} className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 active:scale-95 transition-transform duration-200">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl flex items-center justify-center text-xl">
-                  {feature.icon}
-                </div>
-                <div>
-                  <h3 className="text-white font-semibold">{feature.title}</h3>
-                  <p className="text-white/60 text-sm">{feature.desc}</p>
-                </div>
+          {/* Interactive App Icon */}
+          <div className="text-center mb-8">
+            <div className="relative inline-block">
+              <div className="w-24 h-24 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <Flame size={48} className="text-white animate-pulse" />
+                {/* App shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent rounded-3xl"></div>
+              </div>
+              {/* Notification badge */}
+              <div className="absolute -top-1 -right-1 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold animate-bounce">
+                !
               </div>
             </div>
-          ))}
-        </div>
+            <h1 className="text-3xl font-bold text-white mb-2">IgnitAI</h1>
+            <p className="text-white/70 text-sm mb-1">AI & Full Stack Training Platform</p>
+            <div className="flex justify-center items-center gap-2 text-xs text-white/50">
+              <span>⭐ 4.9</span>
+              <span>•</span>
+              <span>Education</span>
+              <span>•</span>
+              <span>Free</span>
+            </div>
+          </div>
 
-        {/* Desktop: Interactive Badges */}
-        <div className="hidden md:block mb-8 space-y-4">
-          <div className="flex justify-center gap-4 text-sm flex-wrap">
+          {/* Interactive Feature Showcase */}
+          <div className="space-y-4 mb-8 w-full">
             {[
-              { icon: <Sparkles size={16} />, text: "AI & Full Stack Training", color: "from-emerald-500 to-teal-500" },
-              { icon: <Code size={16} />, text: "Live Projects", color: "from-blue-500 to-cyan-500" },
-              { icon: <Zap size={16} />, text: "Growing Community", color: "from-purple-500 to-pink-500" }
-            ].map((badge, i) => (
+              { 
+                icon: "🤖", 
+                title: "AI Integration", 
+                desc: "Learn cutting-edge AI technologies",
+                color: "from-purple-500 to-pink-500",
+                badge: "NEW"
+              },
+              { 
+                icon: "💻", 
+                title: "Full Stack Development", 
+                desc: "Complete web development mastery",
+                color: "from-blue-500 to-cyan-500",
+                badge: "POPULAR"
+              },
+              { 
+                icon: "🚀", 
+                title: "Live Projects", 
+                desc: "Build real-world applications",
+                color: "from-green-500 to-emerald-500",
+                badge: "HANDS-ON"
+              }
+            ].map((feature, i) => (
               <div 
-                key={i}
-                className={`bg-gradient-to-r ${badge.color} bg-opacity-20 backdrop-blur-sm text-white px-4 py-2 rounded-full border border-white/20 hover:scale-110 transition-all duration-300 cursor-pointer flex items-center gap-2`}
+                key={i} 
+                className="bg-white/10 backdrop-blur-xl rounded-3xl p-5 border border-white/20 shadow-xl active:scale-95 transition-all duration-300"
+                style={{ animationDelay: `${i * 0.2}s` }}
               >
-                {badge.icon}
-                {badge.text}
+                <div className="flex items-center gap-4">
+                  <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center text-2xl shadow-lg`}>
+                    {feature.icon}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-white font-bold text-lg">{feature.title}</h3>
+                      <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+                        {feature.badge}
+                      </span>
+                    </div>
+                    <p className="text-white/70 text-sm">{feature.desc}</p>
+                    <div className="flex items-center gap-1 mt-2">
+                      {[...Array(5)].map((_, j) => (
+                        <span key={j} className="text-yellow-400 text-xs">⭐</span>
+                      ))}
+                      <span className="text-white/50 text-xs ml-1">(4.9)</span>
+                    </div>
+                  </div>
+                  <ChevronDown className="text-white/40 transform -rotate-90" size={20} />
+                </div>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Mobile: App-like CTA Buttons */}
-        <div className="md:hidden space-y-4 mb-8">
-          <button 
-            onClick={scrollToCourses}
-            className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-6 rounded-2xl shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3"
-          >
-            <Play size={20} />
-            <span>Explore Courses</span>
-            <ArrowRight size={20} />
-          </button>
-          
-          <a
-            href="https://forms.gle/3vFn1MaHd9A9G9iN6"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full"
-          >
-            <button className="w-full bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white font-semibold py-4 px-6 rounded-2xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
-              <Zap size={20} />
-              <span>Join Community</span>
-            </button>
-          </a>
-        </div>
-
-        {/* Desktop: Original CTA Buttons */}
-        <div className="hidden md:flex flex-col sm:flex-row gap-6 justify-center mb-12">
-          <Button 
-            size="lg" 
-            className="group bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-            onClick={scrollToCourses}
-          >
-            <Play className="mr-2 group-hover:animate-pulse" size={20} />
-            Explore Interactive Courses
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-          </Button>
-          
-          <a
-            href="https://forms.gle/3vFn1MaHd9A9G9iN6"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="group border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-4 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+          {/* App Store Style Buttons */}
+          <div className="space-y-4 mb-8 w-full">
+            <button 
+              onClick={scrollToCourses}
+              className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-5 px-6 rounded-3xl shadow-2xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3 relative overflow-hidden"
             >
-              <Zap className="mr-2 group-hover:animate-bounce" size={20} />
-              Join Community
-            </Button>
-          </a>
-        </div>
+              {/* Button shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer"></div>
+              <Play size={24} />
+              <div className="text-center">
+                <div className="text-lg font-bold">GET STARTED</div>
+                <div className="text-xs opacity-90">Explore Courses • Free Trial</div>
+              </div>
+            </button>
+            
+            <a
+              href="https://forms.gle/3vFn1MaHd9A9G9iN6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full"
+            >
+              <button className="w-full bg-white/15 backdrop-blur-xl border-2 border-white/30 text-white font-semibold py-4 px-6 rounded-3xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
+                <Zap size={20} />
+                <div className="text-center">
+                  <div className="font-bold">JOIN COMMUNITY</div>
+                  <div className="text-xs opacity-80">Connect with 20+ learners</div>
+                </div>
+              </button>
+            </a>
+          </div>
 
-        {/* Mobile: Swipe Indicator */}
-        <div className="md:hidden text-center">
-          <div className="inline-flex items-center gap-2 text-white/60 text-sm">
-            <ChevronDown size={20} className="animate-bounce" />
-            <span>Swipe up to explore</span>
+          {/* Stats Carousel */}
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-6 border border-white/20 mb-8 w-full">
+            <div className="text-center mb-4">
+              <h3 className="text-white font-bold text-lg mb-2">🌱 Growing Together</h3>
+              <p className="text-white/70 text-sm">Join our honest startup journey</p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { number: "20+", label: "Students", sublabel: "Completed" },
+                { number: "100%", label: "Success", sublabel: "Rate" },
+                { number: "4+", label: "Projects", sublabel: "Built" },
+                { number: "24/7", label: "Support", sublabel: "Available" }
+              ].map((stat, i) => (
+                <div key={i} className="text-center p-3 bg-white/10 rounded-2xl">
+                  <div className="text-2xl font-bold text-white mb-1">{stat.number}</div>
+                  <div className="text-white/80 text-sm font-medium">{stat.label}</div>
+                  <div className="text-white/50 text-xs">{stat.sublabel}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Swipe Indicator */}
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 text-white/60 text-sm bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
+              <ChevronDown size={16} className="animate-bounce" />
+              <span>Swipe up to explore courses</span>
+            </div>
           </div>
         </div>
 
-        {/* Desktop: Scroll Indicator */}
-        <div className="hidden md:block animate-bounce text-center">
-          <ChevronDown 
-            size={32} 
-            className="text-orange-500 mx-auto cursor-pointer hover:text-orange-400 transition-colors"
-            onClick={scrollToCourses}
-          />
+        {/* Desktop: Original Content */}
+        <div className="hidden md:block px-4">
+          {/* Desktop: Original Animated Logo */}
+          <div className="flex mb-8 justify-center">
+            <div className="relative">
+              <div className="p-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-full shadow-2xl animate-pulse">
+                <Flame size={64} className="text-white" />
+              </div>
+              <div className="absolute inset-0 border-4 border-orange-500/30 rounded-full animate-spin" style={{ animationDuration: '8s' }}></div>
+              <div className="absolute inset-2 border-2 border-red-500/20 rounded-full animate-spin" style={{ animationDuration: '6s', animationDirection: 'reverse' }}></div>
+            </div>
+          </div>
+
+          {/* Desktop: Typing Animation */}
+          <div className="mb-8">
+            <h1 className="text-5xl md:text-7xl font-bold text-white min-h-[200px] flex items-center justify-center">
+              <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent">
+                {typedText}
+                {isTyping && <span className="animate-pulse">|</span>}
+              </span>
+            </h1>
+          </div>
+
+          {/* Desktop: Interactive Badges */}
+          <div className="mb-8 space-y-4">
+            <div className="flex justify-center gap-4 text-sm flex-wrap">
+              {[
+                { icon: <Sparkles size={16} />, text: "AI & Full Stack Training", color: "from-emerald-500 to-teal-500" },
+                { icon: <Code size={16} />, text: "Live Projects", color: "from-blue-500 to-cyan-500" },
+                { icon: <Zap size={16} />, text: "Growing Community", color: "from-purple-500 to-pink-500" }
+              ].map((badge, i) => (
+                <div 
+                  key={i}
+                  className={`bg-gradient-to-r ${badge.color} bg-opacity-20 backdrop-blur-sm text-white px-4 py-2 rounded-full border border-white/20 hover:scale-110 transition-all duration-300 cursor-pointer flex items-center gap-2`}
+                >
+                  {badge.icon}
+                  {badge.text}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Original CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+            <Button 
+              size="lg" 
+              className="group bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              onClick={scrollToCourses}
+            >
+              <Play className="mr-2 group-hover:animate-pulse" size={20} />
+              Explore Interactive Courses
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+            </Button>
+            
+            <a
+              href="https://forms.gle/3vFn1MaHd9A9G9iN6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="group border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-4 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+              >
+                <Zap className="mr-2 group-hover:animate-bounce" size={20} />
+                Join Community
+              </Button>
+            </a>
+          </div>
+
+          {/* Desktop: Scroll Indicator */}
+          <div className="animate-bounce text-center">
+            <ChevronDown 
+              size={32} 
+              className="text-orange-500 mx-auto cursor-pointer hover:text-orange-400 transition-colors"
+              onClick={scrollToCourses}
+            />
+          </div>
         </div>
       </div>
 
