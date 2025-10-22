@@ -66,9 +66,10 @@ const Hero = () => {
           <Button 
             size="lg" 
             className="flame-gradient hover-glow text-white font-semibold px-8 py-4 text-lg transition-all duration-300"
+            onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
           >
             <Code className="mr-2" size={20} />
-            Explore Courses
+            View Courses & Pricing
           </Button>
           <a
             href="https://forms.gle/3vFn1MaHd9A9G9iN6" // TODO: Replace with actual Google Form URL

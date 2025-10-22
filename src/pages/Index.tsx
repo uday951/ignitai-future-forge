@@ -1,30 +1,34 @@
-import Hero from '@/components/Hero';
+import AnimatedHero from '@/components/AnimatedHero';
 import About from '@/components/About';
-import InternshipDurations from '@/components/InternshipDurations';
+import InteractiveCourseSelector from '@/components/InteractiveCourseSelector';
+import InteractiveSkillsShowcase from '@/components/InteractiveSkillsShowcase';
 import Services from '@/components/Services';
 import Partners from '@/components/Partners';
 import Projects from '@/components/Projects';
-import Testimonials from '@/components/Testimonials';
+import InteractiveTestimonials from '@/components/InteractiveTestimonials';
 import ApplyNow from '@/components/ApplyNow';
 import CertificateVerification from '@/components/CertificateVerification';
 import Footer from '@/components/Footer';
+import FloatingCTA from '@/components/FloatingCTA';
 import AdminUpload from './AdminUpload';
 import ContactDeveloper from '../components/ContactDeveloper';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Hero />
+      <AnimatedHero />
       <About />
-      <InternshipDurations />
+      <InteractiveCourseSelector />
+      <InteractiveSkillsShowcase />
       <Services />
       {/* <Partners /> */}
       <Projects />
-      <Testimonials />
+      <InteractiveTestimonials />
       <ContactDeveloper />
       <ApplyNow />
       <CertificateVerification />
       <Footer />
+      <FloatingCTA />
     </div>
   );
 };

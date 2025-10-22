@@ -100,21 +100,33 @@ const ApplyNow = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-            Apply <span className="flame-gradient bg-clip-text text-transparent">Now</span>
+            Ready to <span className="flame-gradient bg-clip-text text-transparent">Transform</span> Your Career?
           </h2>
-          <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
-            Take the first step towards your AI and Full Stack development career
+          <p className={`text-xl text-gray-300 max-w-3xl mx-auto mb-8 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+            Join our growing community of 20+ students who've completed their journey. Be part of our story!
           </p>
+          <div className={`${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+            <Button 
+              size="lg" 
+              className="flame-gradient hover-glow text-white font-bold px-12 py-4 text-xl transition-all duration-300 mb-4"
+              onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              🌱 Join Our Growing Community - 75% OFF
+            </Button>
+            <p className="text-sm text-gray-400">
+              🌱 Early bird pricing • 💳 EMI available • 🚀 Career guidance
+            </p>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Application Form */}
+          {/* Alternative Options */}
           <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
             <Card className="bg-slate-800/50 border-slate-700">
               <CardHeader>
-                <CardTitle className="text-white text-2xl">Start Your Journey</CardTitle>
+                <CardTitle className="text-white text-2xl">Other Ways to Connect</CardTitle>
                 <CardDescription className="text-gray-300">
-                  Fill out the form below to begin your application process
+                  For internships, partnerships, or general inquiries
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -138,16 +150,16 @@ const ApplyNow = () => {
                     <Input id="phone" className="bg-slate-700 border-slate-600 text-white" placeholder="+91 98765 43210" value={form.phone} onChange={handleChange} />
                   </div>
                   <div>
-                    <Label htmlFor="program" className="text-white">Program Interest</Label>
+                    <Label htmlFor="program" className="text-white">Inquiry Type</Label>
                     <Select value={form.program} onValueChange={v => handleSelect('program', v)}>
                       <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
-                        <SelectValue placeholder="Select a program" />
+                        <SelectValue placeholder="Select inquiry type" />
                       </SelectTrigger>
                       <SelectContent className="bg-slate-700 border-slate-600">
-                        <SelectItem value="fullstack">Full Stack Development</SelectItem>
-                        <SelectItem value="ai">AI & Machine Learning</SelectItem>
-                        <SelectItem value="both">Both Programs</SelectItem>
-                        <SelectItem value="internship">Internship Only</SelectItem>
+                        <SelectItem value="internship">Internship Opportunity</SelectItem>
+                        <SelectItem value="partnership">Business Partnership</SelectItem>
+                        <SelectItem value="consultation">Course Consultation</SelectItem>
+                        <SelectItem value="other">Other Inquiry</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -166,11 +178,11 @@ const ApplyNow = () => {
                     </Select>
                   </div>
                   <div>
-                    <Label htmlFor="motivation" className="text-white">Why do you want to join Ignivance?</Label>
+                    <Label htmlFor="motivation" className="text-white">Message</Label>
                     <Textarea 
                       id="motivation" 
                       className="bg-slate-700 border-slate-600 text-white" 
-                      placeholder="Tell us about your goals and motivation..."
+                      placeholder="Tell us about your inquiry or requirements..."
                       rows={4}
                       value={form.motivation}
                       onChange={handleChange}
@@ -185,7 +197,7 @@ const ApplyNow = () => {
                     </div>
                   </div>
                   <Button className="w-full flame-gradient hover-glow text-white font-semibold py-3" type="submit" disabled={submitting}>
-                    {submitting ? 'Submitting...' : 'Submit Application'}
+                    {submitting ? 'Submitting...' : 'Send Message'}
                   </Button>
                   {success && <div className="text-green-400 text-center">{success}</div>}
                   {error && <div className="text-red-400 text-center">{error}</div>}
@@ -216,27 +228,35 @@ const ApplyNow = () => {
               ))}
             </div>
 
-            {/* Requirements */}
-            <div className="mt-12 bg-slate-800/50 p-6 rounded-xl border border-slate-700">
-              <h4 className="text-xl font-bold mb-4 text-white">What We're Looking For</h4>
+            {/* Course Benefits */}
+            <div className="mt-12 bg-gradient-to-r from-blue-500/10 to-green-500/10 p-6 rounded-xl border border-blue-500/30">
+              <h4 className="text-xl font-bold mb-4 text-white">🌱 Why Join Our Journey?</h4>
               <ul className="space-y-3">
                 <li className="flex items-center text-gray-300">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
-                  Passion for learning and technology
+                  <CheckCircle size={16} className="text-green-400 mr-3" />
+                  Passionate mentors with real industry experience
                 </li>
                 <li className="flex items-center text-gray-300">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
-                  Commitment to complete the program
+                  <CheckCircle size={16} className="text-green-400 mr-3" />
+                  Hands-on projects from day one
                 </li>
                 <li className="flex items-center text-gray-300">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
-                  Basic English communication skills
+                  <CheckCircle size={16} className="text-green-400 mr-3" />
+                  Career guidance and support
                 </li>
                 <li className="flex items-center text-gray-300">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
-                  Willingness to work on real projects
+                  <CheckCircle size={16} className="text-green-400 mr-3" />
+                  Growing community of learners
                 </li>
               </ul>
+              <div className="mt-6">
+                <Button 
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3"
+                  onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  🌱 Join Our Community - 75% OFF
+                </Button>
+              </div>
             </div>
           </div>
         </div>

@@ -30,24 +30,55 @@ const About = () => {
           <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
             About <span className="flame-gradient bg-clip-text text-transparent">Ignivance</span>
           </h2>
-          <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
-            Igniting minds with AI, skills, and real-world projects. We're on a mission to bridge the gap between 
-            education and industry through cutting-edge technology training and practical experience.
+          <p className={`text-xl text-gray-300 max-w-3xl mx-auto mb-8 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+            🚀 A growing startup focused on practical AI & Full Stack training. Our first batch of 20 students successfully completed their journey!
           </p>
+          <div className={`flex justify-center items-center gap-8 text-sm ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+            <div className="flex items-center gap-2 text-green-400">
+              <Award size={16} />
+              <span>MSME Registered</span>
+            </div>
+            <div className="flex items-center gap-2 text-blue-400">
+              <Users size={16} />
+              <span>Growing Community</span>
+            </div>
+            <div className="flex items-center gap-2 text-yellow-400">
+              <Target size={16} />
+              <span>Practical Learning</span>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Story Section */}
           <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-            <h3 className="text-2xl font-bold mb-6 text-white">Our Journey</h3>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Founded with a vision to democratize AI and full-stack development education, Ignivance has grown 
-              from a small startup to a recognized MSME-registered company partnering with industry giants.
-            </p>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Our unique approach combines theoretical knowledge with hands-on experience, ensuring our students 
-              don't just learn—they create, innovate, and solve real-world problems.
-            </p>
+            <h3 className="text-2xl font-bold mb-6 text-white">🌱 Our Growing Journey</h3>
+            <div className="space-y-4 mb-6">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
+                <p className="text-gray-300">
+                  <strong className="text-white">Experienced Mentors:</strong> Learn from passionate developers with industry experience
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
+                <p className="text-gray-300">
+                  <strong className="text-white">Hands-on Learning:</strong> Build real projects and create your portfolio while learning
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
+                <p className="text-gray-300">
+                  <strong className="text-white">Career Guidance:</strong> Get support and guidance for your tech career journey
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
+                <p className="text-gray-300">
+                  <strong className="text-white">Community Support:</strong> Join our growing community of learners and developers
+                </p>
+              </div>
+            </div>
             
             {/* Badges */}
             <div className="flex flex-wrap gap-4">
@@ -69,23 +100,37 @@ const About = () => {
           {/* Stats Section */}
           <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
             <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
-              <h3 className="text-2xl font-bold mb-6 text-white">Impact by Numbers</h3>
-              <div className="grid grid-cols-2 gap-6">
+              <h3 className="text-2xl font-bold mb-6 text-white">📊 Our Honest Journey</h3>
+              <div className="grid grid-cols-2 gap-6 mb-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">20+</div>
-                  <div className="text-gray-400">Students Trained</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">20</div>
+                  <div className="text-gray-300 font-medium">Students Completed</div>
+                  <div className="text-xs text-gray-400">First batch success</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">4</div>
-                  <div className="text-gray-400">Projects Delivered</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">4+</div>
+                  <div className="text-gray-300 font-medium">Projects Built</div>
+                  <div className="text-xs text-gray-400">Real applications</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">100%</div>
-                  <div className="text-gray-400">Placement Rate</div>
+                  <div className="text-gray-300 font-medium">Course Completion</div>
+                  <div className="text-xs text-gray-400">First batch</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">24/7</div>
-                  <div className="text-gray-400">Support</div>
+                  <div className="text-gray-300 font-medium">Support</div>
+                  <div className="text-xs text-gray-400">Community help</div>
+                </div>
+              </div>
+              
+              {/* Honest messaging */}
+              <div className="border-t border-slate-600 pt-6">
+                <div className="text-center">
+                  <p className="text-sm text-gray-300 mb-2">🌱 <strong>We're Growing!</strong></p>
+                  <p className="text-xs text-gray-400">
+                    As a startup, we're building something special. Join us on this exciting journey of learning and growth.
+                  </p>
                 </div>
               </div>
             </div>

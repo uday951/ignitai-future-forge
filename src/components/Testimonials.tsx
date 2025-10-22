@@ -175,25 +175,45 @@ const Testimonials = () => {
           </div>
           {/* Stats Section */}
           <div className={`mt-16 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
-            <div className="bg-slate-800/30 p-8 rounded-2xl border border-slate-700">
-              <h3 className="text-2xl font-bold mb-8 text-center text-white">Student Success Metrics</h3>
-              <div className="grid md:grid-cols-4 gap-6">
+            <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 p-8 rounded-2xl border border-slate-600">
+              <h3 className="text-2xl font-bold mb-8 text-center text-white">🌱 Our Honest Journey</h3>
+              <div className="grid md:grid-cols-4 gap-6 mb-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">0%</div>
-                  <div className="text-gray-400">Placement Rate</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">20</div>
+                  <div className="text-gray-300 font-medium">Students Completed</div>
+                  <div className="text-xs text-gray-400">First batch success</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">-</div>
-                  <div className="text-gray-400">Avg. Package</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">4+</div>
+                  <div className="text-gray-300 font-medium">Projects Built</div>
+                  <div className="text-xs text-gray-400">Real applications</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">4.8★</div>
-                  <div className="text-gray-400">Student Rating</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">New</div>
+                  <div className="text-gray-300 font-medium">Startup</div>
+                  <div className="text-xs text-gray-400">Growing together</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">0%</div>
-                  <div className="text-gray-400">Certificate Success</div>
+                  <div className="text-3xl font-bold flame-gradient bg-clip-text text-transparent mb-2">100%</div>
+                  <div className="text-gray-300 font-medium">Completion Rate</div>
+                  <div className="text-xs text-gray-400">First batch</div>
                 </div>
+              </div>
+              
+              {/* Growth CTA */}
+              <div className="text-center border-t border-slate-600 pt-6">
+                <h4 className="text-xl font-bold text-white mb-3">Ready to Grow With Us?</h4>
+                <p className="text-gray-300 mb-6">Join our journey as we build something amazing together. Be part of our growing community!</p>
+                <Button 
+                  size="lg" 
+                  className="flame-gradient hover-glow text-white font-bold px-8 py-4 text-lg transition-all duration-300"
+                  onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  🌱 Join Our Growing Community
+                </Button>
+                <p className="text-sm text-gray-400 mt-3">
+                  🌱 Early bird pricing • 💰 75% discount • 🚀 Growing together
+                </p>
               </div>
             </div>
           </div>
