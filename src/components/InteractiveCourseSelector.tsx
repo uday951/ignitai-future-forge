@@ -95,32 +95,38 @@ export default function InteractiveCourseSelector() {
             <span className="font-semibold">🌱 Course Explorer</span>
           </div>
 
-          <h2 className={`text-4xl md:text-6xl font-bold mb-6 text-white ${inView ? "animate-slide-up" : "opacity-0"}`}>
+          <h2 className={`text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-white ${inView ? "animate-slide-up" : "opacity-0"}`}>
             Choose Your <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">Learning Path</span>
           </h2>
           
-          <p className={`text-xl text-gray-300 max-w-3xl mx-auto mb-8 ${inView ? "animate-fade-in" : "opacity-0"}`}>
-            🚀 Course selection • Hover to explore • Click to enroll
+          <p className={`text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 ${inView ? "animate-fade-in" : "opacity-0"}`}>
+            🚀 Course selection • Tap to explore • Click to enroll
           </p>
         </div>
 
         {/* Interactive Course Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-16">
           {courses.map((course, idx) => (
             <Card
                 key={course.id}
-                className={`relative bg-gradient-to-br ${course.bgGradient} border ${course.borderColor} hover:scale-105 transition-all duration-500 cursor-pointer group overflow-visible ${inView ? "animate-slide-up" : "opacity-0"} ${hoveredCourse === course.id ? 'shadow-2xl' : ''} ${course.popular ? 'scale-110 shadow-2xl shadow-orange-500/25' : ''}`}
+                className={`relative bg-gradient-to-br ${course.bgGradient} border ${course.borderColor} hover:scale-105 transition-all duration-500 cursor-pointer group overflow-visible ${inView ? "animate-slide-up" : "opacity-0"} ${hoveredCourse === course.id ? 'shadow-2xl' : ''} ${course.popular ? 'md:scale-110 shadow-2xl shadow-orange-500/25' : ''}`}
                 style={{ animationDelay: `${idx * 0.2}s` }}
                 onMouseEnter={() => setHoveredCourse(course.id)}
                 onMouseLeave={() => setHoveredCourse(null)}
-                onClick={() => handleCourseSelect(course.id)}
+                onClick={() => {
+                  if (window.innerWidth >= 768) {
+                    handleCourseSelect(course.id);
+                  } else {
+                    window.open(enrollmentLinks[course.name], '_blank');
+                  }
+                }}
               >
 
                 
                 {/* Animated Background Effect */}
                 <div className={`absolute inset-0 bg-gradient-to-r ${course.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
 
-              <CardContent className="p-8 relative z-10">
+              <CardContent className="p-4 md:p-6 lg:p-8 relative z-10">
                 {course.popular && (
                   <div className="absolute top-0 right-0 z-20 overflow-hidden">
                     {/* Corner ribbon */}
@@ -143,34 +149,34 @@ export default function InteractiveCourseSelector() {
                 )}
                 
                 {/* Icon with Animation */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${course.color} flex items-center justify-center mb-6 text-white group-hover:rotate-12 transition-transform duration-500`}>
+                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-r ${course.color} flex items-center justify-center mb-4 md:mb-6 text-white group-hover:rotate-12 transition-transform duration-500`}>
                   {course.icon}
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-3">{course.name}</h3>
-                <p className="text-gray-400 mb-6">{course.description}</p>
+                <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-2 md:mb-3">{course.name}</h3>
+                <p className="text-gray-400 mb-3 md:mb-4 lg:mb-6 text-xs md:text-sm lg:text-base">{course.description}</p>
 
                 {/* Pricing with Animation */}
-                <div className="mb-6">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-3xl font-bold text-white">₹{course.offerPrice}</span>
-                    <span className="text-lg text-gray-400 line-through">₹{course.originalPrice}</span>
+                <div className="mb-3 md:mb-4 lg:mb-6">
+                  <div className="flex items-center gap-2 md:gap-3 mb-2">
+                    <span className="text-xl md:text-2xl lg:text-3xl font-bold text-white">₹{course.offerPrice}</span>
+                    <span className="text-sm md:text-base lg:text-lg text-gray-400 line-through">₹{course.originalPrice}</span>
                   </div>
-                  <div className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-semibold inline-block">
+                  <div className="bg-green-500/20 text-green-400 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold inline-block">
                     75% OFF
                   </div>
                 </div>
 
                 {/* Tech Stack Pills */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {course.techStack.slice(0, 3).map((tech, i) => (
-                    <span key={i} className={`px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${course.color} text-white opacity-80`}>
+                <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4 lg:mb-6">
+                  {course.techStack.slice(0, window.innerWidth < 768 ? 2 : 3).map((tech, i) => (
+                    <span key={i} className={`px-2 md:px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${course.color} text-white opacity-80`}>
                       {tech}
                     </span>
                   ))}
-                  {course.techStack.length > 3 && (
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-gray-600 text-gray-300">
-                      +{course.techStack.length - 3} more
+                  {course.techStack.length > (window.innerWidth < 768 ? 2 : 3) && (
+                    <span className="px-2 md:px-3 py-1 rounded-full text-xs font-medium bg-gray-600 text-gray-300">
+                      +{course.techStack.length - (window.innerWidth < 768 ? 2 : 3)} more
                     </span>
                   )}
                 </div>
@@ -188,10 +194,11 @@ export default function InteractiveCourseSelector() {
                 </div>
 
                 {/* CTA Button */}
-                <Button className={`w-full bg-gradient-to-r ${course.color} hover:shadow-lg text-white font-semibold py-3 transition-all duration-300 group-hover:scale-105`}>
-                  <Calendar className="mr-2" size={18} />
-                  Explore Course
-                  <ArrowRight className="ml-2" size={18} />
+                <Button className={`w-full bg-gradient-to-r ${course.color} hover:shadow-lg text-white font-semibold py-2 md:py-3 text-xs md:text-sm lg:text-base transition-all duration-300 group-hover:scale-105`}>
+                  <Calendar className="mr-1 md:mr-2" size={14} />
+                  <span className="hidden md:inline">Explore Course</span>
+                  <span className="md:hidden">Enroll Now</span>
+                  <ArrowRight className="ml-1 md:ml-2" size={14} />
                 </Button>
 
               </CardContent>
@@ -224,8 +231,8 @@ export default function InteractiveCourseSelector() {
         </div>
       </div>
 
-      {/* Enhanced Modal */}
-      {showModal && selectedCourseData && (
+      {/* Enhanced Modal - Desktop Only */}
+      {showModal && selectedCourseData && window.innerWidth >= 768 && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm animate-fade-in p-4">
           <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-2xl p-8 max-w-2xl w-full border border-slate-600 overflow-hidden">
             {/* Animated Background */}

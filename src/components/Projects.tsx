@@ -33,7 +33,7 @@ const Projects = () => {
       category: "Web",
       image: "☕",
       tech: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
-      live: "https://mj.udayonline.in/",
+      live: "https://cafe.udayonline.in/",
       code: "https://github.com/uday951/cafe-table-order-flow.git"
     }
   ];
