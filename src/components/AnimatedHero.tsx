@@ -111,9 +111,9 @@ const AnimatedHero = () => {
 
 
           {/* Interactive App Icon */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 mt-8">
             <div className="relative inline-block">
-              <div className="w-24 h-24 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-2xl transform hover:scale-105 transition-all duration-300">
                 <Flame size={48} className="text-white animate-pulse" />
                 {/* App shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent rounded-3xl"></div>
@@ -123,7 +123,7 @@ const AnimatedHero = () => {
                 !
               </div>
             </div>
-            <h1 className="text-3xl font-bold text-white mb-2">IgnitAI</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">Ignivance</h1>
             <p className="text-white/70 text-sm mb-1">AI & Full Stack Training Platform</p>
             <div className="flex justify-center items-center gap-2 text-xs text-white/50">
               <span>⭐ 4.9</span>
