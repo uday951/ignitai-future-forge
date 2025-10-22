@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
 import AdminUpload from './AdminUpload';
 import ContactDeveloper from '../components/ContactDeveloper';
+import ShareStorySection from '../components/ShareStorySection';
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       {/* <Partners /> */}
       <Projects />
       <InteractiveTestimonials />
+      <ShareStorySection />
       <ContactDeveloper />
       <ApplyNow />
       <CertificateVerification />

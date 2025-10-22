@@ -185,22 +185,24 @@ const InteractiveTestimonials = () => {
               
               {/* Mobile Share Story Button */}
               <div className="mt-6">
-                <a href="/share-your-story" className="block">
-                  <button className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-6 rounded-3xl shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
-                    ✨ Share Your Success Story
-                  </button>
-                </a>
+                <button 
+                  onClick={() => document.getElementById('share-story')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-6 rounded-3xl shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3"
+                >
+                  ✨ Share Your Success Story
+                </button>
               </div>
             </div>
           ) : (
             <div className="text-center bg-white rounded-3xl p-8 shadow-xl">
               <div className="text-6xl mb-4">🌱</div>
               <p className="text-gray-600 font-semibold mb-4">Be the first to share your success story!</p>
-              <a href="/share-your-story" className="block">
-                <button className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-6 rounded-3xl shadow-xl active:scale-95 transition-all duration-200">
-                  ✨ Share Your Story
-                </button>
-              </a>
+              <button 
+                onClick={() => document.getElementById('share-story')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-6 rounded-3xl shadow-xl active:scale-95 transition-all duration-200"
+              >
+                ✨ Share Your Story
+              </button>
             </div>
           )}
         </div>
@@ -345,15 +347,14 @@ const InteractiveTestimonials = () => {
                 >
                   🌱 Join Our Growing Community
                 </Button>
-                <a href="/share-your-story" className="block">
-                  <Button 
-                    size="lg" 
-                    variant="outline"
-                    className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-4 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm w-full"
-                  >
-                    ✨ Share Your Story
-                  </Button>
-                </a>
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-4 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm w-full"
+                  onClick={() => document.getElementById('share-story')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  ✨ Share Your Story
+                </Button>
               </div>
               <p className="text-sm text-gray-400 mt-3">
                 🌱 Early bird pricing • 💰 75% discount • 🚀 Growing together
