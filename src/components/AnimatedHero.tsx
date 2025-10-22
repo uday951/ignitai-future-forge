@@ -108,21 +108,7 @@ const AnimatedHero = () => {
       {/* Mobile: Premium App Experience */}
       <div className="relative z-10 w-full max-w-6xl mx-auto">
         <div className="md:hidden px-4 w-full max-w-sm mx-auto">
-          {/* Status Bar Style Header */}
-          <div className="flex justify-between items-center mb-6 text-white/60 text-xs w-full">
-            <div className="flex items-center gap-1">
-              <div className="w-1 h-1 bg-white rounded-full"></div>
-              <div className="w-1 h-1 bg-white rounded-full"></div>
-              <div className="w-1 h-1 bg-white/50 rounded-full"></div>
-              <span className="ml-2">IgnitAI</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <span>100%</span>
-              <div className="w-6 h-3 border border-white/40 rounded-sm">
-                <div className="w-full h-full bg-white/60 rounded-sm"></div>
-              </div>
-            </div>
-          </div>
+
 
           {/* Interactive App Icon */}
           <div className="text-center mb-8">
