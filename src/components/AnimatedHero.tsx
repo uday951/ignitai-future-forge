@@ -63,7 +63,7 @@ const AnimatedHero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-black w-full"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-black w-full transition-colors duration-300"
     >
       {/* Mobile App-like Background */}
       <div className="absolute inset-0">
@@ -123,9 +123,9 @@ const AnimatedHero = () => {
                 !
               </div>
             </div>
-            <h1 className="text-3xl font-bold text-white mb-2">Ignivance</h1>
-            <p className="text-white/70 text-sm mb-1">AI & Full Stack Training Platform</p>
-            <div className="flex justify-center items-center gap-2 text-xs text-white/50">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Ignivance</h1>
+            <p className="text-gray-600 dark:text-white/70 text-sm mb-1">AI & Full Stack Training Platform</p>
+            <div className="flex justify-center items-center gap-2 text-xs text-gray-500 dark:text-white/50">
               <span>⭐ 4.9</span>
               <span>•</span>
               <span>Education</span>
@@ -161,7 +161,7 @@ const AnimatedHero = () => {
             ].map((feature, i) => (
               <div 
                 key={i} 
-                className="bg-white/10 backdrop-blur-xl rounded-3xl p-5 border border-white/20 shadow-xl active:scale-95 transition-all duration-300"
+                className="bg-white dark:bg-white/10 backdrop-blur-xl rounded-3xl p-5 border border-gray-200 dark:border-white/20 shadow-xl active:scale-95 transition-all duration-300"
                 style={{ animationDelay: `${i * 0.2}s` }}
               >
                 <div className="flex items-center gap-4">
@@ -170,20 +170,20 @@ const AnimatedHero = () => {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-white font-bold text-lg">{feature.title}</h3>
+                      <h3 className="text-gray-900 dark:text-white font-bold text-lg">{feature.title}</h3>
                       <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-bold">
                         {feature.badge}
                       </span>
                     </div>
-                    <p className="text-white/70 text-sm">{feature.desc}</p>
+                    <p className="text-gray-600 dark:text-white/70 text-sm">{feature.desc}</p>
                     <div className="flex items-center gap-1 mt-2">
                       {[...Array(5)].map((_, j) => (
                         <span key={j} className="text-yellow-400 text-xs">⭐</span>
                       ))}
-                      <span className="text-white/50 text-xs ml-1">(4.9)</span>
+                      <span className="text-gray-500 dark:text-white/50 text-xs ml-1">(4.9)</span>
                     </div>
                   </div>
-                  <ChevronDown className="text-white/40 transform -rotate-90" size={20} />
+                  <ChevronDown className="text-gray-400 dark:text-white/40 transform -rotate-90" size={20} />
                 </div>
               </div>
             ))}
@@ -193,24 +193,24 @@ const AnimatedHero = () => {
           <div className="space-y-4 mb-8 w-full">
             <button 
               onClick={scrollToCourses}
-              className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-5 px-6 rounded-3xl shadow-2xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3 relative overflow-hidden"
+              className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-6 rounded-2xl shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3 relative overflow-hidden"
             >
               {/* Button shine effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer"></div>
-              <Play size={24} />
+              <Play size={20} />
               <div className="text-center">
-                <div className="text-lg font-bold">GET STARTED</div>
+                <div className="text-base font-bold">GET STARTED</div>
                 <div className="text-xs opacity-90">Explore Courses • Free Trial</div>
               </div>
             </button>
             
             <a
-              href="https://forms.gle/3vFn1MaHd9A9G9iN6"
+              href="https://chat.whatsapp.com/GsHEcQ9b73KGbJuTVevYrc"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full"
             >
-              <button className="w-full bg-white/15 backdrop-blur-xl border-2 border-white/30 text-white font-semibold py-4 px-6 rounded-3xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
+              <button className="w-full bg-white/20 dark:bg-white/15 backdrop-blur-xl border-2 border-gray-300 dark:border-white/30 text-gray-900 dark:text-white font-semibold py-4 px-6 rounded-2xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
                 <Zap size={20} />
                 <div className="text-center">
                   <div className="font-bold">JOIN COMMUNITY</div>
@@ -221,10 +221,10 @@ const AnimatedHero = () => {
           </div>
 
           {/* Stats Carousel */}
-          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-6 border border-white/20 mb-8 w-full">
+          <div className="bg-white/90 dark:bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-gray-200 dark:border-white/20 mb-8 w-full">
             <div className="text-center mb-4">
-              <h3 className="text-white font-bold text-lg mb-2">🌱 Growing Together</h3>
-              <p className="text-white/70 text-sm">Join our honest startup journey</p>
+              <h3 className="text-gray-900 dark:text-white font-bold text-lg mb-2">🌱 Growing Together</h3>
+              <p className="text-gray-600 dark:text-white/70 text-sm">Join our honest startup journey</p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
@@ -233,10 +233,10 @@ const AnimatedHero = () => {
                 { number: "4+", label: "Projects", sublabel: "Built" },
                 { number: "24/7", label: "Support", sublabel: "Available" }
               ].map((stat, i) => (
-                <div key={i} className="text-center p-3 bg-white/10 rounded-2xl">
-                  <div className="text-2xl font-bold text-white mb-1">{stat.number}</div>
-                  <div className="text-white/80 text-sm font-medium">{stat.label}</div>
-                  <div className="text-white/50 text-xs">{stat.sublabel}</div>
+                <div key={i} className="text-center p-3 bg-gray-100 dark:bg-white/10 rounded-2xl">
+                  <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{stat.number}</div>
+                  <div className="text-gray-700 dark:text-white/80 text-sm font-medium">{stat.label}</div>
+                  <div className="text-gray-500 dark:text-white/50 text-xs">{stat.sublabel}</div>
                 </div>
               ))}
             </div>
@@ -244,7 +244,7 @@ const AnimatedHero = () => {
 
           {/* Swipe Indicator */}
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 text-white/60 text-sm bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 text-gray-600 dark:text-white/60 text-sm bg-white/80 dark:bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-gray-200 dark:border-white/20">
               <ChevronDown size={16} className="animate-bounce" />
               <span>Swipe up to explore courses</span>
             </div>
@@ -266,7 +266,7 @@ const AnimatedHero = () => {
 
           {/* Desktop: Typing Animation */}
           <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl font-bold text-white min-h-[200px] flex items-center justify-center">
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white min-h-[200px] flex items-center justify-center">
               <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent">
                 {typedText}
                 {isTyping && <span className="animate-pulse">|</span>}
@@ -284,7 +284,7 @@ const AnimatedHero = () => {
               ].map((badge, i) => (
                 <div 
                   key={i}
-                  className={`bg-gradient-to-r ${badge.color} bg-opacity-20 backdrop-blur-sm text-white px-4 py-2 rounded-full border border-white/20 hover:scale-110 transition-all duration-300 cursor-pointer flex items-center gap-2`}
+                  className={`bg-gradient-to-r ${badge.color} bg-opacity-20 backdrop-blur-sm text-gray-700 dark:text-white px-4 py-2 rounded-full border border-gray-200 dark:border-white/20 hover:scale-110 transition-all duration-300 cursor-pointer flex items-center gap-2`}
                 >
                   {badge.icon}
                   {badge.text}
@@ -306,7 +306,7 @@ const AnimatedHero = () => {
             </Button>
             
             <a
-              href="https://forms.gle/3vFn1MaHd9A9G9iN6"
+              href="https://chat.whatsapp.com/GsHEcQ9b73KGbJuTVevYrc"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -78,7 +78,7 @@ export default function InteractiveCourseSelector() {
   const selectedCourseData = courses.find(c => c.id === selectedCourse);
 
   return (
-    <section id="courses" ref={ref} className="py-20 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+    <section id="courses" ref={ref} className="py-20 bg-gray-50 dark:bg-gradient-to-b dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden transition-colors duration-300">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
@@ -90,16 +90,16 @@ export default function InteractiveCourseSelector() {
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className={`inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 text-blue-400 px-6 py-3 rounded-full mb-8 ${inView ? "animate-slide-up" : "opacity-0"}`}>
+          <div className={`inline-flex items-center gap-2 bg-white dark:bg-gradient-to-r dark:from-blue-500/20 dark:to-purple-500/20 border border-gray-200 dark:border-blue-500/30 text-gray-600 dark:text-blue-400 px-6 py-3 rounded-full mb-8 shadow-sm ${inView ? "animate-slide-up" : "opacity-0"}`}>
             <Sparkles size={20} />
-            <span className="font-semibold">🌱 Course Explorer</span>
+            <span className="font-semibold">Course Explorer</span>
           </div>
 
-          <h2 className={`text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-white ${inView ? "animate-slide-up" : "opacity-0"}`}>
+          <h2 className={`text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white ${inView ? "animate-slide-up" : "opacity-0"}`}>
             Choose Your <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">Learning Path</span>
           </h2>
           
-          <p className={`text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 ${inView ? "animate-fade-in" : "opacity-0"}`}>
+          <p className={`text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 ${inView ? "animate-fade-in" : "opacity-0"}`}>
             🚀 Course selection • Tap to explore • Click to enroll
           </p>
         </div>
@@ -111,7 +111,7 @@ export default function InteractiveCourseSelector() {
             {courses.map((course, idx) => (
               <div
                 key={course.id}
-                className={`relative bg-white rounded-3xl shadow-xl overflow-hidden ${inView ? "animate-slide-up" : "opacity-0"} active:scale-95 transition-transform duration-200`}
+                className={`relative bg-white dark:bg-slate-800 rounded-3xl shadow-xl overflow-hidden ${inView ? "animate-slide-up" : "opacity-0"} active:scale-95 transition-transform duration-200`}
                 style={{ animationDelay: `${idx * 0.1}s` }}
                 onClick={() => window.open(enrollmentLinks[course.name], '_blank')}
               >
@@ -134,15 +134,15 @@ export default function InteractiveCourseSelector() {
                 </div>
 
                 {/* Mobile Card Body */}
-                <div className="p-6 bg-white">
+                <div className="p-6 bg-white dark:bg-slate-800">
                   {/* Price Section */}
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-gray-900">₹{course.offerPrice}</span>
-                        <span className="text-lg text-gray-500 line-through">₹{course.originalPrice}</span>
+                        <span className="text-2xl font-bold text-gray-900 dark:text-white">₹{course.offerPrice}</span>
+                        <span className="text-lg text-gray-500 dark:text-gray-400 line-through">₹{course.originalPrice}</span>
                       </div>
-                      <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold inline-block mt-1">
+                      <div className="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 px-3 py-1 rounded-full text-xs font-semibold inline-block mt-1">
                         75% OFF
                       </div>
                     </div>
@@ -155,12 +155,12 @@ export default function InteractiveCourseSelector() {
                   <div className="mb-4">
                     <div className="flex flex-wrap gap-2">
                       {course.techStack.slice(0, 3).map((tech, i) => (
-                        <span key={i} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                        <span key={i} className="bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium">
                           {tech}
                         </span>
                       ))}
                       {course.techStack.length > 3 && (
-                        <span className="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-xs">
+                        <span className="bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-400 px-3 py-1 rounded-full text-xs">
                           +{course.techStack.length - 3}
                         </span>
                       )}
@@ -170,7 +170,7 @@ export default function InteractiveCourseSelector() {
                   {/* Features */}
                   <div className="space-y-2 mb-4">
                     {course.features.slice(0, 3).map((feature, i) => (
-                      <div key={i} className="flex items-center text-gray-600 text-sm">
+                      <div key={i} className="flex items-center text-gray-600 dark:text-gray-300 text-sm">
                         <CheckCircle size={16} className="text-green-500 mr-2 flex-shrink-0" />
                         {feature}
                       </div>
@@ -271,8 +271,8 @@ export default function InteractiveCourseSelector() {
 
         {/* Interactive Stats */}
         <div className={`text-center ${inView ? "animate-fade-in" : "opacity-0"}`}>
-          <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-600">
-            <h3 className="text-2xl font-bold text-white mb-8">🌱 Our Growing Journey</h3>
+          <div className="bg-white dark:bg-gradient-to-r dark:from-slate-800/50 dark:to-slate-700/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-slate-600">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">🌱 Our Growing Journey</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { number: "20", label: "Students Completed", icon: "👥" },
@@ -283,11 +283,11 @@ export default function InteractiveCourseSelector() {
                 <div key={i} className="text-center group cursor-pointer">
                   <div className="text-4xl mb-2 group-hover:scale-110 transition-transform duration-300">{stat.icon}</div>
                   <div className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-1">{stat.number}</div>
-                  <div className="text-gray-400 text-sm">{stat.label}</div>
+                  <div className="text-gray-600 dark:text-gray-400 text-sm">{stat.label}</div>
                 </div>
               ))}
             </div>
-            <p className="text-sm text-gray-400 mt-6">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-6">
               We're honest about being a startup. Join us as we grow together! 🚀
             </p>
           </div>

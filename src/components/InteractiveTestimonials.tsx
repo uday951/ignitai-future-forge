@@ -89,7 +89,7 @@ const InteractiveTestimonials = () => {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-slate-800 via-slate-900 to-black relative overflow-hidden">
+    <section ref={ref} className="py-20 bg-white dark:bg-gradient-to-b dark:from-slate-800 dark:via-slate-900 dark:to-black relative overflow-hidden transition-colors duration-300">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-xl animate-pulse"></div>
@@ -98,10 +98,10 @@ const InteractiveTestimonials = () => {
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
             Student <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">Success Stories</span>
           </h2>
-          <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <p className={`text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
             Real experiences from our growing community of learners
           </p>
         </div>
@@ -121,7 +121,7 @@ const InteractiveTestimonials = () => {
                       key={idx}
                       className="w-full flex-shrink-0 px-2"
                     >
-                      <div className={`bg-white rounded-3xl shadow-xl p-6 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+                      <div className={`bg-white dark:bg-slate-800 rounded-3xl shadow-xl p-6 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
                         {/* Profile Header */}
                         <div className="flex items-center gap-4 mb-4">
                           <div className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center overflow-hidden text-2xl shadow-lg">
@@ -137,7 +137,7 @@ const InteractiveTestimonials = () => {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
-                              <h3 className="text-lg font-bold text-gray-900">{feedback.name}</h3>
+                              <h3 className="text-lg font-bold text-gray-900 dark:text-white">{feedback.name}</h3>
                               {feedback.linkedin && (
                                 <a href={feedback.linkedin} className="text-blue-500" target="_blank" rel="noopener noreferrer">
                                   <Linkedin size={16} />
@@ -158,7 +158,7 @@ const InteractiveTestimonials = () => {
 
                         {/* Quote */}
                         <div className="mb-4">
-                          <p className="text-gray-700 leading-relaxed text-sm italic">
+                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm italic">
                             "{feedback.quote}"
                           </p>
                         </div>
@@ -166,7 +166,7 @@ const InteractiveTestimonials = () => {
                         {/* Skills */}
                         <div className="flex flex-wrap gap-2">
                           {(feedback.badges || []).map((badge, badgeIdx) => (
-                            <span key={badgeIdx} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium">
+                            <span key={badgeIdx} className="bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-xs font-medium">
                               {badge}
                             </span>
                           ))}
@@ -196,19 +196,19 @@ const InteractiveTestimonials = () => {
               <div className="mt-6">
                 <button 
                   onClick={() => document.getElementById('share-story')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-6 rounded-3xl shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3"
+                  className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold py-3 px-4 rounded-2xl shadow-lg active:scale-95 transition-all duration-200 flex items-center justify-center gap-2 text-sm"
                 >
                   ✨ Share Your Success Story
                 </button>
               </div>
             </div>
           ) : (
-            <div className="text-center bg-white rounded-3xl p-8 shadow-xl">
+            <div className="text-center bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl">
               <div className="text-6xl mb-4">🌱</div>
-              <p className="text-gray-600 font-semibold mb-4">Be the first to share your success story!</p>
+              <p className="text-gray-600 dark:text-gray-300 font-semibold mb-4">Be the first to share your success story!</p>
               <button 
                 onClick={() => document.getElementById('share-story')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-6 rounded-3xl shadow-xl active:scale-95 transition-all duration-200"
+                className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold py-3 px-4 rounded-2xl shadow-lg active:scale-95 transition-all duration-200 text-sm"
               >
                 ✨ Share Your Story
               </button>
@@ -220,7 +220,7 @@ const InteractiveTestimonials = () => {
         <div className="hidden md:block">
           {feedbacks.length > 0 ? (
             <div className="relative max-w-4xl mx-auto mb-16">
-              <Card className={`bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border-slate-600 hover:border-orange-500/50 transition-all duration-500 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+              <Card className={`bg-white dark:bg-gradient-to-br dark:from-slate-800/80 dark:to-slate-900/80 backdrop-blur-sm border border-gray-200 dark:border-slate-600 hover:border-orange-500/50 transition-all duration-500 shadow-lg ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
                 <CardContent className="p-12">
                   <div className="flex items-start gap-6 mb-8">
                     <div className="w-20 h-20 rounded-full bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center overflow-hidden text-4xl shadow-xl">
@@ -236,15 +236,15 @@ const InteractiveTestimonials = () => {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-2xl font-bold text-white">{feedbacks[currentSlide]?.name}</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{feedbacks[currentSlide]?.name}</h3>
                         {feedbacks[currentSlide]?.linkedin && (
                           <a href={feedbacks[currentSlide].linkedin} className="text-blue-400 hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer">
                             <Linkedin size={20} />
                           </a>
                         )}
                       </div>
-                      <p className="text-orange-400 font-semibold text-lg">{feedbacks[currentSlide]?.role}</p>
-                      {feedbacks[currentSlide]?.company && <p className="text-gray-400">{feedbacks[currentSlide].company}</p>}
+                      <p className="text-orange-600 dark:text-orange-400 font-semibold text-lg">{feedbacks[currentSlide]?.role}</p>
+                      {feedbacks[currentSlide]?.company && <p className="text-gray-600 dark:text-gray-400">{feedbacks[currentSlide].company}</p>}
                     </div>
                   </div>
 
@@ -256,14 +256,14 @@ const InteractiveTestimonials = () => {
 
                   <div className="relative mb-8">
                     <Quote className="absolute -top-4 -left-4 text-orange-500/30" size={32} />
-                    <p className="text-gray-300 leading-relaxed text-lg pl-8 italic">
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg pl-8 italic">
                       "{feedbacks[currentSlide]?.quote}"
                     </p>
                   </div>
 
                   <div className="flex flex-wrap gap-3">
                     {(feedbacks[currentSlide]?.badges || []).map((badge, idx) => (
-                      <span key={idx} className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium border border-emerald-500/30">
+                      <span key={idx} className="bg-emerald-50 dark:bg-gradient-to-r dark:from-emerald-500/20 dark:to-teal-500/20 text-emerald-700 dark:text-emerald-400 px-4 py-2 rounded-full text-sm font-medium border border-emerald-200 dark:border-emerald-500/30">
                         {badge}
                       </span>
                     ))}
@@ -325,8 +325,8 @@ const InteractiveTestimonials = () => {
 
         {/* Interactive Stats */}
         <div className={`${inView ? 'animate-fade-in' : 'opacity-0'}`}>
-          <div className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-600">
-            <h3 className="text-2xl font-bold mb-8 text-center text-white">🌱 Our Honest Journey</h3>
+          <div className="bg-white dark:bg-gradient-to-r dark:from-slate-800/50 dark:to-slate-700/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-slate-600 shadow-lg">
+            <h3 className="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white">🌱 Our Honest Journey</h3>
             <div className="grid md:grid-cols-4 gap-8 mb-8">
               {[
                 { number: "20", label: "Students Completed", desc: "First batch success", color: "from-blue-500 to-cyan-500" },
@@ -338,34 +338,34 @@ const InteractiveTestimonials = () => {
                   <div className={`text-3xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}>
                     {stat.number}
                   </div>
-                  <div className="text-gray-300 font-medium mb-1">{stat.label}</div>
-                  <div className="text-xs text-gray-400">{stat.desc}</div>
+                  <div className="text-gray-700 dark:text-gray-300 font-medium mb-1">{stat.label}</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">{stat.desc}</div>
                 </div>
               ))}
             </div>
             
             {/* Growth CTA */}
-            <div className="text-center border-t border-slate-600 pt-8">
-              <h4 className="text-xl font-bold text-white mb-3">Ready to Grow With Us?</h4>
-              <p className="text-gray-300 mb-6">Join our journey as we build something amazing together!</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
+            <div className="text-center border-t border-gray-200 dark:border-slate-600 pt-8">
+              <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Ready to Grow With Us?</h4>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">Join our journey as we build something amazing together!</p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
                 <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                  size="sm" 
+                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold px-6 py-2 text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl"
                   onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   🌱 Join Our Growing Community
                 </Button>
                 <Button 
-                  size="lg" 
+                  size="sm" 
                   variant="outline"
-                  className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-4 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm w-full"
+                  className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-2 text-sm transition-all duration-300 hover:scale-105 backdrop-blur-sm"
                   onClick={() => document.getElementById('share-story')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   ✨ Share Your Story
                 </Button>
               </div>
-              <p className="text-sm text-gray-400 mt-3">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-3">
                 🌱 Early bird pricing • 💰 75% discount • 🚀 Growing together
               </p>
             </div>

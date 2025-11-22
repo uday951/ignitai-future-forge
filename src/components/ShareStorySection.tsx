@@ -48,14 +48,14 @@ const ShareStorySection = () => {
 
   if (submitted) {
     return (
-      <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+      <section className="py-20 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-800 dark:to-slate-900">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="bg-white rounded-3xl p-8 shadow-xl">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Star className="w-8 h-8 text-green-600 fill-current" />
+          <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl">
+            <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Star className="w-8 h-8 text-green-600 dark:text-green-400 fill-current" />
             </div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-2">Thank You! 🎉</h2>
-            <p className="text-gray-600 text-lg">Your story has been shared successfully and will appear in testimonials!</p>
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">Thank You! 🎉</h2>
+            <p className="text-gray-600 dark:text-gray-300 text-lg">Your story has been shared successfully and will appear in testimonials!</p>
           </div>
         </div>
       </section>
@@ -63,23 +63,23 @@ const ShareStorySection = () => {
   }
 
   return (
-    <section id="share-story" className="py-12 bg-gradient-to-b from-slate-800 via-slate-900 to-black">
+    <section id="share-story" className="py-12 bg-gray-50 dark:bg-gradient-to-b dark:from-slate-800 dark:via-slate-900 dark:to-black transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4">
         {/* Mobile Layout */}
         <div className="md:hidden">
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-white mb-2">✨ Share Your Success Story</h2>
-            <p className="text-gray-300 text-sm">Help others by sharing your learning journey</p>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">✨ Share Your Success Story</h2>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">Help others by sharing your learning journey</p>
           </div>
 
-          <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-600 rounded-2xl shadow-xl p-4">
+          <div className="bg-white dark:bg-gradient-to-br dark:from-slate-800/80 dark:to-slate-900/80 backdrop-blur-sm border border-gray-200 dark:border-slate-600 rounded-2xl shadow-xl p-4">
             <form onSubmit={handleSubmit} className="space-y-3">
               <input
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="w-full p-3 bg-slate-700/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-white placeholder-gray-400 text-sm"
+                className="w-full p-3 bg-white dark:bg-slate-700/50 border border-gray-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm"
                 placeholder="Your Name"
               />
               
@@ -88,7 +88,7 @@ const ShareStorySection = () => {
                 required
                 value={formData.role}
                 onChange={(e) => setFormData({...formData, role: e.target.value})}
-                className="w-full p-3 bg-slate-700/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-white placeholder-gray-400 text-sm"
+                className="w-full p-3 bg-white dark:bg-slate-700/50 border border-gray-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm"
                 placeholder="Your Role (e.g., Student, Developer)"
               />
               
@@ -96,12 +96,12 @@ const ShareStorySection = () => {
                 type="text"
                 value={formData.company}
                 onChange={(e) => setFormData({...formData, company: e.target.value})}
-                className="w-full p-3 bg-slate-700/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-white placeholder-gray-400 text-sm"
+                className="w-full p-3 bg-white dark:bg-slate-700/50 border border-gray-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm"
                 placeholder="Company/Institution (Optional)"
               />
 
               <div>
-                <p className="text-xs font-medium text-gray-300 mb-2">Rating</p>
+                <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2">Rating</p>
                 <div className="flex gap-1 justify-center">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <button
@@ -111,7 +111,7 @@ const ShareStorySection = () => {
                       className="p-1"
                     >
                       <Star 
-                        className={`w-6 h-6 ${star <= formData.rating ? 'text-yellow-400 fill-current' : 'text-gray-500'}`}
+                        className={`w-6 h-6 ${star <= formData.rating ? 'text-yellow-400 fill-current' : 'text-gray-400 dark:text-gray-500'}`}
                       />
                     </button>
                   ))}
@@ -123,7 +123,7 @@ const ShareStorySection = () => {
                 rows={3}
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="w-full p-3 bg-slate-700/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none text-white placeholder-gray-400 text-sm"
+                className="w-full p-3 bg-white dark:bg-slate-700/50 border border-gray-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm"
                 placeholder="Share your experience..."
               />
 
@@ -148,50 +148,50 @@ const ShareStorySection = () => {
         {/* Desktop Layout */}
         <div className="hidden md:block">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">✨ Share Your Success Story</h2>
-            <p className="text-xl text-gray-300">Help others by sharing your learning journey with Ignivance</p>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">✨ Share Your Success Story</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">Help others by sharing your learning journey with Ignivance</p>
           </div>
 
-          <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-600 rounded-3xl shadow-2xl p-8">
+          <div className="bg-white dark:bg-gradient-to-br dark:from-slate-800/80 dark:to-slate-900/80 backdrop-blur-sm border border-gray-200 dark:border-slate-600 rounded-3xl shadow-2xl p-8">
             <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-white placeholder-gray-400"
+                    className="w-full p-4 bg-white dark:bg-slate-700/50 border border-gray-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     placeholder="Enter your full name"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Your Role</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Role</label>
                   <input
                     type="text"
                     required
                     value={formData.role}
                     onChange={(e) => setFormData({...formData, role: e.target.value})}
-                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-white placeholder-gray-400"
+                    className="w-full p-4 bg-white dark:bg-slate-700/50 border border-gray-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     placeholder="e.g., Student, Developer, etc."
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Company/Institution</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Company/Institution</label>
                   <input
                     type="text"
                     value={formData.company}
                     onChange={(e) => setFormData({...formData, company: e.target.value})}
-                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-white placeholder-gray-400"
+                    className="w-full p-4 bg-white dark:bg-slate-700/50 border border-gray-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     placeholder="Where do you work/study? (Optional)"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Rating</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Rating</label>
                   <div className="flex gap-1">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <button
@@ -211,13 +211,13 @@ const ShareStorySection = () => {
 
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Your Story</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Story</label>
                   <textarea
                     required
                     rows={8}
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none text-white placeholder-gray-400"
+                    className="w-full p-4 bg-white dark:bg-slate-700/50 border border-gray-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                     placeholder="Share your experience with our courses, what you learned, how it helped you..."
                   />
                 </div>

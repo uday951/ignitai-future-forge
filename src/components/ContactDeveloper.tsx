@@ -41,37 +41,37 @@ const ContactDeveloper = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-950 to-black">
-      <div className="max-w-2xl mx-auto px-4 rounded-2xl shadow-xl border border-slate-800 bg-slate-900/80">
+    <section className="py-20 bg-gray-50 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-950 dark:to-black transition-colors duration-300">
+      <div className="max-w-2xl mx-auto px-4 p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900/80">
         <div className="text-center mb-10">
           <div className="flex justify-center mb-4">
             <span className="p-3 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full shadow-lg">
               <Mail size={32} className="text-white" />
             </span>
           </div>
-          <h2 className="text-4xl font-bold text-white mb-2">Contact Developer Team</h2>
-          <p className="text-gray-300">Have a technical question, feedback, or want to collaborate? Reach out to our developer team directly using the form below.</p>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">Contact Developer Team</h2>
+          <p className="text-gray-600 dark:text-gray-300">Have a technical question, feedback, or want to collaborate? Reach out to our developer team directly using the form below.</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="name" className="text-white">Name</Label>
-              <Input id="name" className="bg-slate-800 border-slate-700 text-white" placeholder="Your Name" value={form.name} onChange={handleChange} required />
+              <Label htmlFor="name" className="text-gray-900 dark:text-white">Name</Label>
+              <Input id="name" className="bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-700 text-gray-900 dark:text-white" placeholder="Your Name" value={form.name} onChange={handleChange} required />
             </div>
             <div>
-              <Label htmlFor="email" className="text-white">Email</Label>
-              <Input id="email" type="email" className="bg-slate-800 border-slate-700 text-white" placeholder="your@email.com" value={form.email} onChange={handleChange} required />
+              <Label htmlFor="email" className="text-gray-900 dark:text-white">Email</Label>
+              <Input id="email" type="email" className="bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-700 text-gray-900 dark:text-white" placeholder="your@email.com" value={form.email} onChange={handleChange} required />
             </div>
           </div>
           <div>
-            <Label htmlFor="subject" className="text-white">Subject</Label>
-            <Input id="subject" className="bg-slate-800 border-slate-700 text-white" placeholder="How can we help?" value={form.subject} onChange={handleChange} required />
+            <Label htmlFor="subject" className="text-gray-900 dark:text-white">Subject</Label>
+            <Input id="subject" className="bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-700 text-gray-900 dark:text-white" placeholder="How can we help?" value={form.subject} onChange={handleChange} required />
           </div>
           <div>
-            <Label htmlFor="message" className="text-white">Message</Label>
+            <Label htmlFor="message" className="text-gray-900 dark:text-white">Message</Label>
             <Textarea 
               id="message" 
-              className="bg-slate-800 border-slate-700 text-white" 
+              className="bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-700 text-gray-900 dark:text-white" 
               placeholder="Describe your request or feedback..."
               rows={5}
               value={form.message}

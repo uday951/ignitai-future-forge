@@ -13,10 +13,12 @@ import FloatingCTA from '@/components/FloatingCTA';
 import AdminUpload from './AdminUpload';
 import ContactDeveloper from '../components/ContactDeveloper';
 import ShareStorySection from '../components/ShareStorySection';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Index = () => {
+  const { theme } = useTheme();
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-50 dark:bg-background transition-colors duration-300">
       <AnimatedHero />
       <About />
       <InteractiveCourseSelector />

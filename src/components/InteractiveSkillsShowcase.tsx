@@ -98,7 +98,7 @@ const InteractiveSkillsShowcase = () => {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-b from-black via-slate-900 to-slate-800 relative overflow-hidden">
+    <section ref={ref} className="py-20 bg-gray-50 dark:bg-gradient-to-b dark:from-black dark:via-slate-900 dark:to-slate-800 relative overflow-hidden transition-colors duration-300">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-20">
         {[...Array(50)].map((_, i) => (
@@ -118,10 +118,10 @@ const InteractiveSkillsShowcase = () => {
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
             Interactive <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">Skills Explorer</span>
           </h2>
-          <p className={`text-xl text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <p className={`text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
             Explore the technologies you'll master in our courses
           </p>
         </div>
@@ -129,7 +129,7 @@ const InteractiveSkillsShowcase = () => {
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Category Selector */}
           <div className={`lg:col-span-1 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-            <h3 className="text-2xl font-bold text-white mb-8">Choose Category</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Choose Category</h3>
             <div className="space-y-4">
               {skills.map((skill, index) => (
                 <button
@@ -138,12 +138,14 @@ const InteractiveSkillsShowcase = () => {
                   className={`w-full p-6 rounded-2xl border-2 transition-all duration-500 text-left group ${
                     selectedCategory === index
                       ? `bg-gradient-to-r ${skill.color} border-transparent text-white shadow-2xl scale-105`
-                      : 'bg-slate-800/50 border-slate-600 text-gray-300 hover:border-slate-500 hover:bg-slate-800/70'
+                      : 'bg-white dark:bg-slate-800/50 border-gray-200 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:border-gray-300 dark:hover:border-slate-500 hover:bg-gray-50 dark:hover:bg-slate-800/70'
                   }`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`p-3 rounded-xl ${selectedCategory === index ? 'bg-white/20' : 'bg-slate-700'} transition-all duration-300 group-hover:scale-110`}>
-                      {skill.icon}
+                    <div className={`p-3 rounded-xl ${selectedCategory === index ? 'bg-white/20' : 'bg-gray-100 dark:bg-slate-700'} transition-all duration-300 group-hover:scale-110`}>
+                      <div className={selectedCategory === index ? 'text-white' : 'text-gray-700 dark:text-gray-300'}>
+                        {skill.icon}
+                      </div>
                     </div>
                     <div>
                       <h4 className="text-xl font-bold">{skill.category}</h4>
@@ -159,14 +161,14 @@ const InteractiveSkillsShowcase = () => {
 
           {/* Skills Display */}
           <div className={`lg:col-span-2 ${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-            <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-slate-600">
+            <div className="bg-white dark:bg-gradient-to-br dark:from-slate-800/80 dark:to-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 dark:border-slate-600 shadow-lg">
               <div className="flex items-center gap-4 mb-8">
                 <div className={`p-4 rounded-2xl bg-gradient-to-r ${skills[selectedCategory].color} text-white`}>
                   {skills[selectedCategory].icon}
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold text-white">{skills[selectedCategory].category} Development</h3>
-                  <p className="text-gray-400">Master these essential technologies</p>
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white">{skills[selectedCategory].category} Development</h3>
+                  <p className="text-gray-600 dark:text-gray-400">Master these essential technologies</p>
                 </div>
               </div>
 
@@ -182,7 +184,7 @@ const InteractiveSkillsShowcase = () => {
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{tech.icon}</span>
-                        <span className="text-lg font-semibold text-white">{tech.name}</span>
+                        <span className="text-lg font-semibold text-gray-900 dark:text-white">{tech.name}</span>
                         {hoveredSkill === tech.name && (
                           <div className="flex gap-1">
                             {[...Array(5)].map((_, i) => (
@@ -195,13 +197,13 @@ const InteractiveSkillsShowcase = () => {
                           </div>
                         )}
                       </div>
-                      <span className="text-sm font-bold text-gray-400">
+                      <span className="text-sm font-bold text-gray-600 dark:text-gray-400">
                         {animatedLevels[tech.name] || 0}%
                       </span>
                     </div>
                     
                     {/* Animated Progress Bar */}
-                    <div className="relative h-3 bg-slate-700 rounded-full overflow-hidden">
+                    <div className="relative h-3 bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden">
                       <div
                         className={`absolute top-0 left-0 h-full bg-gradient-to-r ${skills[selectedCategory].color} rounded-full transition-all duration-1000 ease-out ${
                           hoveredSkill === tech.name ? 'animate-shimmer' : ''
@@ -226,13 +228,13 @@ const InteractiveSkillsShowcase = () => {
               </div>
 
               {/* Course CTA */}
-              <div className="mt-8 p-6 bg-gradient-to-r from-slate-700/50 to-slate-600/50 rounded-2xl border border-slate-500">
+              <div className="mt-8 p-6 bg-gray-50 dark:bg-gradient-to-r dark:from-slate-700/50 dark:to-slate-600/50 rounded-2xl border border-gray-200 dark:border-slate-500">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="text-lg font-bold text-white mb-2">
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                       Master {skills[selectedCategory].category} Development
                     </h4>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">
                       Learn all these technologies in our comprehensive course
                     </p>
                   </div>

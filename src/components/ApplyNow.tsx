@@ -96,13 +96,13 @@ const ApplyNow = () => {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-slate-900">
+    <section ref={ref} className="py-20 bg-gray-50 dark:bg-slate-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
             Ready to <span className="flame-gradient bg-clip-text text-transparent">Transform</span> Your Career?
           </h2>
-          <p className={`text-xl text-gray-300 max-w-3xl mx-auto mb-8 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <p className={`text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
             Join our growing community of 20+ students who've completed their journey. Be part of our story!
           </p>
           <div className={`${inView ? 'animate-fade-in' : 'opacity-0'}`}>
@@ -122,10 +122,10 @@ const ApplyNow = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Alternative Options */}
           <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-            <Card className="bg-slate-800/50 border-slate-700">
+            <Card className="bg-white dark:bg-slate-800/50 border-gray-200 dark:border-slate-700">
               <CardHeader>
-                <CardTitle className="text-white text-2xl">Other Ways to Connect</CardTitle>
-                <CardDescription className="text-gray-300">
+                <CardTitle className="text-gray-900 dark:text-white text-2xl">Other Ways to Connect</CardTitle>
+                <CardDescription className="text-gray-600 dark:text-gray-300">
                   For internships, partnerships, or general inquiries
                 </CardDescription>
               </CardHeader>
@@ -133,29 +133,29 @@ const ApplyNow = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="firstName" className="text-white">First Name</Label>
-                      <Input id="firstName" className="bg-slate-700 border-slate-600 text-white" placeholder="John" value={form.firstName} onChange={handleChange} />
+                      <Label htmlFor="firstName" className="text-gray-900 dark:text-white">First Name</Label>
+                      <Input id="firstName" className="bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white" placeholder="John" value={form.firstName} onChange={handleChange} />
                     </div>
                     <div>
-                      <Label htmlFor="lastName" className="text-white">Last Name</Label>
-                      <Input id="lastName" className="bg-slate-700 border-slate-600 text-white" placeholder="Doe" value={form.lastName} onChange={handleChange} />
+                      <Label htmlFor="lastName" className="text-gray-900 dark:text-white">Last Name</Label>
+                      <Input id="lastName" className="bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white" placeholder="Doe" value={form.lastName} onChange={handleChange} />
                     </div>
                   </div>
                   <div>
-                    <Label htmlFor="email" className="text-white">Email Address</Label>
-                    <Input id="email" type="email" className="bg-slate-700 border-slate-600 text-white" placeholder="john@example.com" value={form.email} onChange={handleChange} />
+                    <Label htmlFor="email" className="text-gray-900 dark:text-white">Email Address</Label>
+                    <Input id="email" type="email" className="bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white" placeholder="john@example.com" value={form.email} onChange={handleChange} />
                   </div>
                   <div>
-                    <Label htmlFor="phone" className="text-white">Phone Number</Label>
-                    <Input id="phone" className="bg-slate-700 border-slate-600 text-white" placeholder="+91 98765 43210" value={form.phone} onChange={handleChange} />
+                    <Label htmlFor="phone" className="text-gray-900 dark:text-white">Phone Number</Label>
+                    <Input id="phone" className="bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white" placeholder="+91 98765 43210" value={form.phone} onChange={handleChange} />
                   </div>
                   <div>
-                    <Label htmlFor="program" className="text-white">Inquiry Type</Label>
+                    <Label htmlFor="program" className="text-gray-900 dark:text-white">Inquiry Type</Label>
                     <Select value={form.program} onValueChange={v => handleSelect('program', v)}>
-                      <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                      <SelectTrigger className="bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white">
                         <SelectValue placeholder="Select inquiry type" />
                       </SelectTrigger>
-                      <SelectContent className="bg-slate-700 border-slate-600">
+                      <SelectContent className="bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-600">
                         <SelectItem value="internship">Internship Opportunity</SelectItem>
                         <SelectItem value="partnership">Business Partnership</SelectItem>
                         <SelectItem value="consultation">Course Consultation</SelectItem>
@@ -164,12 +164,12 @@ const ApplyNow = () => {
                     </Select>
                   </div>
                   <div>
-                    <Label htmlFor="experience" className="text-white">Programming Experience</Label>
+                    <Label htmlFor="experience" className="text-gray-900 dark:text-white">Programming Experience</Label>
                     <Select value={form.experience} onValueChange={v => handleSelect('experience', v)}>
-                      <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                      <SelectTrigger className="bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white">
                         <SelectValue placeholder="Select your experience level" />
                       </SelectTrigger>
-                      <SelectContent className="bg-slate-700 border-slate-600">
+                      <SelectContent className="bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-600">
                         <SelectItem value="beginner">Complete Beginner</SelectItem>
                         <SelectItem value="some">Some Experience</SelectItem>
                         <SelectItem value="intermediate">Intermediate</SelectItem>
@@ -178,10 +178,10 @@ const ApplyNow = () => {
                     </Select>
                   </div>
                   <div>
-                    <Label htmlFor="motivation" className="text-white">Message</Label>
+                    <Label htmlFor="motivation" className="text-gray-900 dark:text-white">Message</Label>
                     <Textarea 
                       id="motivation" 
-                      className="bg-slate-700 border-slate-600 text-white" 
+                      className="bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white" 
                       placeholder="Tell us about your inquiry or requirements..."
                       rows={4}
                       value={form.motivation}
@@ -190,10 +190,10 @@ const ApplyNow = () => {
                   </div>
                   {/* Resume upload */}
                   <div>
-                    <Label htmlFor="resume" className="text-white">Upload Resume (Optional)</Label>
+                    <Label htmlFor="resume" className="text-gray-900 dark:text-white">Upload Resume (Optional)</Label>
                     <div className="mt-2">
-                      <Input id="resume" type="file" accept=".pdf,.doc,.docx" className="bg-slate-700 border-slate-600 text-white" onChange={handleChange} />
-                      {form.resume && <span className="text-gray-300 ml-2">{(form.resume as File).name}</span>}
+                      <Input id="resume" type="file" accept=".pdf,.doc,.docx" className="bg-white dark:bg-slate-700 border-gray-300 dark:border-slate-600 text-gray-900 dark:text-white" onChange={handleChange} />
+                      {form.resume && <span className="text-gray-600 dark:text-gray-300 ml-2">{(form.resume as File).name}</span>}
                     </div>
                   </div>
                   <Button className="w-full flame-gradient hover-glow text-white font-semibold py-3" type="submit" disabled={submitting}>
@@ -208,7 +208,7 @@ const ApplyNow = () => {
 
           {/* Timeline */}
           <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-            <h3 className="text-2xl font-bold mb-8 text-white">Application Process</h3>
+            <h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Application Process</h3>
             <div className="space-y-6">
               {timeline.map((step, index) => (
                 <div key={index} className="flex gap-4">
@@ -219,32 +219,32 @@ const ApplyNow = () => {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h4 className="text-lg font-semibold text-white">{step.title}</h4>
-                      <span className="bg-slate-700 text-gray-300 px-2 py-1 rounded text-sm">{step.duration}</span>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{step.title}</h4>
+                      <span className="bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-sm">{step.duration}</span>
                     </div>
-                    <p className="text-gray-400">{step.description}</p>
+                    <p className="text-gray-600 dark:text-gray-400">{step.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Course Benefits */}
-            <div className="mt-12 bg-gradient-to-r from-blue-500/10 to-green-500/10 p-6 rounded-xl border border-blue-500/30">
-              <h4 className="text-xl font-bold mb-4 text-white">🌱 Why Join Our Journey?</h4>
+            <div className="mt-12 bg-blue-50 dark:bg-gradient-to-r dark:from-blue-500/10 dark:to-green-500/10 p-6 rounded-xl border border-blue-200 dark:border-blue-500/30">
+              <h4 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">🌱 Why Join Our Journey?</h4>
               <ul className="space-y-3">
-                <li className="flex items-center text-gray-300">
+                <li className="flex items-center text-gray-700 dark:text-gray-300">
                   <CheckCircle size={16} className="text-green-400 mr-3" />
                   Passionate mentors with real industry experience
                 </li>
-                <li className="flex items-center text-gray-300">
+                <li className="flex items-center text-gray-700 dark:text-gray-300">
                   <CheckCircle size={16} className="text-green-400 mr-3" />
                   Hands-on projects from day one
                 </li>
-                <li className="flex items-center text-gray-300">
+                <li className="flex items-center text-gray-700 dark:text-gray-300">
                   <CheckCircle size={16} className="text-green-400 mr-3" />
                   Career guidance and support
                 </li>
-                <li className="flex items-center text-gray-300">
+                <li className="flex items-center text-gray-700 dark:text-gray-300">
                   <CheckCircle size={16} className="text-green-400 mr-3" />
                   Growing community of learners
                 </li>
