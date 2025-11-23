@@ -271,7 +271,7 @@ export default function InteractiveCourseSelector() {
 
         {/* Interactive Stats */}
         <div className={`text-center ${inView ? "animate-fade-in" : "opacity-0"}`}>
-          <div className="bg-white dark:bg-gradient-to-r dark:from-slate-800/50 dark:to-slate-700/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-slate-600">
+          <div className="bg-white dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-slate-600">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">🌱 Our Growing Journey</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[

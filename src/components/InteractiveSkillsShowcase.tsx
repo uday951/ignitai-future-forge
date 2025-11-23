@@ -161,7 +161,7 @@ const InteractiveSkillsShowcase = () => {
 
           {/* Skills Display */}
           <div className={`lg:col-span-2 ${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-            <div className="bg-white dark:bg-gradient-to-br dark:from-slate-800/80 dark:to-slate-900/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 dark:border-slate-600 shadow-lg">
+            <div className="bg-white dark:bg-slate-800/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 dark:border-slate-600 shadow-lg">
               <div className="flex items-center gap-4 mb-8">
                 <div className={`p-4 rounded-2xl bg-gradient-to-r ${skills[selectedCategory].color} text-white`}>
                   {skills[selectedCategory].icon}
@@ -228,7 +228,7 @@ const InteractiveSkillsShowcase = () => {
               </div>
 
               {/* Course CTA */}
-              <div className="mt-8 p-6 bg-gray-50 dark:bg-gradient-to-r dark:from-slate-700/50 dark:to-slate-600/50 rounded-2xl border border-gray-200 dark:border-slate-500">
+              <div className="mt-8 p-6 bg-gray-50 dark:bg-slate-700/60 rounded-2xl border border-gray-200 dark:border-slate-500">
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">

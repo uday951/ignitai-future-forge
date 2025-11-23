@@ -229,7 +229,7 @@ const ApplyNow = () => {
             </div>
 
             {/* Course Benefits */}
-            <div className="mt-12 bg-blue-50 dark:bg-gradient-to-r dark:from-blue-500/10 dark:to-green-500/10 p-6 rounded-xl border border-blue-200 dark:border-blue-500/30">
+            <div className="mt-12 bg-blue-50 dark:bg-slate-800/80 p-6 rounded-xl border border-blue-200 dark:border-slate-600">
               <h4 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">🌱 Why Join Our Journey?</h4>
               <ul className="space-y-3">
                 <li className="flex items-center text-gray-700 dark:text-gray-300">
