@@ -1,12 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Flame, Zap, Code, Play, Sparkles, ArrowRight } from 'lucide-react';
+import { ChevronDown, Flame, Zap, Code, Play, Sparkles, ArrowRight, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Quiz from './Quiz';
+
 
 const AnimatedHero = () => {
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const [typedText, setTypedText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [showQuiz, setShowQuiz] = useState(false);
+
   const heroRef = useRef<HTMLDivElement>(null);
 
   const phrases = [
@@ -192,6 +196,19 @@ const AnimatedHero = () => {
           {/* App Store Style Buttons */}
           <div className="space-y-4 mb-8 w-full">
             <button 
+              onClick={() => setShowQuiz(true)}
+              className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-4 px-6 rounded-2xl shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3 relative overflow-hidden mb-3"
+            >
+              {/* Button shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer"></div>
+              <Brain size={20} />
+              <div className="text-center">
+                <div className="text-base font-bold">🧠 AI QUIZ CHALLENGE</div>
+                <div className="text-xs opacity-90">Test HTML/CSS Skills • 2 Rounds</div>
+              </div>
+            </button>
+            
+            <button 
               onClick={scrollToCourses}
               className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-6 rounded-2xl shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center gap-3 relative overflow-hidden"
             >
@@ -199,8 +216,8 @@ const AnimatedHero = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer"></div>
               <Play size={20} />
               <div className="text-center">
-                <div className="text-base font-bold">GET STARTED</div>
-                <div className="text-xs opacity-90">Explore Courses • Free Trial</div>
+                <div className="text-base font-bold">EXPLORE COURSES</div>
+                <div className="text-xs opacity-90">Browse All Programs • Free Trial</div>
               </div>
             </button>
             
@@ -297,11 +314,21 @@ const AnimatedHero = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
             <Button 
               size="lg" 
+              className="group bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              onClick={() => setShowQuiz(true)}
+            >
+              <Brain className="mr-2 group-hover:animate-pulse" size={20} />
+              🧠 AI Quiz Challenge
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+            </Button>
+            
+            <Button 
+              size="lg" 
               className="group bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               onClick={scrollToCourses}
             >
               <Play className="mr-2 group-hover:animate-pulse" size={20} />
-              Explore Interactive Courses
+              Explore Courses
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Button>
             
@@ -344,6 +371,12 @@ const AnimatedHero = () => {
           ))}
         </div>
       </div>
+      
+      {/* AI Quiz Modal */}
+      <Quiz
+        isOpen={showQuiz}
+        onClose={() => setShowQuiz(false)}
+      />
     </section>
   );
 };

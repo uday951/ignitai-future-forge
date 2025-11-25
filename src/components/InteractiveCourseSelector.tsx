@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Code, Database, Layers, Zap, Calendar, CheckCircle, ArrowRight, Sparkles } from "lucide-react";
+import { Code, Database, Layers, Zap, Calendar, CheckCircle, ArrowRight, Sparkles, Brain } from "lucide-react";
+import Quiz from "./Quiz";
+
 
 const courses = [
   {
@@ -59,6 +61,8 @@ export default function InteractiveCourseSelector() {
   const [hoveredCourse, setHoveredCourse] = useState<string | null>(null);
   const [inView, setInView] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showQuiz, setShowQuiz] = useState(false);
+
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -100,8 +104,20 @@ export default function InteractiveCourseSelector() {
           </h2>
           
           <p className={`text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 ${inView ? "animate-fade-in" : "opacity-0"}`}>
-            🚀 Course selection • Tap to explore • Click to enroll
+            🧠 AI Quiz • 🚀 Course selection • Click to enroll
           </p>
+          
+          <div className={`${inView ? "animate-fade-in" : "opacity-0"} mb-8`}>
+            <Button 
+              onClick={() => setShowQuiz(true)}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold px-8 py-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 mr-4"
+            >
+              <Brain className="w-5 h-5 mr-2" />
+              🧠 Take AI Quiz
+            </Button>
+            <span className="text-sm text-gray-500 dark:text-gray-400">Test your HTML/CSS knowledge</span>
+          </div>
+
         </div>
 
         {/* Mobile App-like Course Cards */}
@@ -177,6 +193,18 @@ export default function InteractiveCourseSelector() {
                     ))}
                   </div>
 
+                  {/* Quiz Button */}
+                  <Button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowQuiz(true);
+                    }}
+                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 text-sm rounded-xl shadow-lg active:scale-95 transition-transform duration-200 mb-3"
+                  >
+                    <Brain className="w-4 h-4 mr-2" />
+                    🧠 Take AI Quiz
+                  </Button>
+                  
                   {/* CTA Button */}
                   <Button className={`w-full bg-gradient-to-r ${course.color} text-white font-semibold py-4 text-base rounded-2xl shadow-lg active:scale-95 transition-transform duration-200`}>
                     🚀 Start Learning - Nov 1st
@@ -372,6 +400,12 @@ export default function InteractiveCourseSelector() {
           </div>
         </div>
       )}
+      
+      {/* AI Quiz Modal */}
+      <Quiz
+        isOpen={showQuiz}
+        onClose={() => setShowQuiz(false)}
+      />
     </section>
   );
 }
