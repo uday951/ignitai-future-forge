@@ -12,6 +12,41 @@ const AnimatedHero = () => {
   const [showQuiz, setShowQuiz] = useState(false);
 
   const heroRef = useRef<HTMLDivElement>(null);
+  const splineRef = useRef<HTMLDivElement>(null);
+
+  // Load Spline viewer
+  useEffect(() => {
+    if (!document.querySelector('script[src*="spline-viewer"]')) {
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = 'https://unpkg.com/@splinetool/viewer@1.12.6/build/spline-viewer.js';
+      document.head.appendChild(script);
+    }
+
+    // Hide Spline watermark
+    const style = document.createElement('style');
+    style.textContent = `
+      spline-viewer div[style*="position: absolute"][style*="bottom"],
+      spline-viewer div[style*="position: fixed"][style*="bottom"],
+      spline-viewer div[style*="right"],
+      spline-viewer div[style*="bottom: 0"],
+      spline-viewer div[style*="right: 0"],
+      spline-viewer a[href*="spline"],
+      spline-viewer a[target="_blank"],
+      spline-viewer [class*="watermark"],
+      spline-viewer [id*="watermark"],
+      spline-viewer [class*="logo"],
+      spline-viewer [class*="brand"],
+      spline-viewer > div:last-child,
+      spline-viewer canvas + div {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
 
   const phrases = [
     "Ignite Your Future with AI + Full Stack",
@@ -67,12 +102,36 @@ const AnimatedHero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-black w-full transition-colors duration-300"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-800 w-full transition-colors duration-300 -mb-20 z-10"
     >
-      {/* Mobile App-like Background */}
-      <div className="absolute inset-0">
-        {/* Desktop: Floating particles */}
-        <div className="hidden md:block">
+      {/* Spline 3D Background */}
+      <div ref={splineRef} className="absolute inset-0 opacity-80 -z-10 overflow-hidden">
+        <spline-viewer 
+          url="https://prod.spline.design/N7z0IdtKV7L2Evqa/scene.splinecode"
+          className="w-full h-[130%] -mb-[25%]"
+          style={{ pointerEvents: 'none' }}
+        />
+      </div>
+
+      {/* Bottom Cover - Hide Logo */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-white dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 z-5 flex items-center justify-center border-t border-gray-200 dark:border-slate-700">
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-2 mb-1">
+            <span className="text-2xl animate-bounce">🚀</span>
+            <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent font-bold text-lg">
+              Ready to Transform Your Future?
+            </span>
+          </div>
+          <p className="text-gray-600 dark:text-gray-400 text-sm animate-pulse">
+            Scroll down to discover amazing opportunities
+          </p>
+        </div>
+      </div>
+
+      {/* Mobile App-like Background - TEMPORARILY DISABLED */}
+      <div className="absolute inset-0 hidden">
+        {/* Desktop: Floating particles - TEMPORARILY DISABLED */}
+        <div className="hidden">
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
@@ -87,11 +146,11 @@ const AnimatedHero = () => {
           ))}
         </div>
         
-        {/* Mobile: Clean gradient */}
-        <div className="md:hidden absolute inset-0 bg-gradient-to-b from-orange-500/10 via-transparent to-purple-500/10"></div>
+        {/* Mobile: Clean gradient - TEMPORARILY DISABLED */}
+        <div className="hidden absolute inset-0 bg-gradient-to-b from-orange-500/10 via-transparent to-purple-500/10"></div>
         
-        {/* Desktop: Interactive gradient orbs */}
-        <div className="hidden md:block">
+        {/* Desktop: Interactive gradient orbs - TEMPORARILY DISABLED */}
+        <div className="hidden">
           <div 
             className="absolute w-96 h-96 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl transition-transform duration-1000"
             style={{
@@ -110,8 +169,8 @@ const AnimatedHero = () => {
       </div>
 
       {/* Mobile: Premium App Experience */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto">
-        <div className="md:hidden px-4 w-full max-w-sm mx-auto">
+      <div className="relative z-10 w-full max-w-6xl mx-auto pointer-events-none">
+        <div className="md:hidden px-4 w-full max-w-sm mx-auto pointer-events-auto">
 
 
           {/* Interactive App Icon */}
@@ -269,7 +328,7 @@ const AnimatedHero = () => {
         </div>
 
         {/* Desktop: Original Content */}
-        <div className="hidden md:block px-4">
+        <div className="hidden md:block px-4 pointer-events-auto">
           {/* Desktop: Original Animated Logo */}
           <div className="flex mb-8 justify-center">
             <div className="relative">
@@ -359,8 +418,8 @@ const AnimatedHero = () => {
         </div>
       </div>
 
-      {/* Desktop: Animated Grid Background */}
-      <div className="hidden md:block absolute inset-0 opacity-10">
+      {/* Desktop: Animated Grid Background - TEMPORARILY DISABLED */}
+      <div className="hidden absolute inset-0 opacity-10">
         <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
           {[...Array(144)].map((_, i) => (
             <div 

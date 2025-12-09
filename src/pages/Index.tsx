@@ -13,6 +13,7 @@ import FloatingCTA from '@/components/FloatingCTA';
 import AdminUpload from './AdminUpload';
 import ContactDeveloper from '../components/ContactDeveloper';
 import ShareStorySection from '../components/ShareStorySection';
+
 import { useTheme } from '../contexts/ThemeContext';
 
 const Index = () => {
