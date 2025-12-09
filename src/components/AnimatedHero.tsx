@@ -102,7 +102,7 @@ const AnimatedHero = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-gray-800 w-full transition-colors duration-300 -mb-20 z-10"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900 w-full transition-colors duration-300 -mb-20 z-10"
     >
       {/* Spline 3D Background */}
       <div ref={splineRef} className="absolute inset-0 opacity-80 -z-10 overflow-hidden">
@@ -111,10 +111,12 @@ const AnimatedHero = () => {
           className="w-full h-[130%] -mb-[25%]"
           style={{ pointerEvents: 'none' }}
         />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
 
       {/* Bottom Cover - Hide Logo */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-white dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 z-5 flex items-center justify-center border-t border-gray-200 dark:border-slate-700">
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-900 to-slate-800 z-5 flex items-center justify-center border-t border-slate-700">
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 mb-1">
             <span className="text-2xl animate-bounce">🚀</span>
