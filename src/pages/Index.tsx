@@ -1,38 +1,30 @@
-import AnimatedHero from '@/components/AnimatedHero';
-import About from '@/components/About';
-import InteractiveCourseSelector from '@/components/InteractiveCourseSelector';
+import PremiumHero from '@/components/PremiumHero';
+import PremiumAbout from '@/components/PremiumAbout';
+import PremiumCourses from '@/components/PremiumCourses';
+import PremiumServices from '@/components/PremiumServices';
 import InteractiveSkillsShowcase from '@/components/InteractiveSkillsShowcase';
-import Services from '@/components/Services';
-import Partners from '@/components/Partners';
-import Projects from '@/components/Projects';
-import InteractiveTestimonials from '@/components/InteractiveTestimonials';
+import PremiumProjects from '@/components/PremiumProjects';
+import PremiumTestimonials from '@/components/PremiumTestimonials';
+import ShareStorySection from '../components/ShareStorySection';
 import ApplyNow from '@/components/ApplyNow';
 import CertificateVerification from '@/components/CertificateVerification';
-import Footer from '@/components/Footer';
+import PremiumFooter from '@/components/PremiumFooter';
 import FloatingCTA from '@/components/FloatingCTA';
-import AdminUpload from './AdminUpload';
-import ContactDeveloper from '../components/ContactDeveloper';
-import ShareStorySection from '../components/ShareStorySection';
-
-import { useTheme } from '../contexts/ThemeContext';
 
 const Index = () => {
-  const { theme } = useTheme();
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-background transition-colors duration-300">
-      <AnimatedHero />
-      <About />
-      <InteractiveCourseSelector />
+    <div className="min-h-screen bg-gradient-to-b from-premium-50 via-white to-premium-50 dark:from-premium-900 dark:via-premium-950 dark:to-premium-900 transition-colors duration-300">
+      <PremiumHero />
+      <PremiumAbout />
+      <PremiumCourses />
+      <PremiumServices />
       <InteractiveSkillsShowcase />
-      <Services />
-      {/* <Partners /> */}
-      <Projects />
-      <InteractiveTestimonials />
+      <PremiumProjects />
+      <PremiumTestimonials />
       <ShareStorySection />
-      <ContactDeveloper />
       <ApplyNow />
       <CertificateVerification />
-      <Footer />
+      <PremiumFooter />
       <FloatingCTA />
     </div>
   );

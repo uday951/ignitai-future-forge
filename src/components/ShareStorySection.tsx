@@ -63,7 +63,7 @@ const ShareStorySection = () => {
   }
 
   return (
-    <section id="share-story" className="py-12 bg-gray-50 dark:bg-slate-900 transition-colors duration-300">
+    <section id="share-story" className="py-12 bg-transparent transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4">
         {/* Mobile Layout */}
         <div className="md:hidden">
@@ -72,7 +72,7 @@ const ShareStorySection = () => {
             <p className="text-gray-600 dark:text-gray-300 text-sm">Help others by sharing your learning journey</p>
           </div>
 
-          <div className="bg-white dark:bg-slate-800/90 backdrop-blur-sm border border-gray-200 dark:border-slate-600 rounded-2xl shadow-xl p-4">
+          <div className="bg-white/80 dark:bg-premium-950/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-800/50 rounded-2xl shadow-xl p-4">
             <form onSubmit={handleSubmit} className="space-y-3">
               <input
                 type="text"
@@ -152,7 +152,7 @@ const ShareStorySection = () => {
             <p className="text-xl text-gray-600 dark:text-gray-300">Help others by sharing your learning journey with Ignivance</p>
           </div>
 
-          <div className="bg-white dark:bg-slate-800/90 backdrop-blur-sm border border-gray-200 dark:border-slate-600 rounded-3xl shadow-2xl p-8">
+          <div className="bg-white/80 dark:bg-premium-950/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-800/50 rounded-3xl shadow-2xl p-8">
             <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
               <div className="space-y-6">
                 <div>

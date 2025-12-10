@@ -98,22 +98,8 @@ const InteractiveSkillsShowcase = () => {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-gray-50 dark:bg-gradient-to-b dark:from-black dark:via-slate-900 dark:to-slate-800 relative overflow-hidden transition-colors duration-300">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-20">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          />
-        ))}
-      </div>
+    <section ref={ref} className="py-20 bg-transparent relative overflow-hidden transition-colors duration-300">
+
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Header */}
@@ -138,7 +124,7 @@ const InteractiveSkillsShowcase = () => {
                   className={`w-full p-6 rounded-2xl border-2 transition-all duration-500 text-left group ${
                     selectedCategory === index
                       ? `bg-gradient-to-r ${skill.color} border-transparent text-white shadow-2xl scale-105`
-                      : 'bg-white dark:bg-slate-800/50 border-gray-200 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:border-gray-300 dark:hover:border-slate-500 hover:bg-gray-50 dark:hover:bg-slate-800/70'
+                      : 'bg-white/80 dark:bg-premium-950/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-800/50 text-gray-700 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700'
                   }`}
                 >
                   <div className="flex items-center gap-4">
@@ -161,7 +147,7 @@ const InteractiveSkillsShowcase = () => {
 
           {/* Skills Display */}
           <div className={`lg:col-span-2 ${inView ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-            <div className="bg-white dark:bg-slate-800/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 dark:border-slate-600 shadow-lg">
+            <div className="bg-white/80 dark:bg-premium-950/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 dark:border-gray-800/50 shadow-lg">
               <div className="flex items-center gap-4 mb-8">
                 <div className={`p-4 rounded-2xl bg-gradient-to-r ${skills[selectedCategory].color} text-white`}>
                   {skills[selectedCategory].icon}
