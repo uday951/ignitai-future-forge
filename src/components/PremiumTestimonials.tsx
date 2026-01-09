@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Quote, Linkedin, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import PremiumCard from './premium/PremiumCard';
 import PremiumButton from './premium/PremiumButton';
@@ -15,19 +15,8 @@ type Feedback = {
 };
 
 const PremiumTestimonials = () => {
-  const [inView, setInView] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [feedbacks, setFeedbacks] = useState<Feedback[]>([]);
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setInView(true); },
-      { threshold: 0.1 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
 
   const fetchFeedbacks = async () => {
     try {
@@ -62,16 +51,14 @@ const PremiumTestimonials = () => {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + feedbacks.length) % feedbacks.length);
 
   return (
-    <section ref={ref} className="relative py-32 bg-transparent">
+    <section className="relative py-32 bg-transparent">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className={`text-4xl md:text-6xl font-bold mb-6 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-            <span className="bg-gradient-to-r from-gray-900 to-purple-900 dark:from-white dark:to-purple-200 bg-clip-text text-transparent">
-              Success Stories
-            </span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
+            Success Stories
           </h2>
-          <p className={`text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Real experiences from our growing community
           </p>
         </div>
@@ -79,7 +66,7 @@ const PremiumTestimonials = () => {
         {feedbacks.length > 0 ? (
           <div className="max-w-4xl mx-auto">
             {/* Testimonial Card */}
-            <PremiumCard className={`${inView ? 'animate-scale-in' : 'opacity-0'} mb-8`}>
+            <PremiumCard className="mb-8">
               <div className="flex items-start gap-6 mb-6">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center overflow-hidden flex-shrink-0">
                   {feedbacks[currentSlide]?.image ? (
@@ -176,8 +163,8 @@ const PremiumTestimonials = () => {
         )}
 
         {/* Stats */}
-        <div className={`mt-20 ${inView ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
-          <PremiumCard hover={false} className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-950/20 dark:to-blue-950/20 border-purple-200 dark:border-purple-800">
+        <div className="mt-20">
+          <PremiumCard hover={false} className="bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800">
             <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">Our Growing Journey</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-8">
               {[
@@ -187,7 +174,7 @@ const PremiumTestimonials = () => {
                 { number: "100%", label: "Success" }
               ].map((stat, i) => (
                 <div key={i}>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-2">
+                  <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
                     {stat.number}
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>

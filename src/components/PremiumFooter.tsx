@@ -39,7 +39,7 @@ const PremiumFooter = () => {
   return (
     <footer className="relative bg-transparent border-t border-gray-200/50 dark:border-gray-800/50">
       {/* Contact Section */}
-      <div className="py-20 bg-gradient-to-br from-premium-50 to-purple-50/30 dark:from-premium-950 dark:to-purple-950/10">
+      <div className="py-20 bg-purple-50 dark:bg-purple-950/10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}

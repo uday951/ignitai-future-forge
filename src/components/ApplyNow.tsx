@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { Upload, Calendar, Users, Award, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,9 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const ApplyNow = () => {
-  const [inView, setInView] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
-  const ref = useRef<HTMLElement>(null);
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -24,23 +22,6 @@ const ApplyNow = () => {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const timeline = [
     { icon: <Users className="w-6 h-6" />, title: "Application Review", duration: "1-2 days", description: "We review your application and portfolio" },
@@ -96,24 +77,24 @@ const ApplyNow = () => {
   };
 
   return (
-    <section ref={ref} className="py-20 bg-transparent transition-colors duration-300">
+    <section className="py-20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-            Ready to <span className="flame-gradient bg-clip-text text-transparent">Transform</span> Your Career?
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+            Ready to <span className="text-orange-500">Transform</span> Your Career?
           </h2>
-          <p className={`text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
             Join our growing community of 20+ students who've completed their journey. Be part of our story!
           </p>
-          <div className={`${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <div>
             <Button 
               size="lg" 
-              className="flame-gradient hover-glow text-white font-bold px-12 py-4 text-xl transition-all duration-300 mb-4"
+              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-12 py-4 text-xl"
               onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}
             >
               🌱 Join Our Growing Community - 75% OFF
             </Button>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-400 mt-4">
               🌱 Early bird pricing • 💳 EMI available • 🚀 Career guidance
             </p>
           </div>
@@ -121,7 +102,7 @@ const ApplyNow = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Alternative Options */}
-          <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+          <div>
             <Card className="bg-white dark:bg-slate-800/50 border-gray-200 dark:border-slate-700">
               <CardHeader>
                 <CardTitle className="text-gray-900 dark:text-white text-2xl">Other Ways to Connect</CardTitle>
@@ -196,7 +177,7 @@ const ApplyNow = () => {
                       {form.resume && <span className="text-gray-600 dark:text-gray-300 ml-2">{(form.resume as File).name}</span>}
                     </div>
                   </div>
-                  <Button className="w-full flame-gradient hover-glow text-white font-semibold py-3" type="submit" disabled={submitting}>
+                  <Button className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3" type="submit" disabled={submitting}>
                     {submitting ? 'Submitting...' : 'Send Message'}
                   </Button>
                   {success && <div className="text-green-400 text-center">{success}</div>}
@@ -207,7 +188,7 @@ const ApplyNow = () => {
           </div>
 
           {/* Timeline */}
-          <div className={`${inView ? 'animate-slide-up' : 'opacity-0'}`}>
+          <div>
             <h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Application Process</h3>
             <div className="space-y-6">
               {timeline.map((step, index) => (

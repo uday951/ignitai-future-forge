@@ -1,19 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
 import { BookOpen, Award, Wrench, GraduationCap, MessageCircle } from 'lucide-react';
 import PremiumCard from './premium/PremiumCard';
 
 const PremiumServices = () => {
-  const [inView, setInView] = useState(false);
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setInView(true); },
-      { threshold: 0.1 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
 
   const services = [
     {
@@ -49,17 +37,14 @@ const PremiumServices = () => {
   ];
 
   return (
-    <section ref={ref} className="relative py-32 bg-transparent">
-
+    <section className="relative py-32 bg-transparent">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className={`text-4xl md:text-6xl font-bold mb-6 ${inView ? 'animate-slide-up' : 'opacity-0'}`}>
-            <span className="bg-gradient-to-r from-gray-900 to-purple-900 dark:from-white dark:to-purple-200 bg-clip-text text-transparent">
-              What We Offer
-            </span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
+            What We Offer
           </h2>
-          <p className={`text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Comprehensive programs to transform you into a skilled developer
           </p>
         </div>
@@ -69,10 +54,9 @@ const PremiumServices = () => {
           {services.map((service, i) => (
             <PremiumCard
               key={i}
-              className={`group ${inView ? 'animate-scale-in' : 'opacity-0'}`}
-              style={{ animationDelay: `${i * 0.1}s` }}
+              className="group"
             >
-              <div className="w-14 h-14 mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div className="w-14 h-14 mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
                 <service.icon className="w-7 h-7 text-white" />
               </div>
               
