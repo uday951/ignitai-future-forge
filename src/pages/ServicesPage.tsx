@@ -1,6 +1,7 @@
 import { Code, Palette, Zap, Wrench } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const ServicesPage = () => {
   const services = [
@@ -65,16 +66,22 @@ const ServicesPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Web Development Services - Design, Development & Optimization | Ignivance"
+        description="Full-stack web development services: Custom design, React development, performance optimization & ongoing support. Get a free quote today."
+        keywords="web development services, custom web design, React development, performance optimization, web maintenance"
+        canonical="https://ignivance.com/services"
+      />
       <Navbar />
       
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold text-slate-900 mb-4">
-              Our Services
+              Complete Web Development Services for Modern Businesses
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              End-to-end web development services for modern businesses
+              End-to-end web development from design to deployment and support
             </p>
           </div>
 
