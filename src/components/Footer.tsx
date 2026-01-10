@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -17,10 +18,10 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4">Services</h3>
             <div className="space-y-2 text-gray-400">
-              <a href="/services" className="block hover:text-white">Web Design</a>
-              <a href="/services" className="block hover:text-white">Web Development</a>
-              <a href="/services" className="block hover:text-white">Performance</a>
-              <a href="/services" className="block hover:text-white">Support</a>
+              <Link to="/services" className="block hover:text-white">Web Design</Link>
+              <Link to="/services" className="block hover:text-white">Web Development</Link>
+              <Link to="/services" className="block hover:text-white">Performance</Link>
+              <Link to="/services" className="block hover:text-white">Support</Link>
             </div>
           </div>
 
@@ -28,10 +29,10 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4">Company</h3>
             <div className="space-y-2 text-gray-400">
-              <a href="/about" className="block hover:text-white">About</a>
+              <Link to="/about" className="block hover:text-white">About</Link>
               <a href="/#work" className="block hover:text-white">Work</a>
               <a href="/#process" className="block hover:text-white">Process</a>
-              <a href="/contact" className="block hover:text-white">Contact</a>
+              <Link to="/contact" className="block hover:text-white">Contact</Link>
             </div>
           </div>
 
