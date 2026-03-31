@@ -3,53 +3,59 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-white py-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-slate-900 text-white py-12 md:py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-12">
           {/* Brand */}
-          <div>
-            <div className="text-2xl font-bold mb-4">Ignivance</div>
-            <p className="text-gray-400">
-              Premium web development for modern businesses.
+          <div className="col-span-1 sm:col-span-2 md:col-span-1 border-b border-gray-800 pb-8 sm:border-0 sm:pb-0">
+            <div className="text-2xl font-extrabold mb-4 tracking-tight">Ignivance</div>
+            <p className="text-gray-400 leading-relaxed text-sm lg:text-base">
+              Premium web development for modern businesses. End-to-end digital solutions that scale.
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-bold mb-4">Services</h3>
-            <div className="space-y-2 text-gray-400">
-              <Link to="/services" className="block hover:text-white">Web Design</Link>
-              <Link to="/services" className="block hover:text-white">Web Development</Link>
-              <Link to="/services" className="block hover:text-white">Performance</Link>
-              <Link to="/services" className="block hover:text-white">Support</Link>
+            <h3 className="font-bold mb-5 text-lg">Services</h3>
+            <div className="space-y-3 test-sm text-gray-400">
+              <Link to="/services" className="block hover:text-white transition-colors">Web Design</Link>
+              <Link to="/services" className="block hover:text-white transition-colors">Web Development</Link>
+              <Link to="/services" className="block hover:text-white transition-colors">Performance</Link>
+              <Link to="/services" className="block hover:text-white transition-colors">Growth Support</Link>
             </div>
           </div>
 
           {/* Company */}
           <div>
-            <h3 className="font-bold mb-4">Company</h3>
-            <div className="space-y-2 text-gray-400">
-              <Link to="/about" className="block hover:text-white">About</Link>
-              <a href="/#work" className="block hover:text-white">Work</a>
-              <a href="/#process" className="block hover:text-white">Process</a>
-              <Link to="/contact" className="block hover:text-white">Contact</Link>
+            <h3 className="font-bold mb-5 text-lg">Company</h3>
+            <div className="space-y-3 text-sm text-gray-400">
+              <Link to="/about" className="block hover:text-white transition-colors">About Us</Link>
+              <a href="/#work" className="block hover:text-white transition-colors">Our Work</a>
+              <a href="/#process" className="block hover:text-white transition-colors">Working Process</a>
+              <Link to="/contact" className="block hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
 
           {/* Contact */}
-          <div>
-            <h3 className="font-bold mb-4">Contact</h3>
-            <div className="space-y-3 text-gray-400">
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
+          <div className="col-span-1 sm:col-span-2 md:col-span-1">
+            <h3 className="font-bold mb-5 text-lg">Contact</h3>
+            <div className="space-y-4 text-gray-400">
+              <a href="mailto:ignivance@zohoemail.in" className="flex items-center gap-3 hover:text-white transition-colors group">
+                <div className="bg-slate-800 p-2 rounded-lg group-hover:bg-blue-600 transition-colors">
+                  <Mail className="w-4 h-4" />
+                </div>
                 <span className="text-sm">ignivance@zohoemail.in</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
+              </a>
+              <a href="tel:+917989442841" className="flex items-center gap-3 hover:text-white transition-colors group">
+                <div className="bg-slate-800 p-2 rounded-lg group-hover:bg-blue-600 transition-colors">
+                  <Phone className="w-4 h-4" />
+                </div>
                 <span className="text-sm">+91 7989442841</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
+              </a>
+              <div className="flex items-center gap-3">
+                <div className="bg-slate-800 p-2 rounded-lg">
+                  <MapPin className="w-4 h-4" />
+                </div>
                 <span className="text-sm">Hyderabad, India</span>
               </div>
             </div>
@@ -57,15 +63,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-gray-400 text-sm">
-            © 2025 Ignivance. All rights reserved.
+        <div className="border-t border-gray-800 mt-4 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+          <div className="text-gray-400 text-sm text-center sm:text-left">
+            © {new Date().getFullYear()} Ignivance. All rights reserved.
           </div>
-          <div className="flex gap-4">
-            <a href="https://www.linkedin.com/in/udaykiran-koshika-a51142283/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+          <div className="flex gap-5">
+            <a href="https://www.linkedin.com/in/udaykiran-koshika-a51142283/" target="_blank" rel="noopener noreferrer" className="bg-slate-800 p-3 rounded-full text-gray-400 hover:text-white hover:bg-blue-600 transition-all">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="https://github.com/uday951" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+            <a href="https://github.com/uday951" target="_blank" rel="noopener noreferrer" className="bg-slate-800 p-3 rounded-full text-gray-400 hover:text-white hover:bg-slate-700 transition-all">
               <Github className="w-5 h-5" />
             </a>
           </div>

@@ -6,9 +6,10 @@ interface SEOProps {
   keywords?: string;
   canonical?: string;
   ogType?: string;
+  schema?: Record<string, any>;
 }
 
-const SEO = ({ title, description, keywords, canonical, ogType = 'website' }: SEOProps) => {
+const SEO = ({ title, description, keywords, canonical, ogType = 'website', schema }: SEOProps) => {
   useEffect(() => {
     // Update title
     document.title = title;
@@ -51,7 +52,20 @@ const SEO = ({ title, description, keywords, canonical, ogType = 'website' }: SE
       }
       link.setAttribute('href', canonical);
     }
-  }, [title, description, keywords, canonical, ogType]);
+
+    // Schema.org Structured Data
+    if (schema) {
+      let script = document.querySelector('script[data-type="dynamic-schema"]');
+      if (!script) {
+        script = document.createElement('script');
+        script.setAttribute('type', 'application/ld+json');
+        script.setAttribute('data-type', 'dynamic-schema');
+        document.head.appendChild(script);
+      }
+      script.textContent = JSON.stringify(schema);
+    }
+
+  }, [title, description, keywords, canonical, ogType, schema]);
 
   return null;
 };

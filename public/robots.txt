@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin-upload
 
-Sitemap: https://ignivance.com/sitemap.xml
+Sitemap: https://ignivance.in/sitemap.xml
