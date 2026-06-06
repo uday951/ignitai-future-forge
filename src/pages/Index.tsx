@@ -6,6 +6,7 @@ import Services from '@/components/Services';
 import Process from '@/components/Process';
 import Work from '@/components/Work';
 import WhyUs from '@/components/WhyUs';
+import HomeCareers from '@/components/HomeCareers';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 
@@ -45,6 +46,7 @@ const Index = () => {
       <Process />
       <Work />
       <WhyUs />
+      <HomeCareers />
       <CTA />
       <Footer />
     </div>

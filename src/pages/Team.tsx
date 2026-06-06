@@ -55,20 +55,21 @@ const Team = () => {
       name: "Uday Kiran",
       role: "Founder & CEO",
       bio: "Startup builder and AI-focused product architect with hands-on expertise in full-stack development, automation systems, and scalable SaaS platforms. Driven to bridge the gap between technology and real-world impact through innovation, execution, and continuous learning.",
-      image: "/founder.jpg",
+      image: `${import.meta.env.BASE_URL}founder.jpg`,
       social: {
         linkedin: "https://www.linkedin.com/in/udaykiran-koshika-a51142283/",
-        instagram: "https://www.instagram.com/udaytechx/"
+        instagram: "https://www.instagram.com/udaytechx/",
+        github: "https://github.com/uday951"
       }
     },
     {
-      name: "Sarah Chen",
+      name: "Mahathi Godala",
       role: "Co-Founder",
-      bio: "Former lead engineer at leading tech firms. Sarah architectures scalable, high-performance systems and drives our technical vision forward.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=256&h=256",
+      bio: "Mahathi Godala is a driven tech enthusiast and student leader, passionate about AI, web development, and building impactful communities.",
+      image: `${import.meta.env.BASE_URL}co-founder.jpeg`,
       social: {
-        linkedin: "#",
-        github: "#"
+        linkedin: "https://www.linkedin.com/in/godala-mahathi/",
+        github: "https://github.com/mahathireddy02"
       }
     }
   ];

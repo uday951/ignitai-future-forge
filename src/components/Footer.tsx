@@ -1,23 +1,26 @@
 import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AnalyticsStatus from './AnalyticsStatus';
 
 const Footer = () => {
   return (
     <footer className="bg-slate-900 text-white py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand */}
-          <div className="col-span-1 sm:col-span-2 md:col-span-1 border-b border-gray-800 pb-8 sm:border-0 sm:pb-0">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1 border-b border-gray-800 pb-8 sm:border-0 sm:pb-0">
             <div className="text-2xl font-extrabold mb-4 tracking-tight">Ignivance</div>
             <p className="text-gray-400 leading-relaxed text-sm lg:text-base">
               Premium web development for modern businesses. End-to-end digital solutions that scale.
             </p>
+            {/* Analytics Verification Status Dashboard (Dev mode only) */}
+            {import.meta.env.DEV && <AnalyticsStatus />}
           </div>
 
           {/* Services */}
           <div>
             <h3 className="font-bold mb-5 text-lg">Services</h3>
-            <div className="space-y-3 test-sm text-gray-400">
+            <div className="space-y-3 text-sm text-gray-400">
               <Link to="/services" className="block hover:text-white transition-colors">Web Design</Link>
               <Link to="/services" className="block hover:text-white transition-colors">Web Development</Link>
               <Link to="/services" className="block hover:text-white transition-colors">Performance</Link>
@@ -25,19 +28,31 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Company */}
+          {/* Careers Portal */}
+          <div>
+            <h3 className="font-bold mb-5 text-lg">Careers</h3>
+            <div className="space-y-3 text-sm text-gray-400">
+              <Link to="/jobs" className="block hover:text-white transition-colors font-semibold">Latest Jobs</Link>
+              <Link to="/internships" className="block hover:text-white transition-colors">Internships</Link>
+              <Link to="/off-campus-drives" className="block hover:text-white transition-colors">Off-Campus Drives</Link>
+              <Link to="/government-jobs" className="block hover:text-white transition-colors">Govt Jobs</Link>
+            </div>
+          </div>
+
+          {/* Company & Policies */}
           <div>
             <h3 className="font-bold mb-5 text-lg">Company</h3>
             <div className="space-y-3 text-sm text-gray-400">
-              <Link to="/about" className="block hover:text-white transition-colors">About Us</Link>
-              <a href="/#work" className="block hover:text-white transition-colors">Our Work</a>
-              <a href="/#process" className="block hover:text-white transition-colors">Working Process</a>
-              <Link to="/contact" className="block hover:text-white transition-colors">Contact</Link>
+              <Link to="/about-us" className="block hover:text-white transition-colors">About Us</Link>
+              <Link to="/contact-us" className="block hover:text-white transition-colors">Contact Us</Link>
+              <Link to="/privacy-policy" className="block hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/terms-and-conditions" className="block hover:text-white transition-colors">Terms & Conditions</Link>
+              <Link to="/disclaimer" className="block hover:text-white transition-colors text-amber-400 hover:text-amber-300">Disclaimer</Link>
             </div>
           </div>
 
           {/* Contact */}
-          <div className="col-span-1 sm:col-span-2 md:col-span-1">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
             <h3 className="font-bold mb-5 text-lg">Contact</h3>
             <div className="space-y-4 text-gray-400">
               <a href="mailto:ignivance@zohoemail.in" className="flex items-center gap-3 hover:text-white transition-colors group">

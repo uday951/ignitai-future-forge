@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
+import { trackContactForm } from '@/lib/analytics';
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', project: '', message: '' });
@@ -25,6 +26,7 @@ const Contact = () => {
       });
       
       if (res.ok) {
+        trackContactForm(form.project || 'general_inquiry');
         setSuccess('Message sent! We\'ll respond within 24 hours.');
         setForm({ name: '', email: '', project: '', message: '' });
       } else {
