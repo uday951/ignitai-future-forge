@@ -1,169 +1,292 @@
-import { Code, Palette, Zap, Wrench } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight, CheckCircle2, Terminal, Layers, Sparkles, TrendingUp, Cpu, Compass } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 
-const ServicesPage = () => {
-  const services = [
+const ServicesPage: React.FC = () => {
+  const servicePillars = [
     {
-      icon: Palette,
-      title: 'Web Design',
-      description: 'We create clean, modern interfaces that convert visitors into customers. Every design decision is backed by user experience principles and conversion optimization.',
-      deliverables: [
-        'Custom UI/UX design',
-        'Mobile-responsive layouts',
-        'Brand-aligned visuals',
-        'Interactive prototypes',
-        'Design system documentation'
+      id: 'product-studio',
+      num: '01',
+      title: 'DIGITAL PRODUCT STUDIO & SAAS',
+      statement: 'We engineer digital products from ground-up architecture to high-load production environments.',
+      icon: Layers,
+      overview:
+        'Whether bringing a greenfield SaaS concept to market or rewriting legacy software, our engineering team builds multi-tenant architectures, cloud database schemas, robust APIs, and web/mobile client surfaces.',
+      capabilities: [
+        'Multi-Tenant SaaS Platform Architecture',
+        'Full-Stack Web Applications (React, TypeScript, Node)',
+        'Cross-Platform Mobile Apps (iOS & Android)',
+        'REST, GraphQL & Webhook Microservices',
+        'Stripe & Razorpay Billing Infrastructure',
+        'Zero-Downtime Deployment & CI/CD Pipelines',
       ],
-      process: 'Discovery → Wireframes → Design → Feedback → Refinement'
+      deliverables: [
+        'Complete Typed Production Repository',
+        'Containerized Docker Configuration',
+        'Comprehensive Architecture Blueprints',
+        'Role-Based Authentication & Session Security',
+      ],
+      process: 'Scoping & User Stories → Schema & Entity Design → Rapid Sprint Cycles → Security & Load Audits → Production Release',
+      technology: 'React, TypeScript, Node.js, Express, PostgreSQL, MongoDB, Redis, AWS, Docker',
     },
     {
-      icon: Code,
-      title: 'Web Development',
-      description: 'Fast, scalable websites built with modern technologies. We write clean code that\'s easy to maintain and performs exceptionally well across all devices.',
-      deliverables: [
-        'Custom website development',
-        'CMS integration',
-        'Database setup',
-        'API development',
-        'Quality assurance testing'
+      id: 'applied-ai',
+      num: '02',
+      title: 'APPLIED AI SYSTEMS & AGENTS',
+      statement: 'We build AI systems that become part of the business — not just another chatbot.',
+      icon: Terminal,
+      overview:
+        'We specialize in production-hardened machine intelligence: autonomous agents that execute multi-step backend work, hybrid vector search (RAG) over corporate knowledge bases, and custom operational intelligence tools.',
+      capabilities: [
+        'Autonomous Workflow & Task Agents',
+        'Retrieval-Augmented Generation (RAG) Systems',
+        'Semantic Search & Vector Embeddings',
+        'Document & Invoice Parsing Intelligence',
+        'Internal Operational AI Staff Portals',
+        'Deterministic Hallucination Guardrails & Fallbacks',
       ],
-      process: 'Planning → Development → Testing → Deployment → Support'
+      deliverables: [
+        'Secured Vector Store & Indexing Pipelines',
+        'Agent State Persistence & Execution Engine',
+        'LLM Token Cost & Latency Monitoring Telemetry',
+        'Strict JSON Schema Validation Layers',
+      ],
+      process: 'Pipeline Scoping → Grounding & Vector Setup → Agent Loop Prototyping → Benchmark Stress-Testing → Enterprise Guardrail Lockdown',
+      technology: 'Google Gemini API, Anthropic Claude, OpenAI API, LangChain, Pinecone, pgvector, Python',
     },
     {
-      icon: Zap,
-      title: 'Performance Optimization',
-      description: 'Speed matters. We optimize every aspect of your website to ensure lightning-fast load times, smooth scrolling, and excellent Core Web Vitals scores.',
-      deliverables: [
-        'Speed optimization',
-        'SEO improvements',
-        'Code minification',
-        'Image optimization',
-        'Performance monitoring'
+      id: 'product-design',
+      num: '03',
+      title: 'PRODUCT UI/UX & DESIGN SYSTEMS',
+      statement: 'Where visual clarity meets cognitive efficiency to eliminate user friction.',
+      icon: Sparkles,
+      overview:
+        'Interfaces should respect user attention. We create atomic Figma design systems, wireframe user journeys, and test high-fidelity prototypes that transition directly into clean CSS/Tailwind code without friction.',
+      capabilities: [
+        'Complete Atomic Design Systems & Tokens',
+        'User Flow Mapping & Information Architecture',
+        'Interactive Usability Prototypes in Figma',
+        'Complex SaaS Dashboard & Analytics UX',
+        'Mobile-First Responsive Layout Specifications',
+        'Conversion Heuristic Optimization',
       ],
-      process: 'Audit → Optimize → Test → Monitor → Report'
+      deliverables: [
+        'Complete Scalable Figma Design Library',
+        'Exportable Developer-Ready Design Tokens',
+        'Interactive Usability Demonstration Decks',
+        'WCAG AA Accessibility Contrast Compliance',
+      ],
+      process: 'Information Architecture → Low-Fi Wireframing → Design Token Definition → High-Fi Prototype → Dev Handoff Matrix',
+      technology: 'Figma, Tailwind CSS, Framer Motion, Radix UI, Storybook',
     },
     {
-      icon: Wrench,
-      title: 'Maintenance & Support',
-      description: 'Your website needs ongoing care. We provide regular updates, security patches, content changes, and technical support to keep everything running smoothly.',
-      deliverables: [
-        'Regular updates',
-        'Security monitoring',
-        'Content updates',
-        'Bug fixes',
-        'Technical support'
+      id: 'growth-media',
+      num: '04',
+      title: 'GROWTH ENGINES & PERFORMANCE MEDIA',
+      statement: 'Building the software is half the battle; ensuring customers find and convert is the other.',
+      icon: TrendingUp,
+      overview:
+        'We design, test, and manage customer acquisition funnels across Meta Ads and Google Ads, backed by custom landing pages, pixel telemetry, and server-side conversion tracking.',
+      capabilities: [
+        'Meta Ads Creative Strategy & Campaign Scaling',
+        'Google Ads Search & Performance Max Funnels',
+        'High-Converting Bespoke Landing Page Sprints',
+        'Server-Side Conversion API (CAPI) & Pixel Setup',
+        'Google Analytics 4 & Product Event Telemetry',
+        'Retention, Churn Reduction & Email Automation',
       ],
-      process: 'Monitor → Update → Test → Deploy → Report'
-    }
-  ];
-
-  const technologies = [
-    'React', 'TypeScript', 'Node.js', 'Tailwind CSS',
-    'MongoDB', 'PostgreSQL', 'Express', 'Vite'
+      deliverables: [
+        'Ad Creative Angles & Copy Frameworks',
+        'Conversion-Engineered Modular Landing Pages',
+        'Live Attribution & Event Verification Setup',
+        'Weekly CAC & ROAS Performance Reports',
+      ],
+      process: 'Audience & Offer Audit → Creative Matrix Sprint → Funnel Launch → Signal Verification → Scaling & Budget Optimization',
+      technology: 'Meta Ads Manager, Google Ads, Meta Pixel, GA4, GTM, Server CAPI',
+    },
+    {
+      id: 'tech-advisory',
+      num: '05',
+      title: 'TECHNOLOGY CONSULTING & ARCHITECTURE',
+      statement: 'Senior technical direction and architectural clarity before capital is committed.',
+      icon: Compass,
+      overview:
+        'We serve as fractional CTOs and technical advisors for founders, evaluating tech stacks, unblocking legacy technical bottlenecks, and stress-testing infrastructure for high-scale viability.',
+      capabilities: [
+        'Fractional CTO & Strategic Technical Direction',
+        'MVP Scoping & Roadmap Acceleration Planning',
+        'Architecture Feasibility & Scalability Audits',
+        'Cloud Security, AWS Cost & Latency Optimization',
+        'Third-Party Vendor & API Selection Matrices',
+        'Technical Due Diligence for Investors & Founders',
+      ],
+      deliverables: [
+        'Written System Architecture Evaluation Blueprint',
+        'Prioritized Engineering Backlog & Timeline',
+        'Vendor Cost & Infrastructure Sizing Matrix',
+        'Risk Mitigation & Disaster Recovery Plan',
+      ],
+      process: 'Discovery Audit → Codebase & Schema Inspection → Bottleneck Identification → Executive Recommendation Blueprint',
+      technology: 'Cloud Infrastructure, Microservices, Security Protocols, Distributed Systems',
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      <SEO 
-        title="Web Development Services - Design, Development & Optimization | Ignivance"
-        description="Full-stack web development services: Custom design, React development, performance optimization & ongoing support. Get a free quote today."
-        keywords="web development services, custom web design, React development, performance optimization, web maintenance"
-        canonical="https://ignivance.in/services"
+    <div className="min-h-screen bg-[#F8F8F5] text-[#17181C]">
+      <SEO
+        title="Studio Capabilities & Services — IGNIVANCE"
+        description="Comprehensive technical capabilities of Ignivance Digital Product Studio: Digital Product & SaaS Engineering, Applied AI Systems, UI/UX Design, Growth Media, and Architecture Consulting."
+        canonical="https://ignivance.in/capabilities"
       />
       <Navbar />
-      
-      <main className="py-16 md:py-24 pt-24 md:pt-32">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16 md:mb-24">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
-              AI & Full Stack Development Services
+
+      <main className="pt-32 md:pt-44 pb-24 md:pb-36">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          
+          {/* Header */}
+          <div className="mb-20 md:mb-28 pb-12 border-b border-black/[0.08]">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-ignis-500"></span>
+              <span className="font-mono text-xs uppercase tracking-widest text-[#707175]">
+                COMPREHENSIVE CAPABILITIES MANIFESTO
+              </span>
+            </div>
+            <h1 className="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#0D0E11] tracking-tight uppercase leading-[0.92]">
+              WHAT WE<br />
+              <span className="text-ignis-500">ACTUALLY</span> BUILD.
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              End-to-end custom software, from high-performance web applications to intelligent automation solutions for startups.
+            <p className="mt-8 text-base sm:text-xl text-[#55565A] max-w-3xl leading-relaxed">
+              We do not sell generic hours or cookie-cutter templates. We deliver modular, production-grade product solutions with accountable engineering ownership.
             </p>
           </div>
 
-          {/* Services */}
-          <div className="space-y-16 md:space-y-32">
-            {services.map((service, i) => (
-              <div
-                key={i}
-                className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ${
-                  i % 2 === 1 ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                <div className={`${i % 2 === 1 ? 'md:order-2' : ''} order-2 md:order-none`}>
-                  <div className="w-16 h-16 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                    <service.icon className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-                    {service.title}
-                  </h2>
-                  <p className="text-base md:text-lg text-slate-600 mb-8 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <div className="bg-slate-50 border border-gray-100 rounded-2xl p-6 mb-6">
-                    <h3 className="font-bold text-slate-900 mb-4 uppercase tracking-widest text-sm">What You Get:</h3>
-                    <ul className="space-y-3">
-                      {service.deliverables.map((item, idx) => (
-                        <li key={idx} className="text-slate-700 font-medium flex items-start gap-3">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="text-sm md:text-base text-slate-600 bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-sm inline-block">
-                    <span className="font-bold text-slate-900 uppercase tracking-wider text-xs mr-2">Process:</span>
-                    <span className="font-medium">{service.process}</span>
-                  </div>
-                </div>
-                <div className={`${i % 2 === 1 ? 'md:order-1' : ''} order-1 md:order-none`}>
-                  <div className="w-full aspect-square bg-slate-50 border border-gray-100 rounded-3xl flex items-center justify-center shadow-inner">
-                    <service.icon className="w-32 h-32 md:w-48 md:h-48 text-blue-100/50" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Technologies */}
-          <div className="mt-24 md:mt-32 bg-white border border-gray-100 shadow-xl shadow-slate-200/50 rounded-[2rem] p-8 md:p-16">
-            <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-8 md:mb-12 text-center tracking-tight">
-              Technologies We Use
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
-              {technologies.map((tech, i) => (
-                <div
-                  key={i}
-                  className="bg-slate-50 border border-gray-100 rounded-xl p-4 md:p-6 text-center font-bold text-slate-700 text-sm md:text-base tracking-wide uppercase hover:bg-blue-600 hover:text-white transition-colors duration-300"
+          {/* Deep-dive pillars */}
+          <div className="space-y-24 md:space-y-36">
+            {servicePillars.map((pillar) => {
+              const IconComp = pillar.icon;
+              return (
+                <section
+                  key={pillar.id}
+                  id={pillar.id}
+                  className="scroll-mt-32 p-8 sm:p-12 md:p-16 rounded-3xl bg-white border border-black/[0.08] shadow-sm relative overflow-hidden"
                 >
-                  {tech}
-                </div>
-              ))}
-            </div>
+                  {/* Top Identifier */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-8 mb-8 border-b border-black/[0.06] gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 rounded-xl bg-black/[0.04] text-[#0D0E11]">
+                        <IconComp className="w-5 h-5" />
+                      </div>
+                      <span className="font-mono text-xs uppercase tracking-widest text-[#707175]">
+                        DISCIPLINE {pillar.num} // STUDIO SPEC
+                      </span>
+                    </div>
+
+                    <div className="font-mono text-xs text-ignis-600 font-bold uppercase tracking-wider">
+                      PRODUCTION READY
+                    </div>
+                  </div>
+
+                  {/* Title & Statement */}
+                  <div className="mb-10">
+                    <h2 className="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl text-[#0D0E11] tracking-tight uppercase mb-3">
+                      {pillar.title}
+                    </h2>
+                    <p className="font-serif italic text-lg sm:text-2xl text-[#55565A]">
+                      "{pillar.statement}"
+                    </p>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-base sm:text-lg text-[#17181C] leading-relaxed max-w-4xl mb-12">
+                    {pillar.overview}
+                  </p>
+
+                  {/* Capabilities & Deliverables Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-10 border-t border-black/[0.06] mb-12">
+                    <div>
+                      <span className="font-mono text-xs uppercase tracking-widest text-[#707175] block mb-4">
+                        Capabilities & Engineering Scope
+                      </span>
+                      <ul className="space-y-2.5">
+                        {pillar.capabilities.map((cap, i) => (
+                          <li key={i} className="flex items-start gap-2.5 text-sm text-[#55565A]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-ignis-500 mt-2 shrink-0"></span>
+                            <span>{cap}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <span className="font-mono text-xs uppercase tracking-widest text-[#707175] block mb-4">
+                        Tangible Client Deliverables
+                      </span>
+                      <ul className="space-y-2.5 font-mono text-xs text-[#55565A]">
+                        {pillar.deliverables.map((del, i) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                            <span>{del}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Execution Process & Tech Stack Bar */}
+                  <div className="p-6 rounded-2xl bg-[#F8F8F5] border border-black/[0.06] space-y-4 font-mono text-xs">
+                    <div>
+                      <span className="text-[#0D0E11] font-bold block mb-1">EXECUTION PROCESS:</span>
+                      <span className="text-[#707175]">{pillar.process}</span>
+                    </div>
+                    <div>
+                      <span className="text-[#0D0E11] font-bold block mb-1">CORE TECH STACK:</span>
+                      <span className="text-[#707175]">{pillar.technology}</span>
+                    </div>
+                  </div>
+
+                  {/* Action Link */}
+                  <div className="mt-10 pt-6 border-t border-black/[0.06] flex items-center justify-between">
+                    <span className="font-mono text-xs text-[#707175]">
+                      TYPICAL SPRINT CYCLE: 2 — 8 WEEKS
+                    </span>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 bg-[#0D0E11] hover:bg-ignis-500 text-white px-6 py-3.5 rounded-xl text-xs font-bold tracking-wide uppercase transition-colors"
+                    >
+                      <span>Inquire About {pillar.title}</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </section>
+              );
+            })}
           </div>
 
-          {/* CTA */}
-          <div className="mt-16 md:mt-24 bg-blue-600 rounded-[2rem] p-8 md:p-16 text-center shadow-xl shadow-blue-600/20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-blue-700 w-full h-full transform origin-top-right rotate-12 -translate-y-20 scale-150 rounded-full opacity-30 z-0"></div>
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                Ready to Start Your Project?
-              </h2>
-              <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Let's discuss how we can help bring your vision to life.
+          {/* Bottom Consultation Banner */}
+          <div className="mt-28 p-10 md:p-16 rounded-3xl bg-[#0D0E11] text-white flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <div className="max-w-xl">
+              <span className="font-mono text-xs uppercase tracking-widest text-ignis-400 block mb-3">
+                CUSTOM ROADMAP CONSULTATION
+              </span>
+              <h3 className="font-display font-bold text-3xl sm:text-4xl text-white mb-3">
+                Unsure which capability combination your product needs?
+              </h3>
+              <p className="text-sm text-white/70 leading-relaxed">
+                Book a 30-minute scoping call directly with our technical leads. We’ll audit your requirements and outline a concrete execution architecture.
               </p>
-              <a
-                href="/contact"
-                className="inline-flex justify-center flex-shrink-0 w-full sm:w-auto bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600 transition-all shadow-md"
-              >
-                Get in Touch
-              </a>
             </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-ignis-500 hover:bg-ignis-600 text-white px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider transition-all shrink-0"
+            >
+              <span>Schedule Scoping Session</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
           </div>
+
         </div>
       </main>
 

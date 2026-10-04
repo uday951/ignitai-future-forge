@@ -1,114 +1,109 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 
-const Hero = () => {
+export const Hero: React.FC = () => {
+  const shouldReduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: shouldReduceMotion ? 0 : 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: shouldReduceMotion ? 0.2 : 0.6,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
   return (
-    <section className="bg-slate-50 pt-28 pb-16 md:pt-40 md:pb-24 overflow-hidden relative">
-      <div className="hidden md:block absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-white to-transparent z-0 pointer-events-none"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
-          {/* Left Content */}
-          <div className="w-full max-w-2xl text-center lg:text-left mx-auto lg:mx-0 order-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold mb-6 shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="hidden md:inline-flex animate-ping absolute h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-              </span>
-              Ignivance Automation Platform 2.0 is live
-            </div>
-            
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-[1.1] tracking-tight">
-              Ignivance – <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Development</span> & Automation Company
-            </h1>
-            
-            <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              We build AI automation and full-stack solutions that help businesses eliminate manual work and scale faster.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4">
-              <Link 
-                to="/contact" 
-                className="w-full sm:w-auto flex justify-center items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-xl font-semibold text-base hover:bg-slate-800 transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
-              >
-                Get Started <ArrowRight className="w-4 h-4" />
-              </Link>
-              <button 
-                className="w-full sm:w-auto flex justify-center items-center gap-2 bg-white text-slate-900 border border-gray-200 px-8 py-4 rounded-xl font-semibold text-base hover:bg-gray-50 hover:border-gray-300 transition-all focus:ring-2 focus:ring-gray-200 focus:ring-offset-2 shadow-sm"
-              >
-                <PlayCircle className="w-5 h-5 text-slate-400" /> Book Demo
-              </button>
-            </div>
+    <section
+      className="relative w-full bg-[#FAF8F5] text-[#111111] pt-32 sm:pt-40 lg:pt-48 pb-16 sm:pb-20 px-5 sm:px-8 overflow-hidden flex flex-col justify-center items-center text-center"
+      aria-label="Ignivance Hero"
+    >
+      {/* ── Soft Radial Orange Glow behind the headline ── */}
+      <div
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[540px] lg:w-[680px] h-[280px] sm:h-[400px] rounded-full blur-[90px] sm:blur-[130px]"
+        style={{ backgroundColor: 'rgba(255, 77, 28, 0.08)' }}
+        aria-hidden="true"
+      />
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 max-w-[1200px] mx-auto flex flex-col items-center"
+      >
+        {/* ── 1. Pill badge above the headline ── */}
+        <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E8E4DE] shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF4D1C]" />
+            <span className="font-sans text-xs sm:text-[13px] font-medium text-[#111111] tracking-tight">
+              Digital Product Studio
+            </span>
           </div>
-          
-          {/* Right Content - Dashboard Preview Mockup */}
-          <div className="hidden md:block w-full relative mx-auto max-w-lg lg:max-w-none lg:w-[120%] lg:-mr-12 perspective-1000 order-2 mt-8 lg:mt-0">
-            {/* Soft Glow */}
-            <div className="hidden lg:block absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-indigo-500/20 rounded-[2rem] blur-3xl transform -translate-y-4 translate-x-4"></div>
-            
-            {/* Interface Mockup */}
-            <div className="relative bg-white border border-gray-200/60 rounded-[1.5rem] shadow-xl overflow-hidden backdrop-blur-sm lg:-rotate-y-12 lg:rotate-x-12 lg:scale-105 transition-transform duration-700 hover:rotate-0 hover:scale-100">
-               {/* Browser Bar */}
-               <div className="bg-slate-50 border-b border-gray-100 px-4 py-3 flex items-center gap-2">
-                 <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                 <div className="w-3 h-3 rounded-full bg-amber-400"></div>
-                 <div className="w-3 h-3 rounded-full bg-green-400"></div>
-               </div>
-               {/* Dashboard Content */}
-               <div className="p-4 sm:p-6">
-                 <div className="flex items-center justify-between mb-6 sm:mb-8">
-                    <div>
-                      <div className="h-4 w-24 sm:w-32 bg-slate-200 rounded-md mb-2"></div>
-                      <div className="h-3 w-32 sm:w-48 bg-slate-100 rounded-md"></div>
-                    </div>
-                    <div className="hidden sm:block h-8 w-8 bg-blue-100 rounded-full"></div>
-                 </div>
-                 
-                 <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
-                    <div className="p-3 sm:p-4 border border-gray-100 rounded-xl bg-slate-50">
-                      <div className="h-3 w-12 sm:w-16 bg-slate-200 rounded-md mb-3"></div>
-                      <div className="h-6 sm:h-8 w-16 sm:w-24 bg-slate-300 rounded-md mb-2"></div>
-                      <div className="h-2 w-10 sm:w-12 bg-green-200 rounded-md"></div>
-                    </div>
-                    <div className="p-3 sm:p-4 border border-gray-100 rounded-xl bg-slate-50">
-                      <div className="h-3 w-12 sm:w-16 bg-slate-200 rounded-md mb-3"></div>
-                      <div className="h-6 sm:h-8 w-16 sm:w-24 bg-slate-300 rounded-md mb-2"></div>
-                      <div className="h-2 w-10 sm:w-12 bg-blue-200 rounded-md"></div>
-                    </div>
-                 </div>
-                 
-                 <div className="border border-gray-100 rounded-xl p-3 sm:p-4">
-                    <div className="h-4 w-20 sm:w-24 bg-slate-200 rounded-md mb-5 sm:mb-6"></div>
-                    <div className="space-y-3 sm:space-y-4">
-                       {[...Array(4)].map((_, i) => (
-                         <div key={i} className="flex items-center gap-3 sm:gap-4">
-                           <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md bg-slate-100 flex-shrink-0"></div>
-                           <div className="flex-1">
-                             <div className="h-3 w-1/3 bg-slate-200 rounded-md mb-2"></div>
-                             <div className="h-2 w-full bg-slate-100 rounded-md"></div>
-                           </div>
-                         </div>
-                       ))}
-                    </div>
-                 </div>
-               </div>
-            </div>
-            
-            {/* Floating Element - Visible only on tablets and desktop via 'hidden md:flex' */}
-            <div className="hidden md:flex absolute -bottom-6 -left-6 bg-white border border-gray-100 p-4 rounded-xl shadow-xl items-center gap-4 animate-bounce shrink-0 z-20" style={{ animationDuration: '3s' }}>
-              <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-              </div>
-              <div>
-                <div className="text-sm font-bold text-slate-800">Workflow Deployed</div>
-                <div className="text-xs text-slate-500">Just now</div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
+        </motion.div>
+
+        {/* ── 2. Headline with Fraunces & Instrument Serif Italic ── */}
+        <motion.h1
+          variants={itemVariants}
+          className="font-headline font-semibold text-[#111111] tracking-[-0.02em] leading-[1.05] text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] max-w-3xl mb-6 sm:mb-7 select-none"
+          style={{
+            fontSize: 'clamp(2.5rem, 6.5vw, 5.25rem)',
+          }}
+        >
+          We design and build digital products that{' '}
+          <span className="font-italic italic font-normal text-[#FF4D1C]">
+            grow
+          </span>{' '}
+          your business.
+        </motion.h1>
+
+        {/* ── 3. Subtext (max-width 560px, muted) ── */}
+        <motion.p
+          variants={itemVariants}
+          className="font-sans text-base sm:text-lg text-[#6B6B6B] font-normal leading-relaxed max-w-[560px] mb-8 sm:mb-10 text-center"
+        >
+          Ignivance is a product studio crafting web apps, mobile apps and AI systems for
+          startups and businesses.
+        </motion.p>
+
+        {/* ── 4. Two Buttons (solid primary + outline secondary) ── */}
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4 w-full sm:w-auto"
+        >
+          <a
+            href="#contact"
+            className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#111111] text-white font-sans text-sm font-semibold tracking-normal transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#FF4D1C] shadow-sm hover:shadow-md"
+          >
+            <span>Start a Project</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+          </a>
+
+          <a
+            href="#work"
+            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white/80 hover:bg-white text-[#111111] border border-[#E8E4DE] hover:border-[#111111] font-sans text-sm font-semibold tracking-normal transition-all duration-200 hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]"
+          >
+            View Our Work
+          </a>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

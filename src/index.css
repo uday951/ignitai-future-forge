@@ -92,10 +92,12 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     overflow-x: hidden;
     width: 100%;
     position: relative;
+    background-color: #F8F8F5;
+    color: #17181C;
   }
 
   #root {
@@ -268,3 +270,26 @@ All colors MUST be HSL.
   border-right: 2px solid transparent;
   animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
 }
+
+/* ── Marquee Mask Gradient (soft fade on edges) ── */
+.mask-marquee {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.pause-hover:hover {
+  animation-play-state: paused;
+}
+

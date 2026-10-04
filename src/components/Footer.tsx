@@ -1,84 +1,146 @@
-import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import AnalyticsStatus from './AnalyticsStatus';
+import React from 'react';
+import { ArrowUpRight } from 'lucide-react';
 
-const Footer = () => {
+export const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
+  const links = {
+    company: [
+      { label: 'Capabilities', href: '#capabilities' },
+      { label: 'Selected Work', href: '#work' },
+      { label: 'About Studio', href: '#about' },
+      { label: 'How We Work', href: '#process' },
+    ],
+    services: [
+      { label: 'Web Applications', href: '#capabilities' },
+      { label: 'Mobile Apps', href: '#capabilities' },
+      { label: 'AI & Automation', href: '#capabilities' },
+      { label: 'Product UI/UX Design', href: '#capabilities' },
+    ],
+    resources: [
+      { label: 'Studio Insights', href: '#insights' },
+      { label: 'Education & Mentorship', href: '#education' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms of Service', href: '/terms-and-conditions' },
+    ],
+    social: [
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/udaykiran-koshika-a51142283/' },
+      { label: 'Instagram', href: 'https://www.instagram.com/udaytechx/' },
+      { label: 'GitHub', href: 'https://github.com/uday951' },
+    ],
+  };
+
   return (
-    <footer className="bg-slate-900 text-white py-12 md:py-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-1 border-b border-gray-800 pb-8 sm:border-0 sm:pb-0">
-            <div className="text-2xl font-extrabold mb-4 tracking-tight">Ignivance</div>
-            <p className="text-gray-400 leading-relaxed text-sm lg:text-base">
-              Premium web development for modern businesses. End-to-end digital solutions that scale.
+    <footer
+      className="w-full bg-[#0B0B0C] text-[#F4EFE8] pt-20 pb-12 px-5 sm:px-8"
+      aria-label="Footer"
+    >
+      <div className="max-w-[1200px] mx-auto">
+        
+        {/* Top Section: Logo, Tagline & Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
+          
+          {/* Brand Info (2 cols on lg) */}
+          <div className="lg:col-span-2">
+            <a
+              href="#"
+              className="group inline-flex items-center gap-2 mb-4 focus:outline-none"
+              aria-label="Ignivance Home"
+            >
+              <span className="font-headline font-semibold text-2xl tracking-[-0.02em] text-white group-hover:text-[#FF4D1C] transition-colors duration-200">
+                IGNIVANCE
+              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF4D1C]" />
+            </a>
+
+            <p className="font-sans text-sm text-[#F4EFE8]/70 leading-relaxed max-w-sm mb-6">
+              Independent digital product studio crafting high-performance web applications, mobile platforms, and AI systems.
             </p>
-            {/* Analytics Verification Status Dashboard (Dev mode only) */}
-            {import.meta.env.DEV && <AnalyticsStatus />}
-          </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="font-bold mb-5 text-lg">Services</h3>
-            <div className="space-y-3 text-sm text-gray-400">
-              <Link to="/services" className="block hover:text-white transition-colors">Web Design</Link>
-              <Link to="/services" className="block hover:text-white transition-colors">Web Development</Link>
-              <Link to="/services" className="block hover:text-white transition-colors">Performance</Link>
-              <Link to="/services" className="block hover:text-white transition-colors">Growth Support</Link>
-            </div>
-          </div>
-
-          {/* Company & Policies */}
-          <div>
-            <h3 className="font-bold mb-5 text-lg">Company</h3>
-            <div className="space-y-3 text-sm text-gray-400">
-              <Link to="/about-us" className="block hover:text-white transition-colors">About Us</Link>
-              <Link to="/contact-us" className="block hover:text-white transition-colors">Contact Us</Link>
-              <Link to="/privacy-policy" className="block hover:text-white transition-colors">Privacy Policy</Link>
-              <Link to="/terms-and-conditions" className="block hover:text-white transition-colors">Terms & Conditions</Link>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-            <h3 className="font-bold mb-5 text-lg">Contact</h3>
-            <div className="space-y-4 text-gray-400">
-              <a href="mailto:ignivance@zohoemail.in" className="flex items-center gap-3 hover:text-white transition-colors group">
-                <div className="bg-slate-800 p-2 rounded-lg group-hover:bg-blue-600 transition-colors">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <span className="text-sm">ignivance@zohoemail.in</span>
+            <div className="font-mono text-xs text-[#F4EFE8]/50 space-y-1">
+              <p>HYDERABAD, INDIA</p>
+              <a
+                href="mailto:ignivance@zohoemail.in"
+                className="hover:text-[#FF4D1C] transition-colors inline-block text-white/80"
+              >
+                ignivance@zohoemail.in
               </a>
-              <a href="tel:+917989442841" className="flex items-center gap-3 hover:text-white transition-colors group">
-                <div className="bg-slate-800 p-2 rounded-lg group-hover:bg-blue-600 transition-colors">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <span className="text-sm">+91 7989442841</span>
-              </a>
-              <div className="flex items-center gap-3">
-                <div className="bg-slate-800 p-2 rounded-lg">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <span className="text-sm">Hyderabad, India</span>
-              </div>
             </div>
+          </div>
+
+          {/* Column: Company */}
+          <div>
+            <h4 className="font-mono text-xs uppercase tracking-widest text-[#F4EFE8]/40 mb-4">
+              Company
+            </h4>
+            <ul className="space-y-2.5 font-sans text-xs">
+              {links.company.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="text-[#F4EFE8]/70 hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column: Services */}
+          <div>
+            <h4 className="font-mono text-xs uppercase tracking-widest text-[#F4EFE8]/40 mb-4">
+              Services
+            </h4>
+            <ul className="space-y-2.5 font-sans text-xs">
+              {links.services.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="text-[#F4EFE8]/70 hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column: Social */}
+          <div>
+            <h4 className="font-mono text-xs uppercase tracking-widest text-[#F4EFE8]/40 mb-4">
+              Social
+            </h4>
+            <ul className="space-y-2.5 font-sans text-xs">
+              {links.social.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-1 text-[#F4EFE8]/70 hover:text-white transition-colors"
+                  >
+                    <span>{item.label}</span>
+                    <ArrowUpRight className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Bottom Bar: Copyright & Location */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#F4EFE8]/40">
+          <div>
+            © {currentYear} IGNIVANCE TECHNOLOGY. ALL RIGHTS RESERVED.
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span>STUDIO DISPATCH: ACTIVE FOR Q4 / Q1 BUILDS</span>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-gray-800 mt-4 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6">
-          <div className="text-gray-400 text-sm text-center sm:text-left">
-            © {new Date().getFullYear()} Ignivance. All rights reserved.
-          </div>
-          <div className="flex gap-5">
-            <a href="https://www.linkedin.com/in/udaykiran-koshika-a51142283/" target="_blank" rel="noopener noreferrer" className="bg-slate-800 p-3 rounded-full text-gray-400 hover:text-white hover:bg-blue-600 transition-all">
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a href="https://github.com/uday951" target="_blank" rel="noopener noreferrer" className="bg-slate-800 p-3 rounded-full text-gray-400 hover:text-white hover:bg-slate-700 transition-all">
-              <Github className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
       </div>
     </footer>
   );

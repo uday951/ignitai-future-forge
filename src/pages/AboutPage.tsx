@@ -1,158 +1,235 @@
-import { Award, Target, Users, Zap } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight, Github, Linkedin, Instagram, Compass, Code2, Users, HeartHandshake } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 
-const AboutPage = () => {
-  const values = [
+const AboutPage: React.FC = () => {
+  const leadership = [
     {
-      icon: Target,
-      title: 'Quality First',
-      description: 'We never compromise on code quality or design standards.'
+      name: 'Uday Kiran',
+      role: 'FOUNDER & CEO',
+      title: 'Principal Product Architect',
+      bio: 'Uday Kiran founded Ignivance with a singular focus: closing the painful gap between abstract product ideas and high-performance production code. With hands-on mastery of full-stack engineering, distributed systems, and modern AI automation, he directs the technical strategy of client engagements.',
+      image: `${import.meta.env.BASE_URL}founder.jpg`,
+      linkedin: 'https://www.linkedin.com/in/udaykiran-koshika-a51142283/',
+      github: 'https://github.com/uday951',
+      instagram: 'https://www.instagram.com/udaytechx/',
     },
     {
-      icon: Zap,
-      title: 'Performance Focused',
-      description: 'Every website we build is optimized for speed and efficiency.'
+      name: 'Mahathi Godala',
+      role: 'CO-FOUNDER',
+      title: 'Product Strategy & Community Lead',
+      bio: 'Mahathi drives Ignivance’s product direction, cross-functional operations, and developer community programs. She ensures every product shipped by the studio aligns with genuine user needs and maintains empathetic design standards.',
+      image: `${import.meta.env.BASE_URL}co-founder.jpeg`,
+      linkedin: 'https://www.linkedin.com/in/godala-mahathi/',
+      github: 'https://github.com/mahathireddy02',
     },
-    {
-      icon: Users,
-      title: 'Client Partnership',
-      description: 'We work with you, not for you. Your success is our success.'
-    },
-    {
-      icon: Award,
-      title: 'Transparent Process',
-      description: 'Clear communication, honest timelines, no hidden surprises.'
-    }
   ];
 
-  const stats = [
-    { number: '20+', label: 'Projects Delivered' },
-    { number: '100%', label: 'Client Satisfaction' },
-    { number: '4+', label: 'Years Experience' },
-    { number: 'MSME', label: 'Registered' }
+  const coreValues = [
+    {
+      num: '01',
+      name: 'Technical Truth',
+      desc: 'We never pretend a feature is easy when it involves deep distributed complexity. We tell our clients the truth about trade-offs, scalability, and maintenance burdens.',
+    },
+    {
+      num: '02',
+      name: 'Zero Vanity Metrics',
+      desc: 'Lines of code, flashy pitch decks, and meaningless vanity clicks mean nothing if the software doesn’t solve a user problem or drive unit economics.',
+    },
+    {
+      num: '03',
+      name: 'Design-Engineering Symbiosis',
+      desc: 'Designers who understand CSS flexbox. Engineers who care about leading and kerning. We treat aesthetics and code as twin disciplines of the same craft.',
+    },
+    {
+      num: '04',
+      name: 'Long-Horizon Stewardship',
+      desc: 'We build codebases designed to be read, extended, and maintained by future developers for years to come — not disposable prototypes.',
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
-      <SEO 
-        title="About Ignivance | Top AI Development Company & Tech Agency"
-        description="Learn about Ignivance, an elite AI development company providing full stack development services and intelligent automation solutions for startups globally."
-        keywords="About Ignivance, top AI development company, full stack development services, automation solutions for startups"
+    <div className="min-h-screen bg-[#F8F8F5] text-[#17181C]">
+      <SEO
+        title="About IGNIVANCE — Story, Philosophy & Leadership"
+        description="Learn the origin story, core engineering philosophy, and leadership behind Ignivance Digital Product Studio."
         canonical="https://ignivance.in/about"
       />
       <Navbar />
-      
-      <main className="flex-1 py-16 md:py-24 pt-24 md:pt-32">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          {/* Hero */}
-          <div className="text-center mb-16 md:mb-24">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
-              Building Premium Websites for Modern Businesses
+
+      <main className="pt-32 md:pt-44 pb-24 md:pb-36">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          
+          {/* Header */}
+          <div className="mb-20 md:mb-28 pb-12 border-b border-black/[0.08]">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-ignis-500"></span>
+              <span className="font-mono text-xs uppercase tracking-widest text-[#707175]">
+                ORIGIN & STUDIO IDENTITY
+              </span>
+            </div>
+            <h1 className="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#0D0E11] tracking-tight uppercase leading-[0.92]">
+              BUILT BY<br />
+              <span className="text-ignis-500">ENGINEERS</span> WHO CARE.
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              We're a web development agency focused on creating fast, clean, and effective websites that help businesses grow.
+            <p className="mt-8 text-base sm:text-xl text-[#55565A] max-w-3xl leading-relaxed">
+              We started Ignivance because we were frustrated by the status quo of digital agencies: bloated committees, junior staff handed off without oversight, and disconnected vendors who never took ownership of the business result.
             </p>
           </div>
 
-          {/* Story */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-16 md:mb-32">
-            <div className="order-2 md:order-1">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">Our Story</h2>
-              <div className="space-y-6 text-slate-600 leading-relaxed text-base md:text-lg">
-                <p>
-                  Ignivance started with a simple belief: websites should be fast, clean, and effective. Too many businesses struggle with slow, complicated websites that don't deliver results.
-                </p>
-                <p>
-                  We set out to change that. Our approach combines modern technology with timeless design principles to create websites that perform exceptionally well and look great doing it.
-                </p>
-                <p>
-                  Today, we work with startups and established businesses to build web solutions that drive real growth. Every project is an opportunity to deliver something we're proud of.
-                </p>
-              </div>
-            </div>
-            <div className="order-1 md:order-2 w-full aspect-square bg-white border border-gray-100 shadow-xl shadow-slate-200/50 rounded-[2rem] flex items-center justify-center p-8">
-              <div className="text-8xl md:text-9xl transform hover:scale-110 hover:-rotate-12 transition-all duration-500 drop-shadow-md cursor-default">🚀</div>
-            </div>
-          </div>
-
-          {/* Values */}
-          <div className="mb-16 md:mb-32">
-            <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-10 md:mb-16 text-center tracking-tight">
-              What Drives Us
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, i) => (
-                <div key={i} className="bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-blue-600 transition-all duration-300 rounded-2xl p-6 md:p-8">
-                  <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-                    <value.icon className="w-7 h-7" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">
-                    {value.title}
-                  </h3>
-                  <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div className="bg-white border border-gray-100 shadow-xl shadow-slate-200/50 rounded-[2rem] p-8 md:p-16 mb-16 md:mb-32">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-10 md:mb-12 text-center tracking-tight">
-              By the Numbers
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-              {stats.map((stat, i) => (
-                <div key={i} className="text-center group">
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-600 mb-3 group-hover:scale-110 transition-transform tracking-tight">
-                    {stat.number}
-                  </div>
-                  <div className="text-slate-600 font-medium uppercase tracking-widest text-xs sm:text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Credentials */}
-          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2rem] p-8 md:p-16 mb-16 md:mb-32 text-white shadow-2xl relative overflow-hidden">
-            <div className="absolute inset-0 bg-blue-600/20 blur-3xl rounded-full scale-150 transform translate-x-1/2 -translate-y-1/2 mix-blend-screen"></div>
-            <div className="relative z-10">
-              <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8 text-center md:text-left">
-                <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20">
-                  <Award className="w-10 h-10 text-blue-300" />
-                </div>
-                <div>
-                  <h3 className="text-2xl md:text-4xl font-extrabold mb-2 tracking-tight">MSME Registered</h3>
-                  <p className="text-blue-200 font-medium tracking-wide uppercase text-sm md:text-base">Government of India Certified</p>
-                </div>
-              </div>
-              <p className="text-center md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                We're officially registered with the Ministry of Micro, Small and Medium Enterprises, ensuring professional standards, quality assurance and business accountability for every single project we undertake.
-              </p>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="bg-blue-600 rounded-[2rem] p-8 md:p-16 text-center shadow-xl shadow-blue-600/20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-blue-700 w-full h-full transform origin-top-right rotate-12 -translate-y-20 scale-150 rounded-full opacity-30 z-0"></div>
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                Let's Work Together
+          {/* Narrative Story Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-28 items-start">
+            <div className="lg:col-span-5 space-y-4">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#707175] block">
+                The Ignivance Thesis
+              </span>
+              <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-[#0D0E11] tracking-tight uppercase leading-snug">
+                One studio for the entire product journey.
               </h2>
-              <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Ready to build something great? Get in touch and let's discuss your project.
+            </div>
+
+            <div className="lg:col-span-7 space-y-6 text-base sm:text-lg text-[#55565A] leading-relaxed">
+              <p>
+                In the modern technology landscape, the traditional separation between design agencies, engineering firms, AI consultants, and growth marketers is obsolete. A change in your user interface directly affects your paid conversion rate; an architectural choice in your database schema directly governs what features your AI agent can query.
               </p>
-              <a
-                href="/contact"
-                className="inline-flex justify-center flex-shrink-0 w-full sm:w-auto bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600 transition-all shadow-md"
-              >
-                Start a Project
-              </a>
+              <p>
+                Ignivance was constructed from day one as a unified studio. Our team works across the complete lifecycle: de-risking the product hypothesis, designing atomic interface systems, writing testable full-stack software, deploying machine intelligence, and scaling high-intent customer acquisition.
+              </p>
+              <p>
+                Headquartered in Hyderabad, India, we collaborate with ambitious founders, established organizations, and non-profits across the country and around the globe.
+              </p>
             </div>
           </div>
+
+          {/* Leadership Section */}
+          <div className="mb-28">
+            <div className="flex items-center justify-between pb-6 mb-12 border-b border-black/[0.08]">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-ignis-500"></span>
+                <span className="font-mono text-xs uppercase tracking-widest text-[#707175]">
+                  STUDIO LEADERSHIP
+                </span>
+              </div>
+              <span className="font-mono text-xs text-[#707175]">DIRECT BUILDER ACCESS</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {leadership.map((leader, idx) => (
+                <div
+                  key={idx}
+                  className="p-8 sm:p-12 rounded-3xl bg-white border border-black/[0.08] shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-start justify-between gap-6 mb-8">
+                      <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-black/[0.05] border border-black/[0.08] shrink-0">
+                        <img
+                          src={leader.image}
+                          alt={leader.name}
+                          className="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-300"
+                        />
+                      </div>
+
+                      <div className="flex items-center gap-3 text-[#707175]">
+                        {leader.linkedin && (
+                          <a
+                            href={leader.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-lg bg-black/[0.04] hover:bg-ignis-500 hover:text-white transition-colors"
+                            aria-label={`${leader.name} LinkedIn`}
+                          >
+                            <Linkedin className="w-4 h-4" />
+                          </a>
+                        )}
+                        {leader.github && (
+                          <a
+                            href={leader.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-lg bg-black/[0.04] hover:bg-[#0D0E11] hover:text-white transition-colors"
+                            aria-label={`${leader.name} GitHub`}
+                          >
+                            <Github className="w-4 h-4" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    <h3 className="font-display font-bold text-2xl text-[#0D0E11] mb-1">
+                      {leader.name}
+                    </h3>
+                    <p className="font-mono text-xs uppercase tracking-wider text-ignis-600 font-semibold mb-4">
+                      {leader.role} — {leader.title}
+                    </p>
+
+                    <p className="text-sm text-[#55565A] leading-relaxed">
+                      {leader.bio}
+                    </p>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-black/[0.06] font-mono text-[11px] text-[#707175]">
+                    DIRECT INVOLVEMENT IN ALL CLIENT ROADMAPS
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Core Values / Studio Culture */}
+          <div className="mb-28">
+            <div className="mb-12">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#707175] block mb-2">
+                OPERATING CODE
+              </span>
+              <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-[#0D0E11] tracking-tight uppercase">
+                The Values That Govern Our Work
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {coreValues.map((v) => (
+                <div
+                  key={v.num}
+                  className="p-7 rounded-2xl bg-white border border-black/[0.08] flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="font-mono text-xs font-bold text-ignis-500 block mb-4">
+                      VALUE // {v.num}
+                    </span>
+                    <h3 className="font-display font-bold text-xl text-[#0D0E11] mb-2">
+                      {v.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#55565A] leading-relaxed">
+                      {v.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Final CTA Strip */}
+          <div className="p-10 md:p-14 rounded-3xl bg-[#0D0E11] text-white flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest text-ignis-400 block mb-2">
+                START A CONVERSATION
+              </span>
+              <h3 className="font-display font-bold text-2xl sm:text-3xl text-white">
+                Interested in working with our studio?
+              </h3>
+            </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-ignis-500 hover:bg-ignis-600 text-white px-8 py-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all shrink-0"
+            >
+              <span>Initiate Project Inquiry</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+
         </div>
       </main>
 

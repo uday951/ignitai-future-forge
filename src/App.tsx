@@ -17,7 +17,10 @@ import AdminUpload from './pages/AdminUpload';
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiesPolicy from "./pages/CookiesPolicy";
-import ShareYourStoryPage from './pages/ShareYourStory';
+import WorkPage from "./pages/WorkPage";
+import InsightsPage from "./pages/InsightsPage";
+import EducationPage from "./pages/EducationPage";
+import ShareYourStoryPage from "./pages/ShareYourStory";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 
 const queryClient = new QueryClient();
@@ -32,12 +35,17 @@ const App = () => (
           <AnalyticsTracker />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/capabilities" element={<ServicesPage />} />
             <Route path="/services" element={<ServicesPage />} />
-            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/work" element={<WorkPage />} />
+            <Route path="/clients" element={<WorkPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/about-us" element={<AboutPage />} />
             <Route path="/about-ignivance" element={<AboutIgnivance />} />
+            <Route path="/insights" element={<InsightsPage />} />
+            <Route path="/education" element={<EducationPage />} />
             <Route path="/team" element={<Team />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/admin-upload" element={<AdminUpload />} />
