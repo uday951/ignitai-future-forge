@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/ads.txt", "destination": "https://srv.adstxtmanager.com/19390/ignivance.in", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

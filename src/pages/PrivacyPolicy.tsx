@@ -7,8 +7,8 @@ import { ShieldCheck, Eye, Lock, FileText } from 'lucide-react';
 const PrivacyPolicy = () => (
   <div className="min-h-screen bg-slate-50 flex flex-col">
     <SEO 
-      title="Privacy Policy | Ignivance Jobs"
-      description="Learn about how Ignivance collects, uses, and protects your personal data when using our training, career portal, and newsletter services."
+      title="Privacy Policy | Ignivance"
+      description="Learn about how Ignivance collects, uses, and protects your personal data when using our web development, automation solutions, and client services."
       canonical="https://ignivance.in/privacy-policy"
     />
     <Navbar />
@@ -32,7 +32,7 @@ const PrivacyPolicy = () => (
           <div className="space-y-8 text-slate-700 leading-relaxed text-sm md:text-base">
             
             <p>
-              At Ignivance, we are committed to protecting your privacy and ensuring a secure experience across our platforms, including ignivance.in and our associated career notifications and training directories. This Privacy Policy details the types of information we gather, how we process it, and your rights concerning your personal information.
+              At Ignivance, we are committed to protecting your privacy and ensuring a secure experience across our platforms, including ignivance.in and our development and client consultation services. This Privacy Policy details the types of information we gather, how we process it, and your rights concerning your personal information.
             </p>
 
             <section className="space-y-3">
@@ -42,8 +42,8 @@ const PrivacyPolicy = () => (
               </h2>
               <p>We collect information you directly submit to us, as well as metadata gathered automatically:</p>
               <ul className="list-disc pl-6 space-y-2 text-slate-600">
-                <li><strong>Registration Details:</strong> Name, email address, telephone contact number, and academic year/degree when subscribing to job alerts or enrolling in resources.</li>
-                <li><strong>Application Data:</strong> Resume details or GitHub/LinkedIn profiles if you submit them for mentorship reviews.</li>
+                <li><strong>Contact & Consultation Details:</strong> Name, email address, telephone contact number, and organization details when requesting a quote or contacting us.</li>
+                <li><strong>Project Requirements Data:</strong> Project briefs, feedback, or technical specifications submitted for project scopes and development engagements.</li>
                 <li><strong>Log Information:</strong> Technical data including your IP address, browser type, operating system, and pages accessed, used for site performance diagnostics and optimization.</li>
               </ul>
             </section>
@@ -53,10 +53,10 @@ const PrivacyPolicy = () => (
                 <Lock className="w-5 h-5 text-blue-600" />
                 2. How We Use Your Data
               </h2>
-              <p>Your details are used solely to improve our services and support your career growth:</p>
+              <p>Your details are used solely to deliver and improve our services:</p>
               <ul className="list-disc pl-6 space-y-2 text-slate-600">
-                <li>To send custom career notifications, off-campus drives, and preparation roadmaps.</li>
-                <li>To deliver certifications, verify program completion (e.g. for skills verification), and provide technical assistance.</li>
+                <li>To respond to your inquiries, consultation requests, and service proposals.</li>
+                <li>To deliver custom development solutions, performance optimizations, and project support.</li>
                 <li>To manage website stability, prevent automated spam attacks, and measure user engagement.</li>
               </ul>
             </section>
@@ -89,7 +89,7 @@ const PrivacyPolicy = () => (
                 <span>⚙️</span> 5. Your Choices & Access Rights
               </h2>
               <p>
-                You can opt-out of our newsletter or job notification systems by clicking the 'Unsubscribe' link at the bottom of any email. You may also request to access, update, or completely purge your records from our databases by contacting our data protection officer at <a href="mailto:privacy@ignivance.in" className="text-blue-600 hover:underline">privacy@ignivance.in</a>.
+                You can opt-out of our newsletter or marketing communications by clicking the 'Unsubscribe' link at the bottom of any email. You may also request to access, update, or completely purge your records from our databases by contacting our data protection officer at <a href="mailto:privacy@ignivance.in" className="text-blue-600 hover:underline">privacy@ignivance.in</a>.
               </p>
             </section>
 

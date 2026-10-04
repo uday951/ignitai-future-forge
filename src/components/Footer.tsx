@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-slate-900 text-white py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1 border-b border-gray-800 pb-8 sm:border-0 sm:pb-0">
             <div className="text-2xl font-extrabold mb-4 tracking-tight">Ignivance</div>
@@ -28,17 +28,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Careers Portal */}
-          <div>
-            <h3 className="font-bold mb-5 text-lg">Careers</h3>
-            <div className="space-y-3 text-sm text-gray-400">
-              <Link to="/jobs" className="block hover:text-white transition-colors font-semibold">Latest Jobs</Link>
-              <Link to="/internships" className="block hover:text-white transition-colors">Internships</Link>
-              <Link to="/off-campus-drives" className="block hover:text-white transition-colors">Off-Campus Drives</Link>
-              <Link to="/government-jobs" className="block hover:text-white transition-colors">Govt Jobs</Link>
-            </div>
-          </div>
-
           {/* Company & Policies */}
           <div>
             <h3 className="font-bold mb-5 text-lg">Company</h3>
@@ -47,7 +36,6 @@ const Footer = () => {
               <Link to="/contact-us" className="block hover:text-white transition-colors">Contact Us</Link>
               <Link to="/privacy-policy" className="block hover:text-white transition-colors">Privacy Policy</Link>
               <Link to="/terms-and-conditions" className="block hover:text-white transition-colors">Terms & Conditions</Link>
-              <Link to="/disclaimer" className="block hover:text-white transition-colors text-amber-400 hover:text-amber-300">Disclaimer</Link>
             </div>
           </div>
 
