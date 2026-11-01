@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Trust from '@/components/Trust';
 import WhatWeDo from '@/components/WhatWeDo';
 import WorkMarquee from '@/components/WorkMarquee';
+import WorkSection from '@/components/WorkSection';
 import ProcessSection from '@/components/ProcessSection';
 import AboutSection from '@/components/AboutSection';
 import InsightsSection from '@/components/InsightsSection';
@@ -67,6 +68,9 @@ const Index: React.FC = () => {
 
         {/* 4. BRAND MARQUEE (Selected Work) */}
         <WorkMarquee />
+
+        {/* 4B. FEATURED CASE STUDIES WITH REAL ASSETS */}
+        <WorkSection />
 
         {/* 5. PROCESS */}
         <ProcessSection />

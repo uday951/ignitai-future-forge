@@ -10,14 +10,14 @@ interface Brand {
 
 // Brand Logo Data Array (8 entries to guarantee continuous seamless looping)
 const brands: Brand[] = [
-  { name: 'Grand Diva International', logo: '/logos/granddiva.svg' },
-  { name: 'Sri Sai Ambulance', logo: '/logos/srisai.svg' },
-  { name: 'CareerOS', logo: '/logos/careeros.svg' },
-  { name: 'CALEVENT', logo: '/logos/calevent.svg' },
-  { name: 'SNT Institutions', logo: '/logos/snt.svg' },
-  { name: 'CozyStay', logo: '/logos/cozystay.svg' },
-  { name: 'Ignite Athletics', logo: '/logos/ignite.svg' },
-  { name: 'Cafe Flow', logo: '/logos/cafeflow.svg' },
+  { name: 'Grand Diva International', logo: '/logos/grand-diva.webp' },
+  { name: 'Sri Sai Deekshitha Ambulance', logo: '/logos/sri-sai-deekshitha.jpg' },
+  { name: 'Pooja Sounds & Events', logo: '/logos/pooja-sounds.jpg' },
+  { name: 'Best Ambulance Services', logo: '/logos/best-ambulance.png' },
+  { name: 'Grand Diva International', logo: '/logos/grand-diva.webp' },
+  { name: 'Sri Sai Deekshitha Ambulance', logo: '/logos/sri-sai-deekshitha.jpg' },
+  { name: 'Pooja Sounds & Events', logo: '/logos/pooja-sounds.jpg' },
+  { name: 'Best Ambulance Services', logo: '/logos/best-ambulance.png' },
 ];
 
 // Single Brand Pill Card Component with Image Error Fallback

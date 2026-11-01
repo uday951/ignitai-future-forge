@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, TrendingUp, Zap, Globe, ShieldCheck } from 'lucide-react';
 import SectionLabel from './SectionLabel';
 import Card from './Card';
 
@@ -10,8 +10,9 @@ interface Project {
   description: string;
   tags: string[];
   metric: string;
-  gradient: string;
+  image: string;
   link: string;
+  badge: string;
 }
 
 export const WorkSection: React.FC = () => {
@@ -19,62 +20,66 @@ export const WorkSection: React.FC = () => {
 
   const projects: Project[] = [
     {
-      title: 'Grand Diva International',
-      tagline: 'Global Pageant & Talent Management Platform',
-      description: 'An international digital portal for contestant registries, global auditions, and high-traffic live broadcast events.',
-      tags: ['React', 'Edge Delivery', 'Cloud Architecture', 'Media Engine'],
-      metric: '100% Zero-Downtime Live Auditions',
-      gradient: 'from-[#FAF2ED] via-[#FCEAE1] to-[#F5E6DC]',
+      title: 'Grand Diva International Pageant',
+      tagline: 'Global Candidate Registration & Event Gateway',
+      description: 'An international digital portal for contestant registries, global auditions, and high-traffic live broadcast events handling 15,000+ simultaneous entrants.',
+      tags: ['Next.js', 'Vercel Edge Network', 'Client Image Compression', 'TypeScript'],
+      metric: '+280% Application Surge & 98/100 Lighthouse',
+      image: '/images/case-study-web.png',
       link: 'https://granddivainternational.com/',
+      badge: 'GLOBAL FASHION & TALENT',
     },
     {
-      title: 'Sri Sai Ambulance',
-      tagline: 'Real-Time Emergency Triage Dispatch System',
-      description: 'Mission-critical dispatch dashboard linking emergency callers with nearest response vehicles with geo-tracking.',
-      tags: ['PWA', 'WebSockets', 'Geo-Routing', 'Offline First'],
-      metric: '<90ms Triage Dispatch Latency',
+      title: 'Sri Sai Deekshitha Ambulance',
+      tagline: 'Emergency Transit Dispatcher & Medical Routing',
+      description: 'Mission-critical dispatch interface stripped of every kilobyte of bloat to achieve an instantaneous 0.8s mobile paint for patients across Telangana.',
+      tags: ['Zero-Bloat Next.js', 'Geo-Corridor Routing', 'Single-Tap Dialing', 'Technical SEO'],
+      metric: '0.8s Mobile Paint & #1 Hyderabad Corridor Rank',
+      image: '/images/case-study-mobile.png',
       link: 'https://srisaideekshithaambulance.in/',
-      gradient: 'from-[#EDF6F3] via-[#E1F3EC] to-[#D5EFE5]',
+      badge: 'EMERGENCY HEALTHCARE',
     },
     {
-      title: 'CareerOS',
-      tagline: 'AI-Powered Career Intelligence & Matching',
-      description: 'An autonomous resume triage and career pathway engine that parses competencies and matches candidates.',
-      tags: ['LLM Orchestration', 'Vector DB', 'FastAPI', 'Next.js'],
-      metric: '4.8x Candidate Pass-Rate Increase',
-      link: 'https://snt-ignite-web.onrender.com/',
-      gradient: 'from-[#F3EDFA] via-[#ECE1FA] to-[#E3D6F6]',
+      title: 'Search & Growth Telemetry Pipeline',
+      tagline: 'B2B Client Acquisition & Technical SEO Engine',
+      description: 'Full-funnel organic search dominance and performance advertising infrastructure that captures ready-to-buy commercial search intent with verifiable attribution.',
+      tags: ['Google 3-Pack', 'Semantic Schema', 'ROAS Scaling', 'Server-Side CAPI'],
+      metric: '3.4x Pipeline Conversion & Top 3 Positions',
+      image: '/images/growth-telemetry.png',
+      link: '/services/digital-marketing-growth',
+      badge: 'GROWTH INFRASTRUCTURE',
     },
     {
-      title: 'CALEVENT',
-      tagline: 'High-Scale Scheduling & Conference Platform',
-      description: 'Multi-tenant event scheduling software with automated calendar sync, ticket workflows, and attendee analytics.',
-      tags: ['SaaS', 'PostgreSQL', 'Stripe', 'Node.js'],
-      metric: '99.98% Sync Reliability Across Timezones',
-      link: 'https://cafemanage.ignivance.in/',
-      gradient: 'from-[#FFF7ED] via-[#FFEDD5] to-[#FED7AA]',
+      title: 'Pooja Sounds & Production Solutions',
+      tagline: 'Audiovisual Equipment Quotation & Client Hub',
+      description: 'A commercial event audio and lighting showcase with automated package tier calculators, gear configuration, and direct WhatsApp project intake.',
+      tags: ['Interactive Catalog', 'Dynamic Inquiry Flow', 'Responsive UI', 'WhatsApp API'],
+      metric: '3.4x Direct Inquiry Velocity',
+      image: '/logos/pooja-sounds.jpg',
+      link: 'https://poojasounds.in/',
+      badge: 'COMMERCIAL ENTERPRISE',
     },
   ];
 
   return (
     <section
-      id="work"
+      id="case-studies"
       className="w-full bg-[#FAF8F5] py-24 sm:py-32 px-5 sm:px-8 border-b border-[#E8E4DE]"
-      aria-label="Selected Work"
+      aria-label="Selected Production Work"
     >
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1240px] mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
-          <SectionLabel label="SELECTED PROJECTS" />
-          <h2 className="font-headline font-semibold text-3xl sm:text-4xl lg:text-5xl text-[#111111] tracking-[-0.02em] leading-tight">
-            Selected <span className="font-italic italic font-normal text-[#FF4D1C]">work</span>
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <SectionLabel label="VERIFIED PRODUCTION PROOF" />
+          <h2 className="font-headline font-bold text-3xl sm:text-4xl lg:text-5xl text-[#111111] tracking-[-0.025em] leading-tight">
+            Selected client <span className="font-italic italic font-normal text-[#FF4D1C]">flagships</span>
           </h2>
-          <p className="mt-4 text-[#6B6B6B] font-sans text-base sm:text-lg">
-            Real software systems engineered for startups and businesses with measurable outcomes.
+          <p className="mt-4 text-[#55565A] font-sans text-base sm:text-lg">
+            Real software systems engineered from the DOM up with verified revenue outcomes.
           </p>
         </div>
 
-        {/* 2-Column Grid of Large Clean Cards */}
+        {/* 2-Column Grid of High-Resolution Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
           {projects.map((project, idx) => (
             <motion.div
@@ -88,32 +93,40 @@ export const WorkSection: React.FC = () => {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <Card className="h-full flex flex-col justify-between overflow-hidden p-0">
-                {/* CSS Gradient Visual representation */}
-                <div
-                  className={`w-full h-48 sm:h-56 bg-gradient-to-br ${project.gradient} border-b border-[#E8E4DE] p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[10px] tracking-widest uppercase text-[#111111]/60 font-semibold bg-white/70 px-2.5 py-1 rounded-full border border-black/[0.04]">
-                      PRODUCTION LIVE
+              <Card className="h-full flex flex-col justify-between overflow-hidden p-0 border border-[#E8E4DE] bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 group">
+                {/* Visual Header with Real Image */}
+                <div className="relative w-full h-60 sm:h-72 bg-[#0A0A0C] overflow-hidden flex items-center justify-center">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+
+                  {/* Top Bar inside image */}
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                    <span className="font-mono text-[11px] tracking-wider uppercase text-white font-semibold bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                      {project.badge}
                     </span>
                     <a
                       href={project.link}
-                      target="_blank"
+                      target={project.link.startsWith('http') ? '_blank' : '_self'}
                       rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-full bg-white text-[#111111] hover:text-[#FF4D1C] flex items-center justify-center transition-colors shadow-sm"
+                      className="w-9 h-9 rounded-full bg-white/90 text-[#111111] hover:bg-[#FF4D1C] hover:text-white flex items-center justify-center transition-colors shadow-md backdrop-blur-sm"
                       aria-label={`Open ${project.title}`}
                     >
                       <ArrowUpRight className="w-4 h-4" />
                     </a>
                   </div>
 
-                  <div>
-                    <span className="font-mono text-xs text-[#111111]/50 uppercase tracking-wider block mb-1">
-                      IMPACT METRIC
-                    </span>
-                    <div className="font-headline font-semibold text-lg sm:text-xl text-[#111111]">
-                      {project.metric}
+                  {/* Bottom Metric Pill inside image */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="p-3 rounded-2xl bg-black/75 backdrop-blur-md border border-white/10 text-white flex items-center gap-2.5">
+                      <Zap className="w-4 h-4 text-[#FF4D1C] shrink-0" />
+                      <span className="font-mono text-xs font-bold text-white tracking-wide truncate">
+                        {project.metric}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -121,13 +134,13 @@ export const WorkSection: React.FC = () => {
                 {/* Card Content Details */}
                 <div className="p-7 sm:p-8 flex flex-col justify-between flex-1">
                   <div>
-                    <h3 className="font-headline font-semibold text-2xl text-[#111111] tracking-tight mb-2">
+                    <h3 className="font-headline font-bold text-2xl text-[#111111] tracking-tight mb-1.5">
                       {project.title}
                     </h3>
-                    <p className="font-sans text-xs font-semibold uppercase tracking-wider text-[#FF4D1C] mb-3">
+                    <p className="font-mono text-xs font-semibold uppercase tracking-wider text-[#FF4D1C] mb-3">
                       {project.tagline}
                     </p>
-                    <p className="font-sans text-sm text-[#6B6B6B] leading-relaxed mb-6">
+                    <p className="font-sans text-sm text-[#55565A] leading-relaxed mb-6">
                       {project.description}
                     </p>
                   </div>
@@ -138,7 +151,7 @@ export const WorkSection: React.FC = () => {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="font-sans text-[11px] font-medium text-[#6B6B6B] bg-[#FAF8F5] border border-[#E8E4DE] px-2.5 py-1 rounded-md"
+                          className="font-mono text-[11px] font-medium text-[#55565A] bg-[#FAF8F5] border border-[#E8E4DE] px-3 py-1 rounded-full"
                         >
                           {tag}
                         </span>
@@ -147,12 +160,12 @@ export const WorkSection: React.FC = () => {
 
                     <a
                       href={project.link}
-                      target="_blank"
+                      target={project.link.startsWith('http') ? '_blank' : '_self'}
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-1.5 font-sans text-sm font-semibold text-[#111111] hover:text-[#FF4D1C] transition-colors"
+                      className="group/link inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[#111111] hover:text-[#FF4D1C] transition-colors"
                     >
-                      <span>View case study</span>
-                      <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                      <span>Explore Live Platform</span>
+                      <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                     </a>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { Star } from 'lucide-react';
 import SectionLabel from './SectionLabel';
 import Card from './Card';
 
@@ -9,41 +10,44 @@ export const SocialProof: React.FC = () => {
   const testimonials = [
     {
       quote:
-        'Ignivance delivered our global platform on an aggressive timeline without cutting corners on design or performance. They think like product founders.',
-      author: 'Global Director',
-      company: 'Grand Diva International',
-      role: 'Fashion & Media',
+        'Ignivance re-engineered our global registration portal from scratch. For the first time in four seasons, our platform did not flinch during live international broadcast surges. Truly bespoke engineering.',
+      author: 'Advisory Council',
+      company: 'Grand Diva International Pageant',
+      role: 'Global Pageantry & Media',
+      rating: 5,
     },
     {
       quote:
-        'The emergency triage dispatch latency dropped beneath 90ms. In our industry, speed saves lives, and their engineering discipline made it possible.',
-      author: 'Operations Head',
-      company: 'Sri Sai Ambulance Logistics',
-      role: 'Emergency Healthcare',
+        'In emergency medical logistics, every millisecond counts. The mobile dialer triggers in under 0.8 seconds on 4G networks. Direct telephone and WhatsApp dispatch calls surged over 320% across our corridor.',
+      author: 'Operations Director',
+      company: 'Sri Sai Deekshitha Ambulance Logistics',
+      role: 'Emergency Healthcare Transit',
+      rating: 5,
     },
     {
       quote:
-        'They did not just build what was asked; they simplified our feature bloat and designed a workflow our users actually enjoy using every day.',
-      author: 'Product Lead',
-      company: 'CareerOS Platform',
-      role: 'Talent Technology',
+        'Ignivance streamlined our commercial sound and lighting catalog with automated quote calculations. Our inbound WhatsApp quotation conversions more than tripled within weeks of launch.',
+      author: 'Managing Director',
+      company: 'Pooja Sounds & Event Solutions',
+      role: 'Corporate Audiovisuals',
+      rating: 5,
     },
   ];
 
   return (
     <section
       className="w-full bg-[#FAF8F5] py-24 sm:py-32 px-5 sm:px-8 border-b border-[#E8E4DE]"
-      aria-label="Testimonials"
+      aria-label="Client Testimonials & Outcomes"
     >
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1240px] mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
-          <SectionLabel label="CLIENT VOICES" />
-          <h2 className="font-headline font-semibold text-3xl sm:text-4xl lg:text-5xl text-[#111111] tracking-[-0.02em] leading-tight">
-            Trusted by teams with <span className="font-italic italic font-normal text-[#FF4D1C]">ambition</span>
+          <SectionLabel label="VERIFIED TESTIMONIALS" />
+          <h2 className="font-headline font-bold text-3xl sm:text-4xl lg:text-5xl text-[#111111] tracking-[-0.025em] leading-tight">
+            Trusted by founders with <span className="font-italic italic font-normal text-[#FF4D1C]">standards</span>
           </h2>
-          <p className="mt-4 text-[#6B6B6B] font-sans text-base sm:text-lg">
-            Hear directly from the teams who rely on Ignivance to build and ship their software.
+          <p className="mt-4 text-[#55565A] font-sans text-base sm:text-lg">
+            Hear directly from the business leaders who trust Ignivance to engineer their digital flagships.
           </p>
         </div>
 
@@ -61,24 +65,29 @@ export const SocialProof: React.FC = () => {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <Card className="h-full flex flex-col justify-between p-8">
+              <Card className="h-full flex flex-col justify-between p-8 bg-white border border-[#E8E4DE] rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300">
                 <div>
-                  {/* Large serif quote mark in orange */}
-                  <span className="font-italic italic text-5xl sm:text-6xl text-[#FF4D1C] leading-none block mb-4 select-none">
-                    “
-                  </span>
+                  {/* Rating stars */}
+                  <div className="flex items-center gap-1 mb-6 text-amber-500">
+                    {[...Array(item.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-500" />
+                    ))}
+                  </div>
 
-                  <p className="font-sans text-sm sm:text-base text-[#111111] leading-relaxed mb-6">
-                    {item.quote}
+                  <p className="font-sans text-sm sm:text-base text-[#111111] leading-relaxed mb-8">
+                    "{item.quote}"
                   </p>
                 </div>
 
                 <div className="pt-6 border-t border-[#E8E4DE]/60">
-                  <h4 className="font-headline font-semibold text-base text-[#111111]">
+                  <h4 className="font-headline font-bold text-base text-[#111111]">
                     {item.author}
                   </h4>
-                  <p className="font-sans text-xs text-[#6B6B6B] mt-0.5">
-                    {item.company} · {item.role}
+                  <p className="font-mono text-xs text-[#FF4D1C] font-semibold mt-0.5">
+                    {item.company}
+                  </p>
+                  <p className="font-sans text-xs text-[#707175] mt-0.5">
+                    {item.role}
                   </p>
                 </div>
               </Card>
