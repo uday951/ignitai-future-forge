@@ -9,6 +9,8 @@ import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import ServicesPage from "./pages/ServicesPage";
+import WebDevelopmentPage from "./pages/WebDevelopmentPage";
+import DigitalMarketingPage from "./pages/DigitalMarketingPage";
 import AboutPage from "./pages/AboutPage";
 import AboutIgnivance from "./pages/AboutIgnivance";
 import Team from "./pages/Team";
@@ -37,6 +39,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/capabilities" element={<ServicesPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/web-development" element={<WebDevelopmentPage />} />
+            <Route path="/services/digital-marketing-growth" element={<DigitalMarketingPage />} />
             <Route path="/work" element={<WorkPage />} />
             <Route path="/clients" element={<WorkPage />} />
             <Route path="/about" element={<AboutPage />} />
