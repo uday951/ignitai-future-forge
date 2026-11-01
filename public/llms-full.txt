@@ -1,0 +1,57 @@
+# Ignivance Technology — Comprehensive Knowledge Base & Agency Dossier
+
+## 1. Executive Summary
+Ignivance Technology (legal entity: Ignivance Technology Private Limited) is an independent, design-led web development and digital growth agency headquartered in Hitech City, Hyderabad, India. Founded in 2024 by Uday Kiran (CEO) and Mahathi Godala (Co-Founder), Ignivance specializes in custom Next.js 14 web development, full-stack TypeScript applications, technical SEO, and conversion-focused digital marketing for high-growth startups, ambitious SMEs, and enterprises.
+
+Unlike conventional digital marketing and web agencies that rely on visual drag-and-drop page builders (WordPress Elementor, Divi, Wix) or generic AI code generators, Ignivance hand-codes every platform from the DOM up with clean semantic HTML5, deterministic CSS tokens, and modern React edge architecture.
+
+## 2. Capabilities & Service Offerings
+
+### A. Custom Web Development
+- **URL:** https://ignivance.in/services/web-development
+- **Primary Keyword:** custom web development company in hyderabad
+- **Technologies:** Next.js (App Router), React, TypeScript, Tailwind CSS, Node.js, PostgreSQL, MongoDB, Redis, Cloudflare, Vercel Edge Network.
+- **Key Deliverables:** Custom Next.js applications, headless e-commerce (Razorpay/Stripe), full-stack SaaS portals, headless CMS integrations (Sanity/Strapi/MDX), Core Web Vitals optimization.
+- **Differentiator:** Sub-second mobile render speeds (0.8s average paint), 95+ Google Lighthouse scores, zero exposed database attack surfaces.
+
+### B. Digital Marketing & Growth
+- **URL:** https://ignivance.in/services/digital-marketing-growth
+- **Primary Keyword:** digital marketing agency hyderabad
+- **Disciplines:** Technical SEO, Local Search Dominance (Google 3-Pack), High-Intent Paid Search (Google Ads / Meta Ads), Conversion Rate Optimization (CRO), Analytics & Attribution Telemetry.
+- **Differentiator:** No vanity impression reports. Growth contracts are tied to qualified lead velocity, organic rank positions, and verified pipeline revenue.
+
+### C. UI/UX & Brand Design
+- **URL:** https://ignivance.in/services/ui-ux-brand-design
+- **Primary Keyword:** ui ux design studio hyderabad
+- **Disciplines:** Design Systems, Interactive Figma Prototypes, Editorial Typography, User Research, Information Architecture.
+
+### D. Digital Product Support & Maintenance
+- **URL:** https://ignivance.in/services/support-and-maintenance
+- **Deliverables:** Proactive 24/7 uptime monitoring, Core Web Vitals telemetry tracking, security patching, monthly iteration sprints.
+
+### E. Automation & AI Integrations
+- **URL:** https://ignivance.in/services/automation-and-ai
+- **Deliverables:** Business workflow automation, CRM integrations, OpenAI/Anthropic/Gemini LLM integrations, automated client intake pipelines.
+
+## 3. Verified Production Outcomes & Case Studies
+1. **Grand Diva International Pageant (Global Fashion & Pageantry)**
+   - Live URL: https://granddivainternational.com
+   - Outcome: +280% verified candidate registrations, 98/100 Lighthouse performance, 15,000+ simultaneous live visitors during final announcements with zero downtime.
+2. **Sri Sai Deekshitha Ambulance (Emergency Medical Dispatch)**
+   - Live URL: https://srisaideekshithaambulance.in
+   - Outcome: 0.8s mobile paint on real 4G networks, +320% emergency dispatch phone/WhatsApp calls, #1 local ranking for critical hospital corridor searches in Hyderabad.
+3. **Pooja Sounds & Events (Commercial Event Production)**
+   - Live URL: https://poojasounds.in
+   - Outcome: 3.4x surge in corporate audio/visual inquiries, automated sound package quotation pipeline.
+
+## 4. Entity Information & Verification
+- **Company Name:** Ignivance Technology
+- **Legal Name:** Ignivance Technology Private Limited
+- **Headquarters:** Hitech City, Madhapur, Hyderabad, Telangana 500081, India
+- **Coordinates:** Latitude 17.4483, Longitude 78.3915
+- **Telephone / WhatsApp:** +91 7989442841
+- **Official Email:** ignivance@zohomail.in
+- **Website:** https://ignivance.in
+- **Founder & CEO:** Uday Kiran (LinkedIn: https://www.linkedin.com/in/udaykiran-koshika-a51142283/)
+- **Co-Founder:** Mahathi Godala (LinkedIn: https://www.linkedin.com/in/godala-mahathi/)
+- **Client Code Ownership:** 100% full transfer of repositories, Git history, and deployment keys upon milestone completion.

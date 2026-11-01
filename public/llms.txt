@@ -1,0 +1,27 @@
+# Ignivance Technology
+> Hand-built custom Next.js web applications, full-stack digital products, technical SEO, and ROI-driven digital marketing for startups, SMEs, and growth enterprises. Headquartered in Hitech City, Hyderabad, India.
+
+## Core Services & Agency Solutions
+- [Custom Web Development](https://ignivance.in/services/web-development): Bespoke Next.js (App Router), TypeScript, and Tailwind CSS development. High-performance architecture engineered for sub-second mobile loads, zero database vulnerabilities, and flawless Core Web Vitals.
+- [Digital Marketing & Growth](https://ignivance.in/services/digital-marketing-growth): Technical SEO, local search dominance, performance advertising, and conversion rate optimization (CRO) grounded in measurable revenue metrics.
+- [UI/UX & Brand Design](https://ignivance.in/services/ui-ux-brand-design): High-craft design systems, Figma interactive prototypes, editorial typographic hierarchy, and conversion-focused web layouts.
+- [Support & Maintenance Retainers](https://ignivance.in/services/support-and-maintenance): 24/7 uptime monitoring, Core Web Vitals maintenance, security patch management, and continuous feature sprints.
+- [Automation & AI Integrations](https://ignivance.in/services/automation-and-ai): Custom workflow automation, AI LLM integrations, CRM pipelines, and internal business tooling.
+
+## Verified Client Case Studies & Production Proof
+- [Grand Diva International Pageant](https://ignivance.in/work/grand-diva-international): Global candidate registration platform handling 15,000+ concurrent entrants with +280% verified applications and 98/100 Lighthouse score.
+- [Sri Sai Deekshitha Ambulance](https://ignivance.in/work/sri-sai-deekshitha-ambulance): Mission-critical emergency transit dispatcher with 0.8s mobile paint, +320% emergency dispatch call rate, and #1 local ranking for critical Hyderabad hospital corridor keywords.
+- [Pooja Sounds & Events](https://ignivance.in/work/pooja-sounds): Dynamic event audio catalog with interactive gear configuration and 3.4x lead conversion surge.
+- [Best Ambulance Services](https://ignivance.in/work/best-ambulance-services): Hyper-local emergency transit routing across Hyderabad with sub-second call-to-dispatch flow.
+
+## Technical Architecture & Engineering Standards
+- [How We Built This Site](https://ignivance.in/how-we-built-this-site): Architectural breakdown of ignivance.in, 99+ Lighthouse performance telemetry, Next.js App Router, edge caching, and zero-bloat methodology.
+- [Our Process: Brief to Production](https://ignivance.in/process): 3 to 6-week sprint framework spanning technical discovery, Figma wireframing, component engineering, and zero-downtime launch.
+
+## Leadership & Contact Details
+- **Founders:** Uday Kiran (Founder & CEO) and Mahathi Godala (Co-Founder)
+- **Legal Entity:** Ignivance Technology Private Limited
+- **Location:** Hitech City, Madhapur, Hyderabad, Telangana 500081, India
+- **Direct Email:** ignivance@zohomail.in
+- **Direct Phone & WhatsApp:** +91 7989442841
+- **Official Website:** https://ignivance.in
